@@ -1,0 +1,9 @@
+<f:render partial="Content/Before" arguments="{_all}" />
+
+<f:if condition="{buttonFlexFormData.text} && {buttonFlexFormData.link}">
+    <p class="{buttonFlexFormData.alignment}">
+        <f:link.typolink parameter="{buttonFlexFormData.link}" class="{buttonFlexFormData.layout} {buttonFlexFormData.size}{f:if(condition: '{buttonFlexFormData.fullwidth}', then: ' w-100')}">{buttonFlexFormData.text}</f:link.typolink>
+    </p>
+</f:if>
+
+<f:render partial="Content/After" arguments="{_all}" />

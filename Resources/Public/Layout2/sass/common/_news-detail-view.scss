@@ -1,0 +1,79 @@
+.news-detail-view {
+  .header {
+    h1 {
+      font-size: 2.625rem;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+  .date {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .image-wrapper {
+    margin-bottom: 40px;
+  }
+
+  .content {
+    margin-bottom: 40px;
+  }
+}
+
+.events-detail-view {
+  .events-detail-info {
+    margin: 0 0 55px 0;
+    background: #f2f2f2;
+  }
+
+  .events-detail-view-date,
+  .events-detail-view-location {
+    position: relative;
+    min-height: 100px;
+    margin: 30px;
+    padding: 15px 0 0 100px;
+  }
+
+  .events-detail-view-date::before,
+  .events-detail-view-location::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100px;
+    content: " ";
+  }
+
+  .events-detail-view-date::before {
+    background: url(../Images/clock.svg) left top no-repeat;
+    background-size: 80px;
+
+    .blue-style-template & {
+      background: url(../Images/clock-blue.svg) left top no-repeat;
+      background-size: 80px;
+    }
+
+    .green-style-template & {
+      background: url(../Images/clock-green.svg) left top no-repeat;
+      background-size: 80px;
+    }
+  }
+
+  .events-detail-view-location::before {
+    background: url(../Images/pin.svg) left top no-repeat;
+    background-size: 80px;
+
+    .blue-style-template & {
+      background: url(../Images/pin-blue.svg) left top no-repeat;
+      background-size: 80px;
+    }
+
+    .green-style-template & {
+      background: url(../Images/pin-green.svg) left top no-repeat;
+      background-size: 80px;
+    }
+  }
+}

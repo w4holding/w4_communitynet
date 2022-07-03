@@ -1,0 +1,148 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{gallery.rows}">    
+    <f:if condition="{data.imageorient} == 100 || {data.imageorient} == 101">
+        <f:then>
+            <div id="ce-gallery-slider-{data.uid}" class="carousel slide" data-bs-ride="carousel">              
+                <f:if condition="{data.imageorient} == 101">
+                    <div class="carousel-indicators">
+                        <f:for each="{files}" as="file" iteration="iterator">
+                            <button type="button" data-bs-target="#ce-gallery-slider-{data.uid}" data-bs-slide-to="{iterator.index}" aria-label="{iterator.cycle}" {f:if(condition: '{iterator.isFirst}', then: 'class="active" aria-current="true"')}></button>
+                        </f:for>
+                    </div>
+                </f:if>
+                <div class="carousel-inner">
+                    <f:switch expression="{data.tx_w4communitynet_sliderheight}">
+                        <f:case value="1">
+                            <f:variable name="height" value="700" />
+                        </f:case>
+                        <f:case value="2">
+                            <f:variable name="height" value="1050" />
+                        </f:case>
+                        <f:defaultCase>
+                            <f:variable name="height" value="500" />
+                        </f:defaultCase>
+                    </f:switch>
+                    <f:for each="{files}" as="file" iteration="iterator">
+                        <div class="carousel-item carousel-item-{height} {f:if(condition: '{iterator.isFirst}', then: 'active')}" style="background-image: url({f:uri.image( image: '{file}', treatIdAsReference: 1, maxWidth: '1280', maxHeight: '{height}')});">
+                            <f:if condition="{file.title} || {file.description}">
+                                <div class="container carousel-header">
+                                    <f:if condition="file.title}">
+                                        <p class="title h1 underline-header">{file.title}</p>
+                                    </f:if>
+                                    <f:if condition="{file.description}">
+                                        <p class="text">{file.description}</p>
+                                    </f:if>
+                                </div>
+                            </f:if>
+                        </div>
+                    </f:for>
+                    <f:if condition="{data.tx_w4communitynet_slidermask}">
+                        <div class="carousel-mask"></div>
+                    </f:if>
+                </div>                
+                <f:if condition="{data.imageorient} == 100">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#ce-gallery-slider-{data.uid}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#ce-gallery-slider-{data.uid}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </f:if>
+            </div>
+        </f:then>
+        <f:else>   
+            <f:if condition="{data.imageorient} == 25 || {data.imageorient} == 26">
+                <f:then>                    
+                    <f:variable name="image" value="{f:uri.image(src:'{files.0.uid}', width: 767, treatIdAsReference: 1)}" />
+                    <f:variable name="imageheightfullwidth" value="" />
+                    <f:if condition="{data.frame_class}=='fullwidth' && {data.tx_w4communitynet_boxtextheight}">
+                        <f:variable name="imageheightfullwidth" value="imageheightfullwidth" />
+                    </f:if>                    
+                    <f:variable name="imageorient" value="{f:if(condition: '{data.imageorient}==25', then: 2, else: 1)}" />
+                    <div class="w4-box w4-box-imagepos-{imageorient} w4-box-imageheight-{data.tx_w4communitynet_boxtextheight} w4-box-imageheightfullwidth" id="w4-box-{data.uid}">
+                        <f:if condition="{imageheightfullwidth}">
+                            <f:then>
+                                <div class="container">
+                                    <f:if condition="{data.tx_w4communitynet_boxtextheight}">
+                                        <img src="{image}" alt="" width="767" class="w4-box-image" />
+                                    </f:if>
+                                    <div class="row">
+                                        <f:if condition="{data.tx_w4communitynet_boxtextheight}">
+                                            <div class="col-md-6 col-image-l text-center">
+                                                <img src="{image}" alt="" />
+                                            </div>
+                                        </f:if>
+                                        <div class="col-md-6 col-text">
+                                            <f:format.html>{data.bodytext}</f:format.html>
+                                        </div>
+                                        <f:if condition="{data.tx_w4communitynet_boxtextheight} && {imageorient}==2">
+                                            <div class="col-md-6 col-image-r text-center">
+                                                <img src="{image}" alt="" />
+                                            </div>
+                                        </f:if>
+                                    </div>
+                                </div>
+                                <f:if condition="{data.tx_w4communitynet_boxtextheight}">
+                                    <style>
+                                        #w4-box-{data.uid}::before <f:format.raw value="{" />
+                                            background: url("{image}") center center no-repeat;
+                                            background-size: cover;
+                                        }
+                                    </style>
+                                </f:if>
+                            </f:then>
+                            <f:else>
+                                <div class="container">
+                                    <img src="{image}" alt="" width="767" class="w4-box-image" />
+                                </div>
+                                <div class="row">
+                                    <f:if condition="{data.tx_w4communitynet_boxtextheight}">
+                                        <div class="col-md-6 col-image-l text-center">
+                                            <img src="{image}" alt="" />
+                                        </div>
+                                    </f:if>
+                                    <div class="col-md-6 col-text">
+                                        <div class="w4-box-text">
+                                            <f:format.html>{data.bodytext}</f:format.html>
+                                        </div>
+                                    </div>
+                                    <f:if condition="{data.tx_w4communitynet_boxtextheight} && {imageorient}==2">
+                                        <div class="col-md-6 col-image-r text-center">
+                                            <img src="{image}" alt="" />
+                                        </div>
+                                    </f:if>
+                                </div>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </f:then>
+                <f:else>
+                    <div class="ce-gallery" data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
+                        <f:if condition="{gallery.position.horizontal} == 'center'">
+                            <div class="ce-outer">
+                                <div class="ce-inner">
+                        </f:if>
+                        <f:for each="{gallery.rows}" as="row">
+                            <div class="ce-row">
+                                <f:for each="{row.columns}" as="column">
+                                    <f:if condition="{column.media}">
+                                        <div class="ce-column">
+                                            <f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+                                        </div>
+                                    </f:if>
+                                </f:for>
+                            </div>
+                        </f:for>
+                        <f:if condition="{gallery.position.horizontal} == 'center'">
+                                </div>
+                            </div>
+                        </f:if>
+                    </div>
+                </f:else>
+            </f:if>
+        </f:else>
+    </f:if>
+</f:if>
+</html>

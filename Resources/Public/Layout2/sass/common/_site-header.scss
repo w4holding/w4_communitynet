@@ -1,0 +1,257 @@
+.navbar {
+  flex-direction: column;
+  width: 100%;
+  background: $color-white;
+  margin: 0 auto;
+
+  @media #{$min-lg} {
+    max-width: 1224px;
+  }
+
+  #site-header-menu {
+    z-index: 999999;
+  }
+
+  &>.container-lg {
+    align-items: stretch;
+    position: relative;
+  }
+
+  & .container-lg {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &-top {
+    width: 100%;
+    background: $primary;
+    @include color(background);
+
+    &--items {
+      display: flex;
+      justify-content: flex-end;
+
+      a {
+        display: block;
+        margin: 0 10px;
+        padding: 2px 0 3px 0;
+        font-size: 1.3rem;
+
+        &,
+        &:hover {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: -15px;
+
+    @media #{$min-lg} {
+      max-width: 245px;
+    }
+  }
+
+  &-brand {
+    display: flex;
+    width: 205px;
+    height: 110px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.15rem;
+    background: $color-white1;
+
+    span {
+      color: $headers-color;
+      text-transform: uppercase;
+
+      b {
+        font-family: "Poppins";
+      }
+    }
+
+    img {
+      height: 100%;
+      margin-right: 1rem;
+    }
+  }
+
+  &-toggler {
+    position: relative;
+    height: 28px;
+    margin: 0 0 0 auto;
+    padding: 0;
+    border: none;
+    text-align: center;
+    background: transparent;
+    box-shadow: none !important;
+
+    .icon-bar {
+      display: block;
+      width: 28px;
+      height: 3px;
+      margin: 0 auto;
+      background: $headers-color;
+
+      &+.icon-bar {
+        margin-top: 5px;
+      }
+    }
+
+    &:not(.collapsed) {
+      width: 30px;
+      height: 30px;
+
+      .icon-bar {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        width: 28px;
+        height: 3px;
+        margin: -2px auto 0;
+
+        &:nth-of-type(1) {
+          transform: rotateZ(45deg);
+        }
+
+        &:nth-of-type(2) {
+          transform: rotateZ(-45deg);
+        }
+
+        &:nth-of-type(3) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-quicklinks {
+    width: 100%;
+    background: $color-gray3;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    line-height: 2.5rem;
+
+    &-left {
+      margin: 0 -15px;
+      text-align: center;
+      width: 205px;
+      background: $color-gray4;
+    }
+
+    &-right {
+      width: calc(100% - 205px);
+      text-align: left;
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 1rem;
+
+        li {
+          display: inline;
+          width: auto;
+          margin: 0;
+          padding: 0;
+
+          a {
+            padding: 0 12px;
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fixed-top {
+  @media #{$max-lg} {
+    position: relative;
+  }
+}
+
+.header {
+  .carousel-header {
+    max-width: 80%;
+    hyphens: auto;
+
+    @media #{$min-sm} {
+      hyphens: none;
+      max-width: calc(100% - 200px);
+    }
+
+    @media #{$min-lg} {
+      max-width: calc(100% - 400px);
+    }
+
+    @media #{$min-xxlx} {
+      max-width: 1254px;
+    }
+
+    @media #{$max-md} {
+      margin-top: 60px;
+    }
+
+    @media #{$max-smd} {
+      margin-top: 120px;
+
+      p.text {
+        display: none;
+      }
+    }
+
+    .h1,
+    h1 {
+      @media #{$max-lg} {
+        font-size: 2rem;
+      }
+
+      @media #{$max-sm} {
+        font-size: 1.5rem;
+
+      }
+    }
+
+    p.title,
+    p.text {
+      @media #{$max-lg} {
+        color: #fff;
+        width: 90%;
+      }
+    }
+  }
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px transparent solid;
+  opacity: 1;
+}
+
+.carousel-indicators {
+  .active {
+    outline: 3px solid #fff;
+
+  }
+}
+
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  @media #{$max-md} {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  @media #{$max-lg} {
+    width: 3rem;
+    height: 3rem;
+  }
+}

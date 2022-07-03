@@ -1,0 +1,76 @@
+// colors
+$color-white: #fff;
+$text-color: #454545;
+$headers-color: #454545;
+
+$red: #d91231;
+$blue: #1e55a5;
+$green: #245c28;
+$gray: #f5f5f5;
+$gray-dark: #e5e5e5;
+$red-active: #ae0e27;
+$blue-active: #0980b5;
+$green-active: #6aa30e;
+
+$primary: $red;
+$link-color: $primary;
+// typography
+$font-family-base: '"Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif';
+$font-size-base: 1rem;
+$line-height-base: 1.7;
+$h1-font-size: 3.375rem;
+$h2-font-size: 2.625rem;
+$h3-font-size: 2.125rem;
+$h4-font-size: 1.5rem;
+$h5-font-size: 1.25rem;
+$headings-line-height: 1.163;
+$headings-font-weight: 800;
+$headings-margin-bottom: 1.5rem;
+$headings-color: $headers-color;
+$link-decoration: none;
+
+$grid-gutter-width: 30px;
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px,
+        xxl: 1470px // 1400 + 30,,
+);
+
+// buttons
+
+//$btn-padding-y: 18px;
+//$btn-padding-x: 40px;
+$btn-font-size: 1rem;
+$btn-line-height: calc(34 / 24);
+$btn-font-weight: 400;
+$btn-border-radius: 12px;
+
+// table
+$table-th-font-weight: 700;
+$table-border-width: 0;
+
+// navbar
+$navbar-padding-y: 0;
+$nav-link-color: #687074;
+
+$color-red1 : #ba0f2a;
+$color-blue1 : #24325c;
+$color-green1 : #287a2f;
+$color-yellow1 : #f6eb61;
+$color-gray6 : #d6d6d6;
+$color-white1 : #fafafa;
+$color-white2 : #f4f4f4;
+$color-black1 : #232323;
+$color-blue1 : #2da5da;
+$color-gray9 : #404040;
+$color-gray10 : #5f5f5f;
+$color-gray1 : #777;
+$color-gray2 : #ccc;
+$color-black1 : #000;
+$color-gray4 : #eee;
+$color-gray5 : #555;
+$color-gray7 : #666;
+$color-gray8 : #999;

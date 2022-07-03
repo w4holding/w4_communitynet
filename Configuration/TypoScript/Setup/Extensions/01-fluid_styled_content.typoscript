@@ -1,0 +1,57 @@
+lib.contentElement {
+    templateRootPaths.200 = EXT:w4_communitynet/Resources/Private/Templates/Content
+    partialRootPaths.10   = EXT:w4_communitynet/Resources/Private/Extensions/fluid_styled_content/Partials/
+    settings {
+        defaultSpaceAfter = {$styles.content.defaultSpaceAfter}
+        colClasses {
+            16 = {$communitynet.colClasses.16}
+            8  = {$communitynet.colClasses.8}
+            24 = {$communitynet.colClasses.24}
+            4  = {$communitynet.colClasses.4}
+            20 = {$communitynet.colClasses.20}
+            12 = {$communitynet.colClasses.12}
+            28 = {$communitynet.colClasses.28}
+            2  = {$communitynet.colClasses.2}
+            18 = {$communitynet.colClasses.18}
+            10 = {$communitynet.colClasses.10}
+            26 = {$communitynet.colClasses.26}
+            6  = {$communitynet.colClasses.6}
+            22 = {$communitynet.colClasses.22}
+            14 = {$communitynet.colClasses.14}
+            30 = {$communitynet.colClasses.30}
+            1  = {$communitynet.colClasses.1}
+            17 = {$communitynet.colClasses.17}
+            9  = {$communitynet.colClasses.9}
+            25 = {$communitynet.colClasses.25}
+            5  = {$communitynet.colClasses.5}
+            21 = {$communitynet.colClasses.21}
+            13 = {$communitynet.colClasses.13}
+            29 = {$communitynet.colClasses.29}
+            3  = {$communitynet.colClasses.3}
+            19 = {$communitynet.colClasses.19}
+            11 = {$communitynet.colClasses.11}
+            27 = {$communitynet.colClasses.27}
+            7  = {$communitynet.colClasses.7}
+            23 = {$communitynet.colClasses.23}
+            15 = {$communitynet.colClasses.15}
+            31 = {$communitynet.colClasses.31}
+        }
+    }
+    dataProcessing {
+        50 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
+        50 {
+            fieldName = tx_w4communitynet_button
+            as = buttonFlexFormData
+        }
+        60 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
+        60 {
+            fieldName = tx_w4communitynet_iframe
+            as = iframeFlexFormData
+        }
+        70 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
+        70 {
+            fieldName = tx_w4communitynet_counters
+            as = countersFlexFormData
+        }
+    }
+}

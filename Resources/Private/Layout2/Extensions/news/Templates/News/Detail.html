@@ -1,0 +1,200 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      xmlns:rx="http://typo3.org/ns/Reelworx/RxShariff/ViewHelper"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Detail"/>
+
+<f:section name="content">    
+    <f:if condition="{newsItem}">
+        <f:then>
+            <f:alias map="{mediaElement: newsItem.falmedia.0}">
+                <f:if condition="{mediaElement}">
+                    <f:then>
+<style>
+    .header-bg <f:format.raw value="{" />
+        background-image: url({f:uri.image(image: '{mediaElement}', treatIdAsReference: 1, width: '576c', height: '450c', absolute: 1)});
+    }
+    @media screen and (min-width: 576px) <f:format.raw value="{" />
+        .header-bg <f:format.raw value="{" />
+            background-image: url({f:uri.image(image: '{mediaElement}', treatIdAsReference: 1, width: '768c', height: '450c', absolute: 1)});
+        }
+    }
+    @media screen and (min-width: 768px) <f:format.raw value="{" />
+        .header-bg <f:format.raw value="{" />
+            background-image: url({f:uri.image(image: '{mediaElement}', treatIdAsReference: 1, width: '992c', height: '450c', absolute: 1)});
+        }
+    }
+    @media screen and (min-width: 992px) <f:format.raw value="{" />
+        .header-bg <f:format.raw value="{" />
+            background-image: url({f:uri.image(image: '{mediaElement}', treatIdAsReference: 1, width: '1200c', height: '450c', absolute: 1)});
+        }
+    }
+    @media screen and (min-width: 1200px) <f:format.raw value="{" />
+        .header-bg <f:format.raw value="{" />
+            background-image: url({f:uri.image(image: '{mediaElement}', treatIdAsReference: 1, height: '450c', absolute: 1)});
+        }
+    }
+</style>
+                        <f:variable name="thumbImage" value="{f:uri.image(image: '{newsItem.falmedia.0}', width: '915c', height:'585c', absolute: 1 )}" />                     
+                    </f:then>
+                    <f:else>
+                        <f:variable name="thumbImage" value="{f:uri.image(src: 'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png', absolute: 1 )}" />
+                    </f:else>
+                </f:if>
+            </f:alias>
+            <f:if condition="{settings.templateLayout}==3">
+                <f:then>
+                    <schema:type.event
+                        name="{newsItem.title}"
+                        image="{thumbImage}"
+                        url="{newsurl}" >                    
+                        <f:if condition="{newsItem.datetime}" >
+                            <schema:property -as="startDate" value="{newsItem.datetime -> f:format.date(format: 'c')}"/>
+                            <f:if condition="{newsItem.eventEnd}" >
+                                <schema:property -as="endDate" value="{newsItem.eventEnd -> f:format.date(format: 'c')}"/>
+                            </f:if>
+                        </f:if>
+                        <f:if condition="{newsItem.organizerSimple}" >
+                            <schema:type.organization
+                            -as="organizer"
+                                name="{newsItem.organizerSimple}" 
+                            />
+                        </f:if>       
+                        <f:if condition="{newsItem.locationSimple}" >
+                            <schema:type.place
+                            -as="location"
+                                name="{newsItem.locationSimple}" 
+                            />
+                            
+                        </f:if>    
+                        <f:if condition="{newsItem.teaser}" >
+                            <schema:property -as="description" value="{newsItem.teaser}"/>
+                        </f:if>                    
+                    </schema:type.event>
+                    <div class="events-detail-view">
+                        <div class="row events-detail-info">
+                            <div class="col-md-4">
+                                <p class="events-detail-view-date">
+                                    <i><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.eventDate" />:</i><br />
+                                    <strong><f:format.date format="n M">{newsItem.datetime}</f:format.date></strong><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.at" /><strong>&nbsp;<f:format.date format="H:i">{newsItem.datetime}</f:format.date><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.time" /></strong>
+                                    <f:if condition="{newsItem.eventEnd}"><br />
+                                        <strong><f:format.date format="n M">{newsItem.eventEnd}</f:format.date></strong><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.at" /><strong>&nbsp;<f:format.date format="H:i">{newsItem.eventEnd}</f:format.date> <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.time" /></strong>
+                                    </f:if>
+                                </p>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="events-detail-view-location">
+                                    <i><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.ort" />:</i><br />
+                                    <f:if condition="{newsItem.locationSimple}"><strong>{newsItem.locationSimple}</strong></f:if>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="image-wrapper">
+                                    <f:alias map="{mediaElement: newsItem.falmedia.0}">
+                                        <f:if condition="{mediaElement}">
+                                            <f:then>
+                                                <f:media
+                                                    file="{mediaElement}"
+                                                    width="510"
+                                                    alt="{mediaElement.originalResource.alternative}"
+                                                    title="{mediaElement.originalResource.title}"
+                                                    loading="lazy"
+                                                    additionalAttributes="{srcset: '{f:uri.image(image: mediaElement, width: 510)} 768w'}"
+                                                />
+                                            </f:then>
+                                            <f:else>
+                                                <img src="/web/typo3conf/ext/w4_communitynet/Resources/Public/Images/thumb-default.png"/>
+                                            </f:else>
+                                        </f:if>
+                                    </f:alias>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="content" itemprop="articleBody">
+                                    <f:format.html>{newsItem.bodytext}</f:format.html>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center mt-5">
+                            <div class="btn-u return">
+                                <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.return" />
+                            </div>
+                        </div>
+                    </div>
+                </f:then>
+                <f:else>
+                    <n:format.nothing>
+                        <n:excludeDisplayedNews newsItem="{newsItem}"/>
+                        <f:if condition="{settings.detail.showMetaTags}">
+                            <f:render partial="Detail/Opengraph" arguments="{newsItem: newsItem, settings:settings}"/>
+                        </f:if>
+                        <f:if condition="{newsItem.alternativeTitle}">
+                            <f:then>
+                                <n:titleTag>
+                                    <f:format.htmlentitiesDecode>{newsItem.alternativeTitle}</f:format.htmlentitiesDecode>
+                                </n:titleTag>
+                            </f:then>
+                            <f:else>
+                                <n:titleTag>
+                                    <f:format.htmlentitiesDecode>{newsItem.title}</f:format.htmlentitiesDecode>
+                                </n:titleTag>
+                            </f:else>
+                        </f:if>
+                    </n:format.nothing>
+                    <f:if condition="{settings.detail.showPrevNext}">
+                        <n:simplePrevNext pidList="{newsItem.pid}" news="{newsItem}" as="paginated"
+                                          sortField="datetime">
+                            <f:if condition="{paginated}">
+                                <ul class="pager">
+                                    <f:if condition="{paginated.prev}">
+                                        <li class="previous">
+                                            <n:link newsItem="{paginated.prev}" settings="{settings}">
+                                                <span aria-hidden="true">&larr; </span>{paginated.prev.title}
+                                            </n:link>
+                                        </li>
+                                    </f:if>
+                                    <f:if condition="{paginated.next}">
+                                        <li class="next">
+                                            <n:link newsItem="{paginated.next}" settings="{settings}" class="next">
+                                                {paginated.next.title} <span aria-hidden="true"> &rarr;</span>
+                                            </n:link>
+                                        </li>
+                                    </f:if>
+                                </ul>
+                            </f:if>
+                        </n:simplePrevNext>
+                    </f:if>                    
+                    <div class="news-detail-view">
+                        <schema:type.article
+                            -as="mainEntity"
+                            -id="{n:link(newsItem: '{newsItem}', settings: '{settings}', uriOnly: '1', configuration: '{forceAbsoluteUrl: 1}')}"
+                            headline="{newsItem.title}"
+                            image="{thumbImage}"
+                            datePublished="{newsItem.datetime -> f:format.date(format: 'Y-m-d')}" >
+                            <f:if condition="{newsItem.authorEmail} || {newsItem.author}" >
+                                <schema:type.person
+                                -as="author"
+                                -id="{newsItem.authorEmail}"
+                                name="{newsItem.author}" />
+                            </f:if>                           
+                        </schema:type.article>
+                        <div class="date">
+                            <f:format.date format="d.m.Y">{newsItem.datetime}</f:format.date>
+                        </div>
+                        <div class="content" itemprop="articleBody">
+                            <f:format.html>{newsItem.bodytext}</f:format.html>
+                        </div>
+                        <div class="center">
+                            <div class="btn-u return"> <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.BackToOverview" /> </div>
+                        </div>
+                    </div>
+                </f:else>
+            </f:if>
+        </f:then>
+    </f:if>
+</f:section>
+
+</html>

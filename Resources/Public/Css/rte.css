@@ -1,0 +1,40 @@
+body {
+    font-family: "Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+a {
+    color: #d91231;
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: transparent;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    padding-left: 100px;
+}
+
+.btn-u {
+    padding: 12px 32px;
+    font-size: 16px;
+    background-color: #d91231;
+    border-radius: 12px;
+    transition: all .2s;
+    text-align: center;
+    border: 0;
+    color: #fff !important;
+    cursor: pointer;
+    font-weight: 400;
+    position: relative;
+    white-space: nowrap;
+    display: inline-block;
+    text-decoration: none
+}
+
+.btn-u-small {
+    padding: 6px 24px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}

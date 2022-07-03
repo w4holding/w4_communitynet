@@ -1,0 +1,19 @@
+<f:for each="{menu}" as="menuPage">
+    <f:if condition="{menuPage.tx_w4communitynet_menucolumns} > 1">
+        <f:then>
+            <li class="menu-full-width menu-columns-{menuPage.tx_w4communitynet_menucolumns} {MenuPage.class}">
+        </f:then>
+        <f:else>
+            <li class="{menuPage.class}" >
+        </f:else>
+    </f:if>
+    <f:link.page pageUid="{menuPage.uid}" >{menuPage.title}</f:link.page>
+    <f:if condition="{menuPage.hasSubPages}">
+        <v:page.menu as="submenu" pageUid="{menuPage.uid}">  
+        <ul>
+            <f:render partial="Menu" arguments="{menu:submenu}"/>
+        </ul>
+        </v:page.menu>
+    </f:if>
+</li>
+</f:for>

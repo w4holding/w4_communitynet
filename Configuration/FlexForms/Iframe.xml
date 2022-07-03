@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <meta type="array">
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <el>
+                    <url>
+                        <TCEforms>
+                            <label>LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_iframe.url</label>
+                            <config>
+                                <type>input</type>
+                                <eval>required,trim</eval>
+                            </config>
+                        </TCEforms>
+                    </url>
+                    <ratio>
+                        <TCEforms>
+                            <label>LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_iframe.ratio</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <default>16x9</default>
+                                <eval>required</eval>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">21:9</numIndex>
+                                        <numIndex index="1">21x9</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">16:9</numIndex>
+                                        <numIndex index="1">16x9</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">4:3</numIndex>
+                                        <numIndex index="1">4x3</numIndex>
+                                    </numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">1:1</numIndex>
+                                        <numIndex index="1">1x1</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </ratio>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

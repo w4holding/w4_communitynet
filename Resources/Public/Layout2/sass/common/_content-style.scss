@@ -1,0 +1,179 @@
+.ce-headline-center {
+  text-align: center;
+}
+
+.ce-headline-right {
+  text-align: right;
+}
+
+.color-header {
+  color: $red;
+
+  .green-style-template & {
+    color: $green;
+  }
+
+  .blue-style-template & {
+    color: $blue;
+  }
+}
+
+.underline-header {
+  position: relative;
+
+  &:before {
+    left: 0;
+    width: 410px;
+    max-width: 100%;
+    height: 2px;
+    content: " ";
+    bottom: -10px;
+    background: $color-gray3;
+    position: absolute;
+  }
+
+  &:after {
+    left: 0;
+    width: 47px;
+    height: 2px;
+    content: " ";
+    bottom: -10px;
+    background: $red;
+    position: absolute;
+  }
+
+  &.ce-headline-center {
+
+    &:before,
+    &:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.ce-headline-right {
+
+    &:before,
+    &:after {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  .blue-style-template & {
+    &:after {
+      background-color: $blue;
+    }
+  }
+
+  .green-style-template & {
+    &:after {
+      background-color: $green;
+    }
+  }
+}
+
+h1.underline-header,
+.h1.underline-header {
+  padding-bottom: 2.5rem;
+  margin-bottom: 3.75rem;
+}
+
+h2.underline-header,
+.h2.underline-header {
+  padding-bottom: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.content {
+  .citation {
+    min-height: 300px;
+  }
+
+  .contentbox {
+    margin-top: 20px;
+  }
+
+  .bg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    p {
+      color: $color-white;
+      top: 0px;
+      position: absolute;
+      width: 40%;
+      margin: 2em;
+      padding: 1em;
+      border: solid 1px $color-white;
+    }
+  }
+
+}
+
+.blackbg {
+  background-color: $text-color;
+  color: $color-white;
+}
+
+.content.order-1 {
+  background-position: left top;
+  background-size: 44% 100%;
+  background-repeat: no-repeat;
+
+  .citation {
+    order: 1;
+  }
+
+  .contentbox {
+    order: 2;
+  }
+
+  .bg {
+    p {
+      right: 0px;
+    }
+  }
+}
+
+.content.order-2 {
+  background-position: right top;
+  background-size: 44% 100%;
+  background-repeat: no-repeat;
+
+  .citation {
+    order: 2;
+  }
+
+  .contentbox {
+    order: 1;
+  }
+
+  .bg {
+    p {
+      left: 0px;
+    }
+  }
+}
+
+.content.fullbg {
+  background-position: left top;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.ce-type-2colsSidecol-container {
+  .right-sidecol-wrapper {
+    background: $color-gray12;
+    padding: 1.56rem 2.18rem;
+    margin-bottom: 1.68rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

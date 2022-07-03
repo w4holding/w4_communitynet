@@ -1,0 +1,114 @@
+.w4-counters {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .w4-counters-counter {
+    flex-basis: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    background-color: $red;
+
+    .blue-style-template & {
+      background: $blue;
+    }
+
+    .green-style-template & {
+      background: $green;
+    }
+
+    color: white;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    padding: 40px 45px;
+
+    &:nth-child(4n-2) {
+      background: $color-red2;
+
+      .blue-style-template & {
+        background: $color-blue2;
+      }
+
+      .green-style-template & {
+        background: $color-green1;
+      }
+    }
+
+    &:nth-child(4n-1) {
+      background: $red-active;
+
+      .blue-style-template & {
+        background: $color-blue3;
+      }
+
+      .green-style-template & {
+        background: $color-green2;
+      }
+    }
+
+    &:nth-child(4n-0) {
+      background: $color-red3;
+
+      .blue-style-template & {
+        background: $color-blue4;
+      }
+
+      .green-style-template & {
+        background: $color-green3;
+      }
+    }
+
+    @media #{$min-sm} {
+      flex-basis: 50%;
+      max-width: 50%;
+      min-width: 50%;
+    }
+
+    @media #{$min-lg} {
+      flex-basis: 25%;
+      max-width: 25%;
+      min-width: 25%;
+    }
+
+    .icons {
+      margin-bottom: 20px;
+
+      img {
+        width: auto;
+        height: 95px;
+      }
+
+      @media #{$max-sm} {
+        width: 50%;
+        float: left;
+        height: 100%;
+        text-align: center;
+      }
+    }
+
+    .w4-counters-counter-counter {
+      font-size: 33px;
+      line-height: 40px;
+      font-family: "Poppins SemiBold";
+      margin-bottom: 10px;
+
+      @media #{$max-sm} {
+        width: 50%;
+        float: left;
+        font-size: 20px;
+      }
+
+    }
+
+    .text {
+      font-size: 14px;
+      line-height: 18px;
+
+      @media #{$max-sm} {
+        width: 50%;
+        float: left;
+      }
+    }
+  }
+}

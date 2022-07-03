@@ -1,0 +1,119 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Header">
+    <f:if condition="{gallery.position.noWrap} != 1">
+        <f:render partial="Header/All" arguments="{_all}" />
+    </f:if>
+</f:section>
+
+<f:section name="Main">
+    <f:if condition="{data.imageorient} == 25 || {data.imageorient} == 26">
+        <f:then>
+            <f:variable name="image" value="" />
+            <f:if condition="{files}">
+                <f:variable name="image" value="{f:uri.image(src:'{files.0.uid}', width: 767, treatIdAsReference: 1)}" />
+            </f:if>
+            <f:variable name="imageheightfullwidth" value="" />
+            <f:if condition="{data.frame_class}=='fullwidth' && {data.tx_w4communitynet_boxtextheight}">
+                <f:variable name="imageheightfullwidth" value="imageheightfullwidth" />
+            </f:if>
+            <f:variable name="imageorient" value="{f:if(condition: '{data.imageorient}==25', then: 2, else: 1)}" />
+            <div class="w4-box w4-box-imagepos-{imageorient} w4-box-imageheight-{data.tx_w4communitynet_boxtextheight} w4-box-{imageheightfullwidth}" id="w4-box-{data.uid}">
+                <f:if condition="{imageheightfullwidth}">
+                    <f:then>
+                        <div class="container">
+                            <f:if condition="{data.tx_w4communitynet_boxtextheight} && {image}">
+                                <img src="{image}" alt="{data.header}" width="767" class="d-lg-none" />
+                            </f:if>
+                            <div class="row">
+                                <f:if condition="{imageorient}==1">
+                                    <div class="d-none d-lg-block col-lg-6 text-center">
+                                        <f:if condition="!{data.tx_w4communitynet_boxtextheight} && {image}">
+                                            <img src="{image}" alt="{data.header}" width="767" />
+                                        </f:if>
+                                    </div>
+                                </f:if>
+                                <div class="col-lg-6 col-text">
+                                    <f:format.html>{data.bodytext}</f:format.html>
+                                </div>
+                                <f:if condition="{imageorient}==2">
+                                    <div class="d-none d-lg-block col-lg-6 text-center">
+                                        <f:if condition="!{data.tx_w4communitynet_boxtextheight} && {image}">
+                                            <img src="{image}" alt="{data.header}" width="767" />
+                                        </f:if>
+                                    </div>
+                                </f:if>
+                            </div>
+                        </div>
+                        <f:if condition="{data.tx_w4communitynet_boxtextheight} && {image}">
+                            <style>
+                                #w4-box-{data.uid}::before <f:format.raw value="{" />
+                                    background: url("{image}") center center no-repeat;
+                                    background-size: cover;
+                                }
+                            </style>
+                        </f:if>
+                    </f:then>
+                    <f:else>
+                        <div class="container">
+                            <f:if condition="{image}">
+                                <img src="{image}" alt="{data.header}" width="767" class="d-lg-none" />
+                            </f:if>
+                            <div class="row">
+                                <f:if condition="{imageorient}==1">
+                                    <div class="d-none d-lg-block col-lg-6 text-center">
+                                        <img src="{image}" alt="{data.header}" width="767" />
+                                    </div>
+                                </f:if>
+                                <div class="col-lg-6 box-text">
+                                    <f:format.html>{data.bodytext}</f:format.html>
+                                </div>
+                                <f:if condition="{imageorient}==2">
+                                    <div class="d-none d-lg-block col-lg-6 text-center">
+                                        <f:if condition="{image}">
+                                            <img src="{image}" alt="{data.header}" width="767" />
+                                        </f:if>
+                                    </div>
+                                </f:if>
+                            </div>
+                        </div>
+                    </f:else>
+                </f:if>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+                <f:if condition="{gallery.position.vertical} != 'below'">
+                    <f:render partial="Media/Gallery" arguments="{_all}" />
+                </f:if>
+        
+                <f:if condition="{data.bodytext}">
+                    <f:then>
+                        <div class="ce-bodytext">
+                            <f:if condition="{gallery.position.noWrap}">
+                                <f:render partial="Header/All" arguments="{_all}" />
+                            </f:if>
+                            <f:format.html>{data.bodytext}</f:format.html>
+                        </div>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{gallery.position.noWrap}">
+                            <f:if condition="{data.header}">
+                                <div class="ce-bodytext">
+                                    <f:render partial="Header/All" arguments="{_all}" />
+                                </div>
+                            </f:if>
+                        </f:if>
+                    </f:else>
+                </f:if>
+        
+                <f:if condition="{gallery.position.vertical} == 'below'">
+                    <f:render partial="Media/Gallery" arguments="{_all}" />
+                </f:if>
+            </div>
+        </f:else>
+    </f:if>
+</f:section>
+
+</html>

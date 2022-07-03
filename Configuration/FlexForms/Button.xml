@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <meta type="array">
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <el>
+                    <layout>
+                        <TCEforms>
+                            <label>LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.layout</label>
+                            <onChange>reload</onChange>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <default>text-btn</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.layout.1</numIndex>
+                                        <numIndex index="1">text-btn</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.layout.2</numIndex>
+                                        <numIndex index="1">btn-u</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.layout.3</numIndex>
+                                        <numIndex index="1">btn-u btn-u-ghost</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </layout>
+                    <text>
+                        <TCEforms>
+                            <label>LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.text</label>
+                            <config>
+                                <type>input</type>
+                                <size>15</size>
+                                <eval>required,trim</eval>
+                            </config>
+                        </TCEforms>
+                    </text>
+                    <link>
+                        <TCEforms type="array">
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.link</label>
+                            <config>
+                                <type>input</type>
+                                <eval>required</eval>
+                                <renderType>inputLink</renderType>
+                            </config>
+                        </TCEforms>
+                    </link>
+                    <alignment>
+                        <TCEforms>
+                            <label>LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.alignment</label>
+                            <displayCond>FIELD:fullwidth:!=:1</displayCond>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <default>text-center</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.alignment.1</numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.alignment.2</numIndex>
+                                        <numIndex index="1">text-center</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.alignment.3</numIndex>
+                                        <numIndex index="1">text-end</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </alignment>
+                    <size>
+                        <TCEforms>
+                            <label>LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.size</label>
+                            <displayCond>FIELD:layout:!=:text-btn</displayCond>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <default></default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.size.normal</numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.size.small</numIndex>
+                                        <numIndex index="1">btn-u-small</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </size>
+                    <fullwidth>
+                        <TCEforms>
+                            <label>LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.fullwidth</label>
+                            <displayCond>FIELD:layout:!=:text-btn</displayCond>
+                            <onChange>reload</onChange>
+                            <config>
+                                <type>check</type>
+                                <renderType>checkboxToggle</renderType>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </fullwidth>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

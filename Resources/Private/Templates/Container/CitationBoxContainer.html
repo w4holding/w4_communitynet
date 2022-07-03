@@ -1,0 +1,66 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:render partial="Content/Before" arguments="{_all}" />
+<v:resource.record.fal table="tt_content" field="tx_w4communitynet_citationbg" uid="{data.uid}" as="resources">
+    <f:if condition="{resources.0.url}" >
+        <f:variable name="citationtbg" value="{resources.0.url}" />
+    </f:if>
+</v:resource.record.fal>
+<f:if condition="{citationtbg} && {children_201} != ''">
+<f:then>
+    <f:variable name="contentColumnClass" value="col-sm-7" />
+    <f:variable name="citationColumnClass" value="col-sm-5" />
+</f:then>
+<f:else>
+    <f:if condition="{citationtbg} && {children_201} == ''">
+        <f:variable name="contentColumnClass" value="col-sm-12" />
+        <f:variable name="citationColumnClass" value="" />
+        <f:variable name="fullbg" value="fullbg" />
+    </f:if>
+</f:else>
+</f:if>
+<f:if condition="{data.tx_w4communitynet_columnorder} ==1">
+    <f:then>
+        <f:variable name="citationOrder" value="1" />
+        <f:variable name="contentOrder" value="2" />
+    </f:then>
+    <f:else>
+        <f:variable name="citationOrder" value="2" />
+        <f:variable name="contentOrder" value="1" />
+    </f:else>
+</f:if> 
+ 
+<f:if condition="{citationtbg} && {data.tx_w4communitynet_citationtext}">
+    <f:then>
+    <div class="content order-{citationOrder} {data.tx_w4communitynet_citationcolor} {fullbg}" style="background-image: url('{citationtbg}');" >
+        <div class="container" >
+        <div class="row" >
+        <div class="col {citationColumnClass} citation" >
+            <div class="bg"  >
+                <div class="col-sm-3">
+                    <p>{data.tx_w4communitynet_citationtext}</p>
+                </div>
+            </div>   
+        </div>
+        <div class="col {contentColumnClass} contentbox" >
+            <f:for each="{children_201}" as="record">
+                <f:format.raw>
+                    {record.renderedContent}
+                </f:format.raw>
+            </f:for>                 
+        </div>
+        </div> 
+        </div>          
+    </div>
+    </f:then>
+    <f:else>
+    <div class="content">
+        <f:for each="{children_201}" as="record">
+            <f:format.raw>
+                {record.renderedContent}
+            </f:format.raw>
+        </f:for>
+    </div>
+    </f:else>
+</f:if>
+ 
+<f:render partial="Content/After" arguments="{_all}" />

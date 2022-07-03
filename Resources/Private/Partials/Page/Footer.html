@@ -1,0 +1,67 @@
+<footer id="footer">
+   <div class="container container-footer">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="row">
+               <div class="col-sm-6">
+                    <div class="container">
+                     <f:format.raw>{footer1}</f:format.raw>
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="container">
+                     <f:format.raw>{footer2}</f:format.raw>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="row">
+               <div class="col-sm-6">
+                  <div class="container">
+                    <div class="contentElement">
+                        <div class="headline">
+                           <div class="h2"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.followUs"/></div>
+                        </div>
+                     </div>
+                     <v:menu.list pages="{quicklinks}">
+                        <f:for each="{menu}" as="menuPage">
+                            <p><a href="{menuPage.link}">{menuPage.linktext}</a></p>
+                        </f:for>
+                     </v:menu.list>
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="container">
+                     <div class="contentElement">
+                        <div class="headline">
+                           <div class="h2"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.directLinks"/></div>
+                        </div>
+                     </div>
+                     <f:if condition="{facebook}">
+                        <a href="{facebook -> f:format.raw()}" target="_blank" title="Facebook"><i class="social-icon facebook"></i></a>
+                     </f:if>
+                     <f:if condition="{twitter}">
+                        <a href="{twitter -> f:format.raw()}" target="_blank" title="Twitter"><i class="social-icon twitter"></i></a>
+                     </f:if>
+                     <f:if condition="{instagram}">
+                        <a href="{instagram -> f:format.raw()}" target="_blank" title="Instagram"><i class="social-icon instagram"></i></a> 
+                     </f:if>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="subfooter">
+      <div class="container">
+         <ul class="nav navbar-nav" id="footer-nav">
+            <v:menu.list pages="{footerlinks}">
+               <f:for each="{menu}" as="menuPage">
+                   <li><a href="{menuPage.link}" title="{menuPage.linktext}" >{menuPage.linktext}</a></li>
+               </f:for>
+            </v:menu.list>
+         </ul>
+      </div>
+   </div>
+</footer>

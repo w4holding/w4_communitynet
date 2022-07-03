@@ -1,0 +1,10 @@
+tx_news.templateLayouts {
+    0 = --div--,LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:tx_news.templateLayouts.news
+    6 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:tx_news.templateLayouts.6
+    1 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:tx_news.templateLayouts.1
+    5 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:tx_news.templateLayouts.5
+    10 = --div--,LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:tx_news.templateLayouts.events
+    2 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:tx_news.templateLayouts.2
+    3 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:tx_news.templateLayouts.3
+    4 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:tx_news.templateLayouts.4
+}

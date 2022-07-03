@@ -1,0 +1,250 @@
+.navbar-nav {
+  font-size: 0.8rem;
+
+  @media #{$min-lg} {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media #{$max-lg} {
+    overflow: auto;
+  }
+
+  @at-root {
+    .navbar-collapse {
+      @media #{$max-lg} {
+        width: calc(100% + #{$grid-gutter-width});
+        margin: 0 calc(-#{$grid-gutter-width} / 2);
+      }
+    }
+  }
+
+  a {
+    @media #{$max-lg} {
+      border-bottom: 1px solid $color-gray5;
+    }
+  }
+
+  li {
+    position: relative;
+    background: $color-white;
+    cursor: pointer;
+
+    &:hover {
+      &>ul {
+        @media #{$min-lg} {
+          display: block !important;
+        }
+      }
+    }
+
+    &.menu-full-width {
+      &:hover {
+        &>ul {
+          @media #{$min-lg} {
+            display: grid !important;
+          }
+        }
+      }
+    }
+  }
+
+  .active {
+    &>a {
+      color: $color-gray6;
+      background: $color-gray5;
+    }
+  }
+
+  &>li {
+    position: relative;
+
+    @media #{$min-lg} {
+      display: flex;
+      align-items: center;
+    }
+
+    &.active {
+      &>a {
+        @include color(color);
+        background: $color-white;
+
+        @media #{$max-lg} {
+          color: $color-white  !important;
+          margin: -1px 0 0;
+          border: 0;
+          background: $primary;
+          @include color(background);
+
+          &,
+          &:hover {
+            color: $color-white;
+          }
+
+          &::after {
+            border-color: $color-white;
+          }
+        }
+      }
+    }
+
+    &>a {
+      display: block;
+      width: 100%;
+      padding: 0 40px 0 35px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      color: $headers-color;
+      font-family: "Poppins SemiBold";
+      text-transform: uppercase;
+      line-height: 2.5rem;
+      overflow: hidden;
+
+      @media #{$min-lg} {
+        padding: 0 15px;
+        border-right: 1px solid $text-color;
+        line-height: 1rem;
+      }
+
+      &:hover {
+        @media #{$min-lg} {
+          color: $primary;
+          @include color(color);
+        }
+      }
+    }
+
+    &.has-inner>a::after {
+      position: absolute;
+      content: "\2193";
+      height: 4px;
+      width: 4px;
+      top: -6px;
+      right: 5px;
+      font-size: 10px !important;
+    }
+
+    &>ul {
+      padding: 0;
+
+      @media #{$min-lg} {
+        top: 100%;
+        left: 0;
+      }
+
+      @media #{$max-lg} {
+        display: none;
+      }
+    }
+  }
+
+  ul {
+    min-width: 200px;
+    margin: 0 0 -1px;
+    padding: 0;
+    list-style: none;
+
+    @media #{$max-lg} {
+      padding-left: 15px;
+    }
+
+    @media #{$min-lg} {
+      display: none !important;
+      position: absolute;
+      top: -2px;
+      left: 100%;
+      border-top: 2px solid $primary;
+      border-bottom: 2px solid $nav-link-color;
+      @include color-active(border-top-color);
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      padding: 0 40px 0 35px;
+      line-height: 2.5rem;
+      color: $nav-link-color;
+
+      @media #{$min-lg} {
+        padding: 8px 35px;
+        border-bottom: solid 1px $color-gray5;
+        line-height: 1rem;
+
+        &:hover {
+          color: $nav-link-color;
+          background: $color-gray5;
+        }
+      }
+    }
+  }
+
+  &>.has-inner {
+    &>a {
+      position: relative;
+    }
+
+    &.opened {
+      &>a {
+        &::after {
+          content: "\2191";
+        }
+      }
+    }
+  }
+
+  .menu-left {
+    &>ul {
+      ul {
+        left: auto;
+        right: 100%;
+      }
+    }
+  }
+
+  .menu-full-width {
+    position: static;
+
+    &>ul {
+      right: 0;
+      width: calc(100% - #{$grid-gutter-width});
+      margin: auto;
+    }
+  }
+
+  .menu-columns-2 {
+    &>ul {
+      @media #{$min-lg} {
+        grid-template-columns: 1fr 1fr;
+        //columns: 2;
+        //column-gap: 0;
+
+        li {
+          &:nth-of-type(2n - 1) {
+            border-right: solid 1px $color-gray5;
+          }
+        }
+      }
+    }
+  }
+
+  .menu-columns-3 {
+    &>ul {
+      @media #{$min-lg} {
+        grid-template-columns: 1fr 1fr 1fr;
+        //columns: 3;
+        //column-gap: 0;
+
+        li {
+          &:nth-of-type(3n - 1) {
+            border-right: solid 1px $color-gray5;
+          }
+
+          &:nth-of-type(3n - 2) {
+            border-right: solid 1px $color-gray5;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<v:page.resources.fal table="pages" field="tx_w4communitynet_headerbg" uid="{data.uid}" as="resources" slide="-1">
+    <f:if condition="{resources.0.url}" >
+<style>
+    .header-bg <f:format.raw value="{" />
+        background-image: url({f:uri.image(src: '{resources.0.url}', treatIdAsReference: 1, width: '576c', height: '450c', absolute: 1)});
+    }
+    @media screen and (min-width: 576px) <f:format.raw value="{" />
+        .header-bg <f:format.raw value="{" />
+            background-image: url({f:uri.image(src: '{resources.0.url}', treatIdAsReference: 1, width: '768c', height: '450c', absolute: 1)});
+        }
+    }
+    @media screen and (min-width: 768px) <f:format.raw value="{" />
+        .header-bg <f:format.raw value="{" />
+            background-image: url({f:uri.image(src: '{resources.0.url}', treatIdAsReference: 1, width: '992c', height: '450c', absolute: 1)});
+        }
+    }
+    @media screen and (min-width: 992px) <f:format.raw value="{" />
+        .header-bg <f:format.raw value="{" />
+            background-image: url({f:uri.image(src: '{resources.0.url}', treatIdAsReference: 1, width: '1200c', height: '450c', absolute: 1)});
+        }
+    }
+    @media screen and (min-width: 1200px) <f:format.raw value="{" />
+        .header-bg <f:format.raw value="{" />
+            background-image: url({f:uri.image(src: '{resources.0.url}', treatIdAsReference: 1, height: '450c', absolute: 1)});
+        }
+    }
+</style>
+    </f:if>
+</v:page.resources.fal>   
+<div class="header header-small header-bg" >
+    <div class="header-bg-img"></div>
+    <div class="row">
+        <div class="breadcrumbs"> 
+            <div class="container"> 
+                <div class="headline clearfix"> 
+                    <f:format.raw>{breadcrumb}</f:format.raw>
+                </div> 
+            </div> 
+        </div> 
+    </div>
+    <f:if condition="{f:cObject(typoscriptObjectPath: 'lib.showPageHeader')}">
+        <div class="container pagetitle">
+            <h1>
+                <f:if condition="{pagetitle}">
+                    <f:then>
+                        {pagetitle}
+                    </f:then>
+                    <f:else>
+                        {data.title}
+                    </f:else>
+                </f:if>
+            </h1> 
+        </div>
+    </f:if>
+</div>

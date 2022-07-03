@@ -1,0 +1,16 @@
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <div class="wrapper">
+        <f:render partial="Header" arguments="{_all}" />
+        <div class="header">
+            <f:cObject typoscriptObjectPath="lib.content.render" data="{colPos: 1}" />
+        </div>
+        <!--TYPO3SEARCH_begin-->
+        <div id="content-home" class="content content-home">
+            <f:cObject typoscriptObjectPath="lib.content.render" data="{colPos: 0}" />
+        </div>
+        <!--TYPO3SEARCH_end-->
+    </div>
+    <f:render partial="Footer" arguments="{_all}" />
+</f:section>

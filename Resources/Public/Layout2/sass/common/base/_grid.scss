@@ -1,0 +1,30 @@
+.container,
+.container-lg,
+.container-fluid {
+  //@media #{$max-lg} {
+  //  padding: 0 30px;
+  //}
+
+  @at-root {
+    .col &,
+    & & {
+      padding: 0;
+    }
+  }
+}
+
+.container {
+  &-small {
+    max-width: 770px;
+  }
+  &-bg {
+    width: 100%;
+    padding: 90px 0;
+    background: $gray;
+  }
+  &-bg-nopadding {
+    width: 100%;
+    padding: 0;
+    background: $gray;
+  }
+}

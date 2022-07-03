@@ -1,0 +1,8 @@
+# MAC resource files
+**/.DS_Store
+
+# JS preprocessors files
+*.js.min
+
+# IDE files
+.idea

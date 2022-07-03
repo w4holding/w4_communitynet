@@ -1,0 +1,17 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <div class="wrapper">
+        <f:render partial="Header" arguments="{_all}" />
+        <f:render partial="Breadcrumbs" arguments="{_all}" />
+        <!--TYPO3SEARCH_begin-->
+        <div class="content">
+            <f:cObject typoscriptObjectPath="lib.content.render" data="{colPos: 0}" />
+        </div>
+        <!--TYPO3SEARCH_end-->
+    </div>
+    <f:render partial="Footer" arguments="{_all}" />
+</f:section>
+    

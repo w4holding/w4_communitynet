@@ -1,0 +1,35 @@
+@mixin set-color($type, $color) {
+  #{$type}: $color;
+}
+
+@mixin color($type) {
+  @at-root {
+    .red-style-template & {
+      @include set-color($type, $red);
+    }
+
+    .blue-style-template & {
+      @include set-color($type, $blue);
+    }
+
+    .green-style-template & {
+      @include set-color($type, $green);
+    }
+  }
+}
+
+@mixin color-active($type) {
+  @at-root {
+    .red-style-template & {
+      @include set-color($type, $red-active);
+    }
+
+    .blue-style-template & {
+      @include set-color($type, $blue-active);
+    }
+
+    .green-style-template & {
+      @include set-color($type, $green-active);
+    }
+  }
+}

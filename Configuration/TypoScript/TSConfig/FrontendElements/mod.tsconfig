@@ -1,0 +1,26 @@
+mod.wizards.newContentElement.wizardItems {
+    w4_communitynet {
+        header = CommunityNet
+        elements {
+            w4_communitynet_button {
+                iconIdentifier = button
+                title = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:ce.w4_communitynet_button.wizard.title
+                description = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:ce.w4_communitynet_button.wizard.description
+                tt_content_defValues.CType = w4_communitynet_button
+            }
+            w4_communitynet_counters {
+                iconIdentifier = counters
+                title = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:ce.w4_communitynet_counters.wizard.title
+                description = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:ce.w4_communitynet_counters.wizard.description
+                tt_content_defValues.CType = w4_communitynet_counters
+            }
+            w4_communitynet_iframe {
+                iconIdentifier = iframe
+                title = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:ce.w4_communitynet_iframe.wizard.title
+                description = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:ce.w4_communitynet_iframe.wizard.description
+                tt_content_defValues.CType = w4_communitynet_iframe
+            }
+        }
+        show := addToList(w4_communitynet_button,w4_communitynet_counters,w4_communitynet_iframe)
+    }
+}

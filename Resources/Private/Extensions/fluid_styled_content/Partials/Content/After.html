@@ -1,0 +1,49 @@
+</div>
+
+<f:switch expression="{data.space_after_class}">
+    <f:case value="0">
+        <f:variable name="space_after" value="" />
+    </f:case>
+    <f:case value="100">
+        <f:variable name="space_after" value="mb-{settings.defaultSpaceAfter}" />
+    </f:case>
+    <f:defaultCase>
+        <f:variable name="space_after" value="mb-{data.space_after_class}" />
+    </f:defaultCase>
+</f:switch>
+
+<f:switch expression="{data.layout}">
+    <f:case value="1">
+        <f:variable name="bg" value="bg_grey" />
+    </f:case>
+    <f:case value="2">
+        <f:variable name="bg" value="bg_grey_nopadding" />
+    </f:case>
+    <f:defaultCase>
+        <f:variable name="bg" value="" />
+    </f:defaultCase>
+</f:switch>
+
+<f:switch expression="{data.frame_class}">
+    <f:case value="fullwidth">
+        <f:variable name="content_width" value="" />
+    </f:case>
+    <f:case value="lesswidth">
+        <f:variable name="content_width" value="container-small" />
+    </f:case>
+    <f:defaultCase>
+        <f:variable name="content_width" value="container" />
+    </f:defaultCase>
+</f:switch>
+
+<f:if condition="{content_width}">
+    </div>
+</f:if>
+<f:if condition="{bg}">
+    </div>
+</f:if>
+<f:if condition="{space_after}">
+    <div class="{space_after}"></div>
+</f:if>
+
+<div class="clearfix"></div>

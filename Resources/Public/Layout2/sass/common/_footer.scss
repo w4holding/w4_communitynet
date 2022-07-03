@@ -1,0 +1,217 @@
+footer {
+  width: 100%;
+  background: $color-gray4;
+  color: $text-color;
+  margin-top: 40px;
+
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  b,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  li,
+  p,
+  strong,
+  td,
+  th,
+  a,
+  a:active,
+  a:focus,
+  a:hover {
+    color: $text-color  !important;
+  }
+
+  p {
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+  }
+
+  .h1,
+  .h2,
+  .h3,
+  h1,
+  h2,
+  h3 {
+    margin-bottom: 1.5rem;
+  }
+
+  h2,
+  .h2 {
+    font-size: 1.2rem;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .container-footer {
+    position: relative;
+    padding: 63px 0 60px 0;
+
+    @media #{$max-lg} {
+      padding: 10%;
+    }
+  }
+
+  .footer-brand {
+    position: absolute;
+    top: -100px;
+    width: 200px;
+    height: 200px;
+    background: $color-white;
+    border-radius: 50%;
+    text-align: center;
+    padding: 35px 20px 0 20px;
+    text-transform: uppercase;
+    line-height: 1.2rem;
+
+    img {
+      width: 80px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .headline,
+  header {
+    margin: 1rem 0 1.5rem 0;
+
+    .h2 {
+      font-size: 1.2rem;
+      font-family: "Poppins SemiBold";
+    }
+
+    @media #{$max-lg} {
+      margin-top: 80px;
+      border-bottom: solid 2px;
+      border-image: linear-gradient(to right, $red 20%, $color-gray3 20%, $color-gray3 100%) 5;
+    }
+
+
+  }
+
+  .footer-bg {
+    position: relative;
+    width: 100%;
+    height: 288px;
+    background: $text-color;
+
+    .footer-bg-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      opacity: 0.4;
+    }
+  }
+
+  .footer-1 {
+    padding-top: 65px;
+
+    h2,
+    .h2 {
+      font-size: 1rem;
+    }
+
+    header {
+      @media #{$max-lg} {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .subfooter {
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 15px;
+    background: $color-white1;
+    color: $text-color;
+
+    .navbar-nav {
+      float: none;
+      text-align: center;
+      display: block;
+
+      li {
+        float: none;
+        position: relative;
+        display: inline-block;
+        font-size: 0.5rem;
+        background: transparent;
+      }
+    }
+
+    .navbar-nav.nav {
+      li {
+        background: transparent;
+
+        a {
+          color: $text-color;
+          font-family: "Poppins";
+        }
+      }
+    }
+
+    .navbar-nav>li:last-child>a {
+      border-right: none;
+    }
+  }
+
+  i.social-icon {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: center center no-repeat;
+    background-size: 45px;
+    margin-right: 15px;
+    transition: all 0.2s;
+
+    &:hover {
+      scale: 1.2;
+    }
+
+    &.facebook {
+      background-image: url(../img/facebook.svg);
+
+      .blue-style-template & {
+        background-image: url(../img/facebook-blue.svg);
+      }
+
+      .green-style-template & {
+        background-image: url(../img/facebook-green.svg);
+      }
+    }
+
+    &.twitter {
+      background-image: url(../img/twitter.svg);
+
+      .blue-style-template & {
+        background-image: url(../img/twitter-blue.svg);
+      }
+
+      .green-style-template & {
+        background-image: url(../img/twitter-green.svg);
+      }
+    }
+
+    &.instagram {
+      background-image: url(../img/instagram.svg);
+
+      .blue-style-template & {
+        background-image: url(../img/instagram-blue.svg);
+      }
+
+      .green-style-template & {
+        background-image: url(../img/instagram-green.svg);
+      }
+    }
+  }
+}

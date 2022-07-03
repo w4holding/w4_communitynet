@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2022-03-31T16:25:19Z" product-name="w4_communitynet">
+        <header/>
+        <body>
+            <trans-unit id="w4_communitynet.news.BackToOverview">
+                <source>Back to overview</source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.news.startDate">
+                <source>Start date</source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.news.eventEnd">
+                <source>End date</source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.news.organisator">
+                <source>Organisator</source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.news.ort">
+                <source>Location</source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.news.eventDate">
+                <source>Event date</source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.news.time">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.news.at">
+                <source> at </source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.news.return">
+                <source>Back</source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.directLinks">
+                <source>Direct links</source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.followUs">
+                <source>Follow us</source>
+            </trans-unit>
+            <trans-unit id="w4_communitynet.quickLinks">
+                <source>Quick links</source>
+            </trans-unit>
+            <trans-unit id="search">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="searchPlaceholder">
+                <source>Search by...</source>
+            </trans-unit>
+            <trans-unit id="all">
+                <source>All</source>
+            </trans-unit>
+            <trans-unit id="filter">
+                <source>Filter</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,75 @@
+ plugin.tx_seo {
+    config {
+        xmlSitemap {
+            sitemaps {
+                pages {
+                    provider = TYPO3\CMS\Seo\XmlSitemap\PagesXmlSitemapDataProvider
+                    config {
+                        excludedDoktypes = 3, 4, 6, 7, 199, 254, 255
+                        additionalWhere = no_index = 0
+                    }
+                }
+                news {
+                    provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                    config {
+                        table = tx_news_domain_model_news
+                        sortField = sorting
+                        lastModifiedField = tstamp
+                        pid = {$newsDetailPageUid}
+                        recursive = 2
+                        url {
+                            pageId = {$newsDetailPageUid}
+                            fieldToParameterMap {
+                            uid = tx_news_pi1[news]
+                            }
+                            additionalGetParameters {
+                            tx_news_pi1.controller = News
+                            tx_news_pi1.action = detail
+                            }
+                            useCacheHash = 1
+                        }
+                    }
+                }
+                events {
+                    provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                    config {
+                        table = tx_news_domain_model_news
+                        sortField = sorting
+                        lastModifiedField = tstamp
+                        pid = {$eventsFolderUid}
+                        recursive = 2
+                        url {
+                            pageId = {$eventsDetailPageUid}
+                            fieldToParameterMap {
+                            uid = tx_news_pi1[news]
+                            }
+                            additionalGetParameters {
+                            tx_news_pi1.controller = News
+                            tx_news_pi1.action = detail
+                            }
+                            useCacheHash = 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+seo_sitemap = PAGE
+seo_sitemap {
+    typeNum = 1533906435
+    config {
+        cache_period = 900
+        disableAllHeaderCode = 1
+        admPanel = 0
+        removeDefaultJS = 1
+        removeDefaultCss = 1
+        removePageCss = 1
+        additionalHeaders.10 {
+            header = Content-Type:application/xml;charset=utf-8
+        }
+    }
+    10 = USER
+    10.userFunc = TYPO3\CMS\Seo\XmlSitemap\XmlSitemapRenderer->render
+} 

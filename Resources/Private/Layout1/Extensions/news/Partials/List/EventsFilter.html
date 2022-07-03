@@ -1,0 +1,16 @@
+<script>
+    let eventCategories = [];
+    eventCategories[{contentObjectDataUid}] = [];
+    <f:for each="{news}" as="newsItem">
+        <f:for each="{newsItem.categories}" as="category">
+            eventCategories[{contentObjectDataUid}][{category.uid}] = "{category.title}";
+        </f:for>
+    </f:for>
+</script>
+<div class="events-categories">
+     <ul class="nav-cats">
+        <li>
+            <label for="category-{contentObjectDataUid}-0" class="checkboxcontainer"><input type="checkbox" value="0" name="category-{contentObjectDataUid}-0" id="category-{contentObjectDataUid}-0" data-target="{contentObjectDataUid}" checked="true"><span class="checkmark"></span><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:all" /></label>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,37 @@
+page {
+    includeCSS {
+        100 = EXT:w4_communitynet/Resources/Public/Layout1/Css/vendor.min.css
+        105 = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/lightbox/css/lightbox.min.css
+        110 = EXT:w4_communitynet/Resources/Public/Layout1/Css/style.min.css
+        font_awesome = EXT:w4_communitynet/Resources/Public/Layout1/assets/plugins/font-awesome/css/font-awesome.css
+    }
+    includeJSFooter {
+        10  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/jquery-3.6.0.min.js
+        20  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/bootstrap/bootstrap.bundle.min.js
+        30  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/lightbox/js/lightbox.js
+        40  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/datatables.min.js
+        100 = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/main.js
+    }
+}
+
+[applicationContext matches "/^(Development)/"]
+    page {
+        includeCSS {
+            100 = EXT:w4_communitynet/Resources/Public/Layout1/Css/vendor.css
+            110 = EXT:w4_communitynet/Resources/Public/Layout1/Css/style.css
+        }
+    }
+[global]
+
+plugin {
+    tx_news {
+        view {
+            templateRootPaths {
+                10 = EXT:w4_communitynet/Resources/Private/Layout1/Extensions/news/Templates/
+            }
+            partialRootPaths {
+                10 = EXT:w4_communitynet/Resources/Private/Layout1/Extensions/news/Partials/
+            }
+        }
+    }
+}
