@@ -6,12 +6,12 @@
     "homepage": "https://www.w-4.com",
     "repositories": [
         {
-            "type": "vcs",
-            "url": "git@git.w-4.ch:w4servicesgmbh/communitynet-product/w4_communitynet.git"
+            "type": "github",
+            "url": "git@github.com:w4holding/w4_communitynet.git"
         },
         {
-            "type": "vcs",
-            "url": "git@git.w-4.ch:w4servicesgmbh/communitynet-product/w4_organization_list.git"
+            "type": "github",
+            "url": "git@github.com:w4holding/w4_organization_list.git"
         }
     ],
     "authors": [{

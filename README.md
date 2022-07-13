@@ -10,7 +10,7 @@ CommunityNet extension is a theme for TYPO3 CMS based on the Bootstrap CSS Frame
 
         "repositories": [
             {
-                "type": "vcs",
+                "type": "github",
                 "url": "git@github.com:w4holding/w4_communitynet.git"
             }
         ],
