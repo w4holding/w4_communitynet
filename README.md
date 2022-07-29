@@ -17,6 +17,6 @@ CommunityNet extension is a theme for TYPO3 CMS based on the Bootstrap CSS Frame
 
 - Install via composer:  
 
-        composer require w4holding/w4_communitynet
+        composer require w4services/w4_communitynet
 
 ---------------------------------------------
