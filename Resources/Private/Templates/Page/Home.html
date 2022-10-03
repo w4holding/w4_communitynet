@@ -1,0 +1,30 @@
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <div class="wrapper home">
+        <f:render partial="Header" arguments="{_all}" />
+        <div class="header home">
+            <f:cObject typoscriptObjectPath="lib.content.render" data="{colPos: 1}" />
+        </div>
+        <!--TYPO3SEARCH_begin-->
+        <div id="content-home" class="content content-home">
+            <v:menu.list pages="{quicklinks}">
+                <div id="top-contact-bar">
+                    <ul class="items-{menu -> f:count()} container">
+                        <f:for each="{menu}" as="menuPage">	
+                            <li class="{menuPage.tx_w4communitynet_icon_class}">
+                                <a href="{menuPage.link}" target="{menuPage.target}" title="{menuPage.title}">
+                                    <span>{menuPage.title}</span>
+                                </a>
+                            </li>
+                        </f:for>
+                    </ul>
+                </div>
+            </v:menu.list>
+            <div class="mb-3"></div>
+            <f:cObject typoscriptObjectPath="lib.content.render" data="{colPos: 0}" />
+        </div>
+        <!--TYPO3SEARCH_end-->
+    </div>
+    <f:render partial="Footer" arguments="{_all}" />
+</f:section>

@@ -1,0 +1,50 @@
+mod {
+  web_layout {
+    BackendLayouts {
+      w4_communitynet_home {
+        title = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:pages.backend_layout.home
+        icon = EXT:w4_communitynet/Resources/Public/Images/Pages/Home.svg
+        config {
+          backend_layout {
+            colCount = 2
+            rowCount = 3
+            rows {
+              1 {
+                columns {
+                  1 {
+                    name = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.colPos.1
+                    colspan = 2
+                    colPos = 1
+                  }
+                }
+              }
+              2 {
+                columns {
+                  1 {
+                    name = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.colPos.0
+                    colspan = 2
+                    colPos = 0
+                  }
+                }
+              }
+              3 {
+                columns {
+                  1 {
+                      name = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.footer.colPos.1
+                      colspan = 1
+                      colPos = 700
+                  }
+                  2 {
+                      name = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.footer.colPos.2
+                      colspan = 1
+                      colPos = 710
+                  }                    
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

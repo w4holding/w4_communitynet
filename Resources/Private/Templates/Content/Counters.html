@@ -1,0 +1,46 @@
+{namespace w4=W4Services\W4Communitynet\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:render partial="Content/Before" arguments="{_all}"/>
+
+<f:variable name="counters" value="{w4:getcounters(pages: '{countersFlexFormData.startingpoint}')}"/>
+<f:if condition="{counters -> f:count()}">
+    <div class="w4-counters w4-counters-items-{counters -> f:count()}">
+        <f:for each="{counters}" as="counter" iteration="iterator">
+            <f:variable name="bg" value=""/>
+            <f:if condition="{counter.img}">
+                <f:then>
+                    <v:page.resources.fal table="tx_w4communitynet_domain_model_counter" uid="{counter.uid}" field="img"
+                                          as="images">
+                        <f:if condition="{images.0.uid}">
+                            <f:variable name="bg"
+                                        value="{f:uri.image(src:'{images.0.uid}', height: 78, absolute: 1, treatIdAsReference: 1)}"/>
+                        </f:if>
+                    </v:page.resources.fal>
+                </f:then>
+                <f:else>
+                    <f:if condition="{counter.img_predefined}">
+                        <f:variable name="bg"
+                                    value="/typo3conf/ext/w4_communitynet/Resources/Public/Images/Counters/{counter.img_predefined}.svg"/>
+                    </f:if>
+                </f:else>
+            </f:if>
+            <f:variable name="starting_number"
+                        value="{v:iterator.explode(content: '{counter.starting_number}', glue: ',')}"/>
+            <f:variable name="ending_number"
+                        value="{v:iterator.explode(content: '{counter.ending_number}', glue: ',')}"/>
+            <div class="w4-counters-counter w4-counters-counter-{iterator.cycle}"
+                 data-starting_number="{starting_number.0}" data-ending_number="{ending_number.0}" data-duration="3000"
+                 data-target="w4-counters-counter-{data.uid}-{counter.uid}"
+                 data-append="{f:if(condition: '{ending_number.1}', then: ',{ending_number.1}')}" data-done="0">
+                <div class="icons"><img src="{bg}" alt=""></div>
+                <div class="w4-counters-counter-counter"><span
+                        id="w4-counters-counter-{data.uid}-{counter.uid}"></span>{counter.suffix}
+                </div>
+                <div class="text">{counter.text}</div>
+            </div>
+        </f:for>
+    </div>
+</f:if>
+
+<f:render partial="Content/After" arguments="{_all}"/>

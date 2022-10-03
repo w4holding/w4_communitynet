@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="Group_367" data-name="Group 367" width="26.701" height="27.635" viewBox="0 0 26.701 27.635" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs4">
+    <clipPath id="clip-path">
+      <rect id="Rectangle_807" data-name="Rectangle 807" width="26.701" height="27.635" fill="#d91231" />
+    </clipPath>
+  </defs>
+  <g id="Group_367-2" data-name="Group 367" clip-path="url(#clip-path)" style="fill:#287a2f;fill-opacity:1">
+    <path id="Path_561" data-name="Path 561" d="M23.857,24.156a1.882,1.882,0,0,0-1.882,1.888L21.969,32.2H3.776V13.368H9.293a1.888,1.888,0,0,0,0-3.776H1.888A1.882,1.882,0,0,0,.006,11.48L0,34.083a1.888,1.888,0,0,0,1.888,1.888H23.857a1.882,1.882,0,0,0,1.882-1.888l.006-8.04a1.888,1.888,0,0,0-1.888-1.888" transform="translate(0 -8.337)" fill="#d91231" style="fill:#287a2f;fill-opacity:1" />
+    <path id="Path_562" data-name="Path 562" d="M77.933,3.034l3.115,3.115-6.61,6.61a2.514,2.514,0,1,0,3.555,3.555l6.615-6.606,3.115,3.115a1.258,1.258,0,0,0,2.138-.786l.89-10.679A1.243,1.243,0,0,0,89.4.005L78.719.9a1.252,1.252,0,0,0-.786,2.138" transform="translate(-64.053 -0.001)" fill="#d91231" style="fill:#287a2f;fill-opacity:1" />
+  </g>
+</svg>

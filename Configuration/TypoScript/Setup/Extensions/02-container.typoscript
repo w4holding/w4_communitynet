@@ -1,0 +1,54 @@
+tt_content.2cols-container < lib.contentElement
+tt_content.2cols-container {
+    templateName = 2ColsContainer
+    templateRootPaths {
+        10 = EXT:w4_communitynet/Resources/Private/Templates/Container
+    }
+    dataProcessing {
+        100 = B13\Container\DataProcessing\ContainerProcessor
+    }
+}
+
+tt_content.3cols-container < lib.contentElement
+tt_content.3cols-container {
+    templateName = 3ColsContainer
+    templateRootPaths {
+        10 = EXT:w4_communitynet/Resources/Private/Templates/Container
+    }
+    dataProcessing {
+        100 = B13\Container\DataProcessing\ContainerProcessor
+    }
+}
+
+tt_content.4cols-container < lib.contentElement
+tt_content.4cols-container {
+    templateName = 4ColsContainer
+    templateRootPaths {
+        10 = EXT:w4_communitynet/Resources/Private/Templates/Container
+    }
+    dataProcessing {
+        100 = B13\Container\DataProcessing\ContainerProcessor
+    }
+}
+
+tt_content.citationbox-container < lib.contentElement
+tt_content.citationbox-container {
+    templateName = CitationBoxContainer
+    templateRootPaths {
+        10 = EXT:w4_communitynet/Resources/Private/Templates/Container
+    }
+    dataProcessing {
+        100 = B13\Container\DataProcessing\ContainerProcessor
+    }
+}
+
+tt_content.2colsSidecol-container < lib.contentElement
+tt_content.2colsSidecol-container {
+    templateName = 2ColsSidecolContainer
+    templateRootPaths {
+        10 = EXT:w4_communitynet/Resources/Private/Templates/Container
+    }
+    dataProcessing {
+        100 = B13\Container\DataProcessing\ContainerProcessor
+    }
+}

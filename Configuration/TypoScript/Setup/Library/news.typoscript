@@ -1,0 +1,18 @@
+lib.pagetitle = TEXT
+lib.pagetitle.value =
+
+[traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0]
+    lib.pagetitle = RECORDS
+    lib.pagetitle {
+        stdWrap.if.isTrue.data = GP:tx_news_pi1|news
+        dontCheckPid = 1
+        tables = tx_news_domain_model_news
+        source.data = GP:tx_news_pi1|news
+        source.intval = 1
+        conf.tx_news_domain_model_news = TEXT
+        conf.tx_news_domain_model_news {
+            field = title
+            htmlSpecialChars = 1
+        }
+    }
+[END]

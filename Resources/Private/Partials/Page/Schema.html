@@ -1,0 +1,26 @@
+<schema:type.WebSite  >
+    <schema:property -as="name" value="{pageinfo.title}"/>
+    <f:if condition="{facebook}">
+        <schema:property -as="sameAs" value="{facebook}"/>
+    </f:if>
+    <f:if condition="{twitter}">
+        <schema:property -as="sameAs" value="{twitter}"/>
+    </f:if>
+    <f:if condition="{instagram}">
+        <schema:property -as="sameAs" value="{instagram}"/>
+    </f:if>    
+    <schema:property -as="url" value="{v:site.url()}"/>
+ </schema:type.WebSite>
+ <schema:type.WebPage  >
+    <f:if condition="{v:page.info(field:'seo_title')}">
+        <f:then>
+            <schema:property -as="name" value="{v:page.info(field:'seo_title')}"/>
+        </f:then>
+        <f:else if="{v:page.info(field:'title')}">
+            <schema:property -as="name" value="{v:page.info(field:'title')}"/>
+        </f:else>
+    </f:if> 
+    <f:if condition="{v:page.info(field:'description')}">
+        <schema:property -as="description" value="{v:page.info(field:'description')}"/>
+    </f:if>
+</schema:type.WebPage>

@@ -1,0 +1,53 @@
+.events-detail-view {
+  .event-info {
+    margin-bottom: 20px;
+
+    @media #{$min-lg} {
+      display: flex;
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+
+    .event-info-item-wrapper {
+      padding: 5px;
+      display: flex;
+      flex-basis: 100%;
+      width: 100%;
+
+      .event-info-item {
+        padding: 20px;
+        background-color: $color-white2;
+        flex-basis: 100%;
+        font-weight: bold;
+
+        .subtitle {
+          font-size: 1rem;
+          line-height: 1.25rem;
+          color: $headers-color;
+          margin-bottom: 5px;
+        }
+
+        .value {
+          font-size: 1rem;
+          line-height: 1.25rem;
+          color: $red;
+
+          body.blue-style-template & {
+            color: $blue;
+          }
+
+          body.green-style-template & {
+            color: $green;
+          }
+        }
+      }
+    }
+  }
+
+  .image-wrapper {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

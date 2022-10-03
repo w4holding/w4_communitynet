@@ -1,0 +1,64 @@
+.paginator {
+  width: 100%;
+  display: flex;
+
+  p {
+    float: left;
+    width: 50%;
+  }
+
+  ul {
+    float: right;
+    flex: 1;
+    display: block;
+    text-align: right;
+    width: auto;
+
+    li {
+      float: none;
+      display: inline-block;
+      padding: 0;
+      background: none;
+
+      a {
+        padding: 6px 12px;
+        line-height: 1.42857143;
+        color: $text-color;
+        text-decoration: none;
+        background-color: $color-white;
+        border: 1px solid $gray-dark;
+        transition: all 0.2s;
+      }
+
+      &.active a,
+      a:hover {
+        color: $color-white;
+        text-decoration: none;
+        background-color: $red;
+        border-color: $red;
+      }
+
+      &.disabled a {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+body.blue-style-template .paginator ul li {
+
+  &.active a,
+  & a:hover {
+    background-color: $blue;
+    border-color: $blue;
+  }
+}
+
+body.green-style-template .paginator ul li {
+
+  &.active a,
+  & a:hover {
+    background-color: $green;
+    border-color: $green;
+  }
+}

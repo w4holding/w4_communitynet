@@ -1,0 +1,64 @@
+page {
+    includeCSS {
+        100 = EXT:w4_communitynet/Resources/Public/Layout1/Css/vendor.min.css
+        105 = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/lightbox/css/lightbox.min.css
+        110 = EXT:w4_communitynet/Resources/Public/Layout1/Css/style.min.css
+        font_awesome = EXT:w4_communitynet/Resources/Public/Css/fontawesome/css/all.min.css
+        accordion = EXT:w4_communitynet/Resources/Public/Css/accordion.min.css
+        
+    }
+    includeJSFooterlibs {
+        10  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/jquery-3.6.0.min.js
+        20  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/bootstrap/bootstrap.bundle.min.js
+        30  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/lightbox/js/lightbox.js
+        40  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/datatables.min.js
+    }
+    includeJSFooter {
+
+        100 = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/main.js
+        200 = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/accordion.min.js
+    }
+    10.partialRootPaths.30 = EXT:w4_communitynet/Resources/Private/Layout1/Partials/Page
+}
+
+[applicationContext matches "/^(Development)/"]
+    page {
+        includeCSS {
+            100 = EXT:w4_communitynet/Resources/Public/Layout1/Css/vendor.css
+            110 = EXT:w4_communitynet/Resources/Public/Layout1/Css/style.css
+        }
+    }
+[global]
+
+plugin {
+    tx_indexedsearch {
+        view {
+            templateRootPaths {
+                10 = EXT:w4_communitynet/Resources/Private/Layout2/Extensions/indexed_search/Templates/
+            }
+            partialRootPaths {
+                10 = EXT:w4_communitynet/Resources/Private/Layout2/Extensions/indexed_search/Partials/
+            }
+        }
+    }
+    tx_news {
+        view {
+            templateRootPaths {
+                10 = EXT:w4_communitynet/Resources/Private/Layout1/Extensions/news/Templates/
+            }
+            partialRootPaths {
+                10 = EXT:w4_communitynet/Resources/Private/Layout1/Extensions/news/Partials/
+            }
+        }
+    }
+    tx_faq {
+        view {
+            templateRootPaths {
+                10 = EXT:w4_communitynet/Resources/Private/Extensions/faq/Templates/
+            }
+            partialRootPaths {
+                10 = EXT:w4_communitynet/Resources/Private/Extensions/faq/Partials/
+            }
+        }
+    }
+}

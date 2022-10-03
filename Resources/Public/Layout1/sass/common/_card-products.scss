@@ -1,0 +1,28 @@
+.card-products {
+  .to-basket {
+    .to-basket-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      input[type="number"] {
+        width: 100px;
+        text-align: center;
+      }
+    }
+
+    .btn {
+      background-color: $color-red1;
+      color: $color-white;
+      padding: 12px 48px !important;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  }
+
+  .product-price {
+    display: flex;
+    justify-content: space-between;
+  }
+}

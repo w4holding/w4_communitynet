@@ -1,0 +1,221 @@
+footer {
+  width: 100%;
+  background: $red;
+  color: $color-white;
+  padding: 5px 0 0 0;
+  margin-top: 40px;
+
+  p {
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+  }
+
+  a[href^="tel"] {
+    padding-left: 28px;
+    background: url(../img/phone.svg) left center no-repeat;
+    background-size: 20px;
+  }
+
+  a[href*="Mailto"],
+  a[href^="mailto"] {
+    padding-left: 28px;
+    background: url(../img/mail.svg) left center no-repeat;
+    background-size: 20px;
+  }
+
+  .h1,
+  .h2,
+  .h3,
+  h1,
+  h2,
+  h3 {
+    margin-bottom: 1.5rem;
+  }
+
+  .container-footer {
+    padding-right: 0;
+    padding-left: 0;
+
+    a {
+      color: $color-white;
+    }
+  }
+
+  .headline,
+  header {
+    margin: 1rem 0 1.5rem 0;
+
+    .h2 {
+      font-size: 1.4rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .subfooter {
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 15px;
+    background: $color-red1;
+    color: $color-white;
+  }
+}
+
+footer .h1,
+footer .h2,
+footer .h3,
+footer .h4,
+footer .h5,
+footer b,
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer li,
+footer p,
+footer strong,
+footer td,
+footer th {
+  color: $color-white;
+}
+
+.subfooter {
+  width: 100%;
+  padding: 15px 0;
+  background: $color-red1;
+  color: $color-white;
+
+  .navbar-nav {
+    float: none;
+    text-align: center;
+    display: block;
+
+    li {
+      float: none;
+      position: relative;
+      display: inline-block;
+      font-size: 0.5rem;
+      background: transparent;
+    }
+
+    li a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .navbar-nav.nav {
+    li {
+      background: transparent;
+
+      a {
+        color: $color-white;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  a,
+  a:active,
+  a:focus,
+  a:hover,
+  p {
+    color: $color-white;
+  }
+}
+
+footer a,
+footer a:active,
+footer a:focus,
+footer a:hover,
+footer p {
+  color: $color-white;
+}
+
+i.social-icon {
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background: center center no-repeat;
+  background-size: 33px;
+  margin-right: 15px;
+  transition: all 0.2s;
+}
+
+i.social-icon:hover {
+  scale: 1.2;
+}
+
+i.social-icon.facebook {
+  background-image: url(../img/facebook.svg);
+}
+
+i.social-icon.twitter {
+  background-image: url(../img/twitter.svg);
+}
+
+i.social-icon.instagram {
+  background-image: url(../img/instagram.svg);
+}
+
+.header .navbar-nav>li:hover>a {
+  color: $red;
+}
+
+div.container.container-footer a {
+  color: $color-white;
+}
+
+.green-style-template {
+
+  .navbar-top,
+  footer {
+    background: $color-green1;
+  }
+
+  .subfooter {
+    background: $green;
+  }
+}
+
+.blue-style-template {
+
+  .navbar-top,
+  footer {
+    background: $blue;
+  }
+
+  .subfooter {
+    background: $color-blue1;
+  }
+}
+
+#btn-back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: $red;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+
+  .blue-style-template & {
+    background: $blue;
+  }
+  .green-style-template & {
+    background: $green;
+  }
+  .red-style-template & {
+    background: $red;
+  }
+}

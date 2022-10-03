@@ -1,0 +1,278 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:w4_communitynet/Configuration/TypoScript/Setup/Library/*.typoscript'
+
+config {
+    debug = 0
+    compressJs = 1
+    compressCss = 1
+    concatenateJsAndCss = 1
+    concatenateJs = 1
+    concatenateCss = 1
+    compressBody = 1
+    disablePrefixComment = 1
+    cache_period = 86400
+    cache_clearAtMidnight = 0
+    no_cache = 0
+    sendCacheHeaders = 0
+    additionalHeaders = Cache-Control: no-cache, no-store, max-age=0, must-revalidate | Expires: 0 | Pragma: no-cache
+    spamProtectEmailAddresses = 1
+    tx_extbase.features.consistentTranslationOverlayHandling = 1
+}
+
+page = PAGE
+page {
+    typeNum = 0
+    10 = FLUIDTEMPLATE
+    10 {
+        layoutRootPaths.10 = EXT:w4_communitynet/Resources/Private/Layouts/Page
+        partialRootPaths.10 = EXT:w4_communitynet/Resources/Private/Partials/Page
+        templateRootPaths.10 = EXT:w4_communitynet/Resources/Private/Templates/Page
+        variables {
+            breadcrumb < lib.breadcrumb
+            pagetitle < lib.pagetitle
+            footer1 < lib.footer1
+            footer2 < lib.footer2
+            footer3 < lib.footer3
+            footer4 < lib.footer4
+            tx_w4communitynet_logoname = TEXT
+            tx_w4communitynet_logoname.data = DB:pages:1:tx_w4communitynet_logoname
+            tx_w4communitynet_logosubname = TEXT
+            tx_w4communitynet_logosubname.data = DB:pages:1:tx_w4communitynet_logosubname
+            facebook = TEXT
+            facebook.data = DB:pages:1:tx_w4communitynet_facebook
+            twitter = TEXT
+            twitter.data = DB:pages:1:tx_w4communitynet_twitter
+            instagram = TEXT
+            instagram.data = DB:pages:1:tx_w4communitynet_instagram
+            quicklinks = TEXT
+            quicklinks.data = DB:pages:1:tx_w4communitynet_quicklinks
+            footerlinks = TEXT
+            footerlinks.data = DB:pages:1:tx_w4communitynet_footerlinks            
+            layoutcolor = TEXT
+            layoutcolor.data = DB:sys_template:1:tx_w4communitynet_layoutcolor
+            sidebar < lib.sidebar
+        }
+
+        templateName.stdWrap.cObject = CASE
+        templateName.stdWrap.cObject {
+            key.data = pagelayout
+            default = TEXT
+            default.value = Default
+            pagets__w4_communitynet_home = TEXT
+            pagets__w4_communitynet_home.value = Home
+            pagets__w4_communitynet_interior = TEXT
+            pagets__w4_communitynet_interior.value = Interior
+        }
+    }
+    shortcutIcon = EXT:w4_communitynet/Resources/Public/Images/favicon.png
+    bodyTagCObject = TEXT
+    bodyTagCObject.data = field:uid
+    bodyTagCObject.wrap = <body class="{$communitynet.color}-style-template" data-uid="|">
+    meta.viewport = width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no
+}
+
+lib {
+    content {
+        render = CONTENT
+        render {
+            table = tt_content
+            select {
+                orderBy = sorting
+                where.cObject = COA
+                where.cObject {
+                    10 = TEXT
+                    10 {
+                        field = colPos
+                        intval = 1
+                        ifEmpty = 0
+                        noTrimWrap = | AND colPos=||
+                    }
+                }
+            }
+        }
+        renderWithSlide < lib.content.render
+        renderWithSlide.slide = -1
+    }
+    sidebar {
+    render = CONTENT
+    render {
+        table = tt_content
+    select {
+        orderBy = sorting
+        where = colPos= 300
+        languageField = sys_language_uid
+    }
+        renderSidebar < lib.sidebar.render
+        slide = -1
+    }
+    }
+    contentElement {
+        settings {
+            defaultSpaceAfter = {$styles.content.defaultSpaceAfter}
+        }
+        templateRootPaths.200 = EXT:w4_communitynet/Resources/Private/Templates/Content
+        templateRootPaths.300 = EXT:w4_communitynet/Resources/Private/Templates/Content
+        partialRootPaths.10   = EXT:w4_communitynet/Resources/Private/Extensions/fluid_styled_content/Partials/
+        dataProcessing {
+            50 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
+            50 {
+                fieldName = tx_w4communitynet_button
+                as = buttonFlexFormData
+            }
+            60 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
+            60 {
+                fieldName = tx_w4communitynet_iframe
+                as = iframeFlexFormData
+            }
+            70 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
+            70 {
+                fieldName = tx_w4communitynet_counters
+                as = countersFlexFormData
+            }
+        }
+    }
+    showPageHeader = TEXT
+    showPageHeader.value = {$communitynet.showPageHeader}
+}
+
+tt_content {
+    w4_communitynet_button =< lib.contentElement
+    w4_communitynet_button {
+        templateName = Button
+    }
+    w4_communitynet_counters =< lib.contentElement
+    w4_communitynet_counters {
+        templateName = Counters
+    }
+    w4_communitynet_iframe =< lib.contentElement
+    w4_communitynet_iframe {
+        templateName = Iframe
+    }
+}
+
+fixAttrib.class.list >
+lib.parseFunc_RTE {
+    externalBlocks.table.stdWrap.HTMLparser.tags.table.fixAttrib.class {
+        default = table
+        always = 1
+        list = table, table-striped, table-bordered, table-hover, table-condensed, table-responsive
+    }
+}
+
+[applicationContext matches "/^(Development)/"]
+    config {
+        debug = 1
+        compressJs = 0
+        compressCss = 0
+        concatenateJsAndCss = 0
+        concatenateJs = 0
+        concatenateCss = 0
+        compressBody = 0
+    }
+[global]
+
+[backend.user.isLoggedIn]
+    config.no_cache = 1
+[global]
+
+plugin.tx_w4communitynet {
+    settings {
+        records {
+            0 {
+                table = sys_file
+                where {
+                    // CType="uploads" AND file_collections!=""
+                    1 {
+                        field = CType
+                        is = eq
+                        to = uploads
+                    }
+                }
+            }
+            1 {
+                table = sys_file_metadata
+                where {
+                    // CType="uploads" AND file_collections!=""
+                    1 {
+                        field = CType
+                        is = eq
+                        to = uploads
+                    }
+                }
+            }
+            2 {
+                table = sys_file_collection
+                where {
+                    // CType="uploads" AND file_collections IN (###PID###)
+                    1 {
+                        field = CType
+                        is = eq
+                        to = uploads
+                    }
+                    2 {
+                        field = file_collections
+                        is = in
+                        to = ###PID###
+                    }
+                }
+            }
+            3 {
+                table = sys_file_reference
+                wherePageUid = ###PID###
+            }
+            4 {
+                table = tx_news_domain_model_news
+                where {
+                    // CType="list" AND list_type="news_pi1"
+                    1 {
+                        field = CType
+                        is = eq
+                        to = list
+                    }
+                    2 {
+                        field = list_type
+                        is = eq
+                        to = news_pi1
+                    }
+                }
+            }
+            5 {
+                table = tt_address
+                where {
+                    // CType="list" AND list_type="tt_address_pi1"
+                    1 {
+                        field = CType
+                        is = eq
+                        to = list
+                    }
+                    2 {
+                        field = list_type
+                        is = eq
+                        to = tt_address_pi1
+                    }
+                }
+            }
+            6 {
+                table = tx_faq_domain_model_question
+                where {
+                    // CType="list" AND list_type="faq_faq" AND pages IN (###PID###)
+                    1 {
+                        field = CType
+                        is = eq
+                        to = list
+                    }
+                    2 {
+                        field = list_type
+                        is = eq
+                        to = faq_faq
+                    }
+                    3 {
+                        field = pages
+                        is = in
+                        to = ###PID###
+                    }
+                }
+            }
+        }
+    }
+}

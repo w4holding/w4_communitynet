@@ -1,0 +1,116 @@
+.w4-counters {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+
+  .w4-counters-counter {
+    flex-basis: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    background-color: $color-red1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 40px;
+
+    body.blue-style-template & {
+      background-color: $color-blue1;
+    }
+
+    body.green-style-template & {
+      background-color: $color-green1;
+    }
+
+    &:nth-child(2n + 1) {
+      background-color: $red;
+
+      body.blue-style-template & {
+        background-color: $blue;
+      }
+
+      body.green-style-template & {
+        background-color: $green;
+      }
+    }
+
+    @media #{$min-sm} {
+      flex-basis: 50%;
+      max-width: 50%;
+      min-width: 50%;
+
+      &:nth-child(2n + 1) {
+        background-color: $color-red1;
+
+        body.blue-style-template & {
+          background-color: $color-blue1;
+        }
+
+        body.green-style-template & {
+          background-color: $color-green1;
+        }
+      }
+
+      &:nth-child(3n + 1) {
+        background-color: $red;
+
+        body.blue-style-template & {
+          background-color: $blue;
+        }
+
+        body.green-style-template & {
+          background-color: $green;
+        }
+      }
+    }
+
+    @media #{$min-lg} {
+      &:nth-child(3n + 1) {
+        background-color: $color-red1;
+
+        body.blue-style-template & {
+          background-color: $color-blue1;
+        }
+
+        body.green-style-template & {
+          background-color: $color-green1;
+        }
+      }
+
+      &:nth-child(2n + 1) {
+        background-color: $red;
+
+        body.blue-style-template & {
+          background-color: $blue;
+        }
+
+        body.green-style-template & {
+          background-color: $green;
+        }
+      }
+
+      flex-basis: 25%;
+      max-width: 25%;
+      min-width: 25%;
+    }
+
+    .icons {
+      margin-bottom: 20px;
+    }
+
+    .w4-counters-counter-counter {
+      font-size: 33px;
+      line-height: 40px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .text {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}

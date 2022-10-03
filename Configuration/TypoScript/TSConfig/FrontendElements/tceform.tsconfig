@@ -1,0 +1,108 @@
+TCEFORM {
+    pages {
+        layout.disable = 1
+    }
+    tt_content {
+        assets.config.appearance.fileUploadAllowed = 0
+        CType {
+            removeItems = header, text, textpic, image, media, bullets
+        }
+        layout {
+            keepItems =
+            addItems {
+                0 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:none
+                1 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.layout.1
+                2 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.layout.2
+            }
+            types {
+                div.disabled = 1
+                shortcut.disabled = 1
+            }
+        }
+        frame_class {
+            keepItems = default
+            addItems {
+                fullwidth = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.frame_class.fullwidth
+                lesswidth = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.frame_class.lesswidth
+            }
+            altLabels {
+                default = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.frame_class.defaultwidth
+            }
+        }
+        space_before_class {
+            keepItems =
+            addItems {
+                0 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:none
+                1 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_extra_small
+                2 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_small
+                3 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_medium
+                4 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_large
+                5 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_extra_large
+            }
+            types {
+                div.disabled = 1
+                shortcut.disabled = 1
+            }
+        }
+        space_after_class {
+            keepItems =
+            addItems {
+                0 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:none 
+                100 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:default 
+                1 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_extra_small
+                2 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_small
+                3 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_medium
+                4 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_large
+                5 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_class_extra_large
+            }
+            types {
+                div.disabled = 1
+                shortcut.disabled = 1
+            }
+        }
+        imageorient {
+            removeItems = 1,2,9,10,17,18
+            addItems {
+                100 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.imageorient.100
+                100.icon = EXT:w4_communitynet/Resources/Public/Images/Content/imageorient100.png
+                101 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.imageorient.101
+                101.icon = EXT:w4_communitynet/Resources/Public/Images/Content/imageorient101.png
+            }
+        }
+        header_layout {
+            altLabels {
+                0 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.header_layout.0
+                1 = H1
+                2 = H2
+                3 = H3
+                4 = H4 
+                5 = H5
+            }
+        }
+        table_class.disabled = 1
+        imageborder.disabled = 1
+        linkToTop.disabled = 1
+        imagewidth.disabled = 1
+        imageheight.disabled = 1
+        sectionIndex.disable = 1
+        date.disable = 1
+    }
+    sys_template {
+        tx_w4communitynet_layout {
+            addItems {
+                w4_communitynet/Configuration/TypoScript/Layout1 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:sys_template.tx_w4communitynet_layout.1
+                w4_communitynet/Configuration/TypoScript/Layout1.icon = EXT:w4_communitynet/Resources/Public/Layout1/Images/layout.png
+            }
+        }
+        tx_w4communitynet_layoutcolor {
+            addItems {
+                red = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:sys_template.tx_w4communitynet_layoutcolor.red
+                red.icon = EXT:w4_communitynet/Resources/Public/Images/Colors/Red.svg
+                blue = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:sys_template.tx_w4communitynet_layoutcolor.blue
+                blue.icon = EXT:w4_communitynet/Resources/Public/Images/Colors/Blue.svg
+                green = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:sys_template.tx_w4communitynet_layoutcolor.green
+                green.icon = EXT:w4_communitynet/Resources/Public/Images/Colors/Green.svg
+            }
+        }
+    }
+}

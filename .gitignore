@@ -1,0 +1,11 @@
+# MAC resource files
+**/.DS_Store
+
+# JS preprocessors files
+*.js.min
+
+# IDE files
+.idea
+
+Resources/Public/Layout1/.sass-cache
+Resources/Public/Layout2/.sass-cache

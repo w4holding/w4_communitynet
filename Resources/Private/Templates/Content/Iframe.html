@@ -1,0 +1,9 @@
+<f:render partial="Content/Before" arguments="{_all}" />
+
+<f:if condition="{iframeFlexFormData.url}">
+    <div class="w4-iframe ratio ratio-{iframeFlexFormData.ratio}">
+        <iframe src="{iframeFlexFormData.url}" allowfullscreen></iframe>
+    </div>
+</f:if>
+
+<f:render partial="Content/After" arguments="{_all}" />

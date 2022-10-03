@@ -1,0 +1,203 @@
+.btn {
+  padding: 15px 25px;
+
+  @media #{$min-sm} {
+    padding: 21px 40px 18px;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    transition: inherit;
+  }
+
+  &::before {
+    content: "\e800";
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    width: 20px;
+    font-family: $font-icons;
+    font-size: 22px;
+    text-align: left;
+    vertical-align: middle;
+    opacity: 0;
+    transition: inherit;
+  }
+
+  &:hover {
+    &::after {
+      width: 0;
+    }
+
+    &::before {
+      width: 40px;
+      opacity: 1;
+    }
+  }
+
+  @media #{$max-sm} {
+
+    &::after,
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.text-btn {
+  &::before {
+    content: "\e800";
+    display: inline-block;
+    width: 24px;
+    font-family: $font-icons;
+    font-size: 1.0625rem;
+    text-align: left;
+    transition: inherit;
+  }
+}
+
+.btn-primary {
+  &.btn {
+
+    &,
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  @include color(border-color);
+  @include color(background);
+
+  &:hover {
+    @include color-active(border-color);
+    @include color-active(background);
+  }
+}
+
+.btn-u {
+  padding: 12px 48px;
+  background-color: $red;
+  border: 1px solid $red;
+  border-radius: 12px;
+  transition: all 0.2s;
+  text-align: center;
+  color: $color-white  !important;
+  cursor: pointer;
+  font-weight: 400;
+  position: relative;
+  white-space: nowrap;
+  display: inline-block;
+  text-decoration: none;
+
+  body.blue-style-template & {
+    background-color: $blue;
+    border: 1px solid $blue;
+  }
+
+  body.green-style-template & {
+    background-color: $green;
+    border: 1px solid $green;
+  }
+
+  &:hover {
+    padding: 12px 32px 12px 64px;
+    text-decoration: none;
+    color: $color-white;
+    background: $red-active;
+    border-color: $red-active;
+    transition: all 0.2s ease-in-out;
+
+    body.blue-style-template & {
+      background: $blue-active;
+      border-color: $blue-active;
+    }
+
+    body.green-style-template & {
+      background: $green-active;
+      border-color: $green-active;
+    }
+  }
+
+  &:hover::before {
+    opacity: 1;
+    left: 38px;
+  }
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    width: 12px;
+    height: 20px;
+    content: " ";
+    background: url(../Images/li-white.svg) center center no-repeat;
+    background-size: 12px;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    margin-top: -10px;
+  }
+
+  &.return {
+    &:before {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.btn-u-ghost {
+    color: $red  !important;
+    background-color: $color-white;
+    border-color: $red;
+
+    body.green-style-template & {
+      color: $green  !important;
+      border-color: $green;
+    }
+
+    body.blue-style-template & {
+      color: $blue  !important;
+      border-color: $blue;
+    }
+
+    &:hover {
+      color: $color-white  !important;
+      background-color: $red-active;
+      border-color: $red-active;
+
+      body.green-style-template & {
+        color: $color-white  !important;
+        background-color: $green-active;
+        border-color: $green-active;
+      }
+
+      body.blue-style-template & {
+        color: $color-white  !important;
+        background-color: $blue-active;
+        border-color: $blue-active;
+      }
+    }
+  }
+
+  &.btn-u-small {
+    padding: 9px 34px !important;
+    font-size: 12px !important;
+    border-radius: 6.3px;
+
+    @media #{$max-sm} {
+      width: 100%;
+    }
+
+    &:before {
+      left: 27px;
+      width: 8.4px;
+      height: 14px;
+      background-size: contain;
+      top: 22px;
+    }
+
+    &:hover {
+      padding: 9px 24px 9px 44px !important;
+    }
+  }
+}

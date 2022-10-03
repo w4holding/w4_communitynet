@@ -1,0 +1,141 @@
+/* General */
+
+.tx-cart {
+    counter-reset: step;
+}
+
+.tx-cart label,
+.tx-cart label em {
+    display: inline;
+}
+
+.tx-cart .bg-light-grey {
+    background-color: #efefef;
+}
+
+.tx-cart .border-left-grey {
+    border-left: 1px solid #ddd;
+}
+
+.tx-cart .clear-padding {
+    padding: 0 !important;
+}
+
+.top-buffer {
+    margin-top: 2em;
+}
+
+.bottom-buffer {
+    margin-bottom: 2em;
+}
+
+.tx-cart .typo3-messages {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.form-control-inline {
+    min-width: 0;
+    width: auto;
+    display: inline;
+}
+
+.tx-cart .field {
+    margin-bottom: 0.5em;
+}
+
+.tx-cart .price {
+    min-width: 65px;
+    display: block
+}
+
+.order-total-gross {
+    width: 75px;
+    text-align: right;
+}
+
+/* Checkout */
+
+.tx-cart .checkout-step-title,
+.tx-cart .confirmation-step-title {
+    background: #ccc;
+    margin: 0;
+    padding: 0 2em;
+    line-height: 2;
+}
+
+.tx-cart .confirmation-step-title {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.tx-cart .checkout-step-content {
+    padding: 1em;
+}
+
+.tx-cart .checkout-step-number::before {
+    counter-increment: step;
+    content: counter(step);
+}
+
+.tx-cart #form-order .checkout-step-number,
+.tx-cart #form-cart .checkout-step-number {
+    background: #333;
+    color: #fff;
+    display: inline-block;
+    width: 2em;
+    border-radius: 50%;
+    text-align: center;
+    height: 2em;
+    line-height: 2em;
+    font-size: 0.75em;
+    vertical-align: middle;
+    margin-right: 1em;
+    margin-top: -3px;
+}
+
+.shipping-same-as-billing-wrapper {
+    margin: 1em 0;
+}
+
+.tx-cart .checkout-step-content-list .checkout-step-fields .field .validation-error {
+    margin-bottom: 0;
+}
+
+#form-order .checkout-step-title {
+    padding: 10px
+}
+
+.method-item-name {
+    font-weight: bold;
+}
+
+.checkout-step-table,
+.checkout-review-table,
+.checkout-product-table,
+.show-properties.table {
+    width: 100%;
+}
+
+.checkout-review-column {
+    margin: 1em -1em;
+}
+
+.coupon-hint.not-usable {
+    color: red;
+}
+
+/* Order History*/
+
+.show-properties.table {
+    margin-bottom: 1em;
+}
+
+.order-history-detail .column {
+    padding-bottom: 2em;
+}
+
+#mini-cart-holding-items {
+    display: none;
+}

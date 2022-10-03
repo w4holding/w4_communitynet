@@ -1,0 +1,25 @@
+.ul-standard {
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    margin: 0 0 9px;
+    padding-left: 24px;
+
+    &::before {
+      content: "\e800";
+      position: absolute;
+      top: 3px;
+      left: 0;
+      font-family: $font-icons;
+      font-size: 1.0625rem;
+    }
+  }
+
+  &.ul-primary {
+    color: $primary;
+
+    @include color(color);
+  }
+}

@@ -1,0 +1,5 @@
+plugin.tx_ttaddress.view {
+    templateRootPaths.10 = EXT:w4_communitynet/Resources/Private/Extensions/tt_address/Templates
+    partialRootPaths.10 = EXT:w4_communitynet/Resources/Private/Extensions/tt_address/Partials
+    layoutRootPaths.10 = EXT:w4_communitynet/Resources/Private/Extensions/tt_address/Layouts
+}

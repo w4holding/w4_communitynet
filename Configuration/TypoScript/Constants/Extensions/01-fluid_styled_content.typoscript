@@ -1,0 +1,7 @@
+styles {
+    templates {
+        templateRootPath = EXT:w4_communitynet/Resources/Private/Extensions/fluid_styled_content/Templates/
+        partialRootPath  = EXT:w4_communitynet/Resources/Private/Extensions/fluid_styled_content/Partials/
+        layoutRootPath   = EXT:w4_communitynet/Resources/Private/Extensions/fluid_styled_content/Layouts/
+    }
+}

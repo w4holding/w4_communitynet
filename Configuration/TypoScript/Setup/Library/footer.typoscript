@@ -1,0 +1,31 @@
+lib.footer1 = CONTENT
+lib.footer1 {
+    table = tt_content
+    select {
+        orderBy = sorting
+        where = colPos=700
+        languageField = sys_language_uid
+    }
+    slide = -1
+}
+
+lib.footer2 < lib.footer1
+lib.footer2 {
+    select {
+        where = colPos=710
+    }
+}
+
+lib.footer3 < lib.footer1
+lib.footer3 {
+    select {
+        where = colPos=720
+    }
+}
+
+lib.footer4 < lib.footer1
+lib.footer4 {
+    select {
+        where = colPos=730
+    }
+}

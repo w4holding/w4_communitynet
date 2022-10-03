@@ -1,0 +1,72 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<div class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}"
+     itemscope="itemscope" itemtype="https://schema.org/Article">
+    <n:excludeDisplayedNews newsItem="{newsItem}" />
+    <div class="article-inner">
+        <div class="image-wrapper">
+            <f:alias map="{mediaElement: newsItem.falmedia.0}">
+                <f:if condition="{mediaElement}">
+                    <f:then>
+                        <f:media
+                            class="card-img-top"
+                            file="{mediaElement}"
+                            width="915c"
+                            height="585c"
+                            alt="{mediaElement.originalResource.alternative}"
+                            title="{mediaElement.originalResource.title}"
+                            loading="lazy"
+                            additionalAttributes="{srcset: '{f:uri.image(image: mediaElement, maxWidth: 768)} 768w,
+                                                            {f:uri.image(image: mediaElement, maxWidth: 990)} 990w,
+                                                            {f:uri.image(image: mediaElement, maxWidth: 1200)} 1200w,
+                                                            {f:uri.image(image: mediaElement, maxWidth: 1440)} 1440w,
+                                                            {f:uri.image(image: mediaElement, maxWidth: 1900)} 1900w',
+                                                   sizes: '(min-width: 1200px) 50vw, 100vw'}"
+                        />
+                    </f:then>
+                    <f:else>
+                        <img src="/typo3conf/ext/w4_communitynet/Resources/Public/Images/thumb-default.png"/>
+                    </f:else>
+                </f:if>
+            </f:alias>
+        </div>
+        <div class="article-infos">
+            <div class="infos-sup">
+                <span class="date">
+                    <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+                        <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+                    </time>
+                </span>
+            </div>
+            <div class="header">
+                <h3>
+                    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                        <span itemprop="headline">{newsItem.title}</span>
+                    </n:link>
+                </h3>
+            </div>
+            <div class="text">
+                <n:removeMediaTags>
+                    <f:if condition="{newsItem.teaser}">
+                        <f:then>
+                            <div itemprop="description">{newsItem.teaser -> f:format.crop(maxCharacters:
+                                '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                            </div>
+                        </f:then>
+                        <f:else>
+                            <div itemprop="description">{newsItem.bodytext -> f:format.crop(maxCharacters:
+                                '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                            </div>
+                        </f:else>
+                    </f:if>
+                </n:removeMediaTags>
+                <n:link newsItem="{newsItem}" settings="{settings}" class="article-more" title="{newsItem.title}">
+                </n:link>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

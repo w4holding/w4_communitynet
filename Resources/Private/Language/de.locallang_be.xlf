@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="de" datatype="plaintext" original="meßages" date="2022-03-31T16:25:19Z" product-name="w4_communitynet">
+        <header/>
+        <body>
+            <trans-unit id="default">
+                <source>Default</source>
+                <target>Standard</target>
+            </trans-unit>
+            <trans-unit id="none">
+                <source>None</source>
+                <target>Keiner</target>
+            </trans-unit>
+            <trans-unit id="configuration">
+                <source>Configuration</source>
+                <target>Konfiguration</target>
+            </trans-unit>
+            <trans-unit id="pages.backend_layout.home">
+                <source>Home page</source>
+                <target>Startseite</target>
+            </trans-unit>
+            <trans-unit id="pages.backend_layout.interior">
+                <source>Inner page</source>
+                <target>Innenseite</target>
+            </trans-unit>
+            <trans-unit id="tt_content.colPos.0">
+                <source>Content</source>
+                <target>Inhalt</target>
+            </trans-unit>
+            <trans-unit id="tt_content.colPos.1">
+                <source>Header</source>
+                <target>Header</target>
+            </trans-unit>
+            <trans-unit id="tt_content.footer.colPos.1">
+                <source>Footer 1. Column</source>
+                <target>Fußzeile 1. Spalte</target>
+            </trans-unit>
+            <trans-unit id="tt_content.footer.colPos.2">
+                <source>Footer 2. Column</source>
+                <target>Fußzeile 2. Spalte</target>
+            </trans-unit>
+            <trans-unit id="tt_content.footer.colPos.3">
+                <source>Footer 3. Column</source>
+                <target>Fußzeile 3. Spalte</target>
+            </trans-unit>           
+            <trans-unit id="tt_content.layout.1">
+                <source>With grey background</source>
+                <target>Mit grauem Hintergrund</target>
+            </trans-unit>
+            <trans-unit id="tt_content.layout.2">
+                <source>With grey background without top and bottom padding</source>
+                <target>Mit grauem Hintergrund ohne obere und untere Polsterung</target>
+            </trans-unit>
+            <trans-unit id="tt_content.frame_class.defaultwidth">
+                <source>Default width</source>
+                <target>Standardbreite</target>
+            </trans-unit>
+            <trans-unit id="tt_content.frame_class.fullwidth">
+                <source>Full width</source>
+                <target>Gesamtbreite</target>
+            </trans-unit>
+            <trans-unit id="tt_content.frame_class.lesswidth">
+                <source>Less width</source>
+                <target>Wenigerbreite</target>
+            </trans-unit>
+            <trans-unit id="tt_content.imageorient.100">
+                <source>Slider with navigation arrows</source>
+                <target>Schieberegler mit Navigationspfeilen</target>
+            </trans-unit>
+            <trans-unit id="tt_content.imageorient.101">
+                <source>Slider with navigation buttons</source>
+                <target>Schieberegler mit Navigationstasten</target>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_boxtextheight">
+                <source>Adapt box height to the text</source>
+                <target>Rahmenhöhe an den Text anpaßen</target>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_sliderheight">
+                <source>Height</source>
+                <target>Höhe</target>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_sliderheight.0">
+                <source>Small (500px)</source>
+                <target>Schmaler (500px)</target>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_sliderheight.1">
+                <source>Default (700px)</source>
+                <target>Standard (700px)</target>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_sliderheight.2">
+                <source>Big (1050px)</source>
+                <target>Hoher (1050px)</target>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_slidermask">
+                <source>Show mask to dark images</source>
+                <target>Maske zu dunklen Bildern anzeigen</target>
+            </trans-unit>
+            <trans-unit id="sys_template.tx_w4communitynet_layout">
+                <source>Layout</source>
+                <target>Layout</target>
+            </trans-unit>
+            <trans-unit id="sys_template.tx_w4communitynet_layout.selector">
+                <source>Layout selector</source>
+                <target>Layout-Auswah</target>
+            </trans-unit>
+            <trans-unit id="sys_template.tx_w4communitynet_layout.1">
+                <source>Basic layout</source>
+                <target>Grundlayout</target>
+            </trans-unit>
+            <trans-unit id="sys_template.tx_w4communitynet_layout.2">
+                <source>Modern layout</source>
+                <target>Modernes Layout</target>
+            </trans-unit>
+            <trans-unit id="sys_template.tx_w4communitynet_layoutcolor">
+                <source>Color</source>
+                <target>Farbe</target>
+            </trans-unit>
+            <trans-unit id="sys_template.tx_w4communitynet_layoutcolor.red">
+                <source>Red</source>
+                <target>Rot</target>
+            </trans-unit>
+            <trans-unit id="sys_template.tx_w4communitynet_layoutcolor.blue">
+                <source>Blue</source>
+                <target>Blau</target>
+            </trans-unit>
+            <trans-unit id="sys_template.tx_w4communitynet_layoutcolor.green">
+                <source>Green</source>
+                <target>Grün</target>
+            </trans-unit>
+            <trans-unit id="pages.layoutfieldsdiv">
+                <source>Layout fields</source>
+                <target>Layoutfelder</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_menucolumns">
+                <source>Number of columns to show subpages in the menu</source>
+                <target>Anzahl der Spalten zum Anzeigen von Unterseiten im Menü </target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_logo">
+                <source>Logo image</source>
+                <target>Logo-Bild</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_logoname">
+                <source>Name to be shown besides the logo</source>
+                <target>Name, der neben dem Logo angezeigt werden soll</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_logosubname">
+                <source>Text to be shown under the logo name</source>
+                <target>Text, der unter dem Logonamen angezeigt werden soll</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_quicklinks">
+                <source>Quick links</source>
+                <target>Schnelle Links</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_facebook">
+                <source>Facebook</source>
+                <target>Facebook</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_twitter">
+                <source>Twitter</source>
+                <target>Twitter</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_instagram">
+                <source>Instagram</source>
+                <target>Instagram</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_search">
+                <source>Search page</source>
+                <target>Suchseite</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlinks">
+                <source>Footer l inks</source>
+                <target>Fußzeile-Links</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_headerbg">
+                <source>Header background image</source>
+                <target>Header-Hintergrundbild</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.wizard.title">
+                <source>Button</source>
+                <target>Taste</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.wizard.description">
+                <source>Button</source>
+                <target>Taste</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_counters.wizard.title">
+                <source>Counters</source>
+                <target>Zähler</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.name">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.starting_number">
+                <source>Starting number</source>
+                <target>Startnummer</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.ending_number">
+                <source>Ending number</source>
+                <target>Endnummer</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.suffix">
+                <source>Suffix</source>
+                <target>Suffix</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.text">
+                <source>Text</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.img_predefined">
+                <source>Image</source>
+                <target>Bild</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.img_predefined.1">
+                <source>Resident</source>
+                <target>Einwohner</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.img_predefined.2">
+                <source>Average age</source>
+                <target>Durchschnittliches Alter</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.img_predefined.3">
+                <source>Over the sea</source>
+                <target>Über dem Meer​</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.img_predefined.4">
+                <source>Tax base</source>
+                <target>Steuerfuß</target>
+            </trans-unit>
+            <trans-unit id="w4_communitynet_counter.img">
+                <source>Image (replaces the predefined image)</source>
+                <target>Bild (ersetzt das vordefinierte Bild)</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_counters.wizard.description">
+                <source>Counter module to show several animated values</source>
+                <target>Counter-Modul, um mehrere animierte Werte anzuzeigen</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.layout">
+                <source>Layout</source>
+                <target>Layout</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.layout.1">
+                <source>Default</source>
+                <target>Standard</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.layout.2">
+                <source>Filled</source>
+                <target>Gefüllt</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.layout.3">
+                <source>Ghost</source>
+                <target>Geist</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.text">
+                <source>Text</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.link">
+                <source>Link</source>
+                <target>Link</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.size">
+                <source>Size</source>
+                <target>Größe</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.size.normal">
+                <source>Normal</source>
+                <target>Normal</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.size.small">
+                <source>Small</source>
+                <target>Klein</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.fullwidth">
+                <source>Full width</source>
+                <target>Gesamtbreite</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.alignment">
+                <source>Alignment</source>
+                <target>Ausrichtung</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.alignment.1">
+                <source>Left</source>
+                <target>Links</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.alignment.2">
+                <source>Center</source>
+                <target>Zentriert</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_button.alignment.3">
+                <source>Right</source>
+                <target>Rechts</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_iframe.wizard.title">
+                <source>Iframe</source>
+                <target>Iframe</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_iframe.wizard.description">
+                <source>Responsive iframe with different aspect ratios</source>
+                <target>Responsive Iframe mit unterschiedlichen Seitenverhältnißen</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_iframe.url">
+                <source>Url</source>
+                <target>Url</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_iframe.ratio">
+                <source>Aspect ratio</source>
+                <target>Seitenverhältnis</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_2cols.wizard.title">
+                <source>Two columns container</source>
+                <target>Behälter mit zwei Spalten</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_2cols.wizard.description">
+                <source>Two columns container</source>
+                <target>Behälter mit zwei Spalten</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_3cols.wizard.title">
+                <source>Three columns container</source>
+                <target>Behälter mit drei Spalten</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_3cols.wizard.description">
+                <source>Three columns container</source>
+                <target>Behälter mit drei Spalten</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_4cols.wizard.title">
+                <source>Four columns container</source>
+                <target>Behälter mit vier Spalten</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_4cols.wizard.description">
+                <source>Four columns container</source>
+                <target>Behälter mit vier Spalten</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_citationbox.wizard.title">
+                <source>Citation box</source>
+                <target>Zitierbox</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_citationbox.wizard.description">
+                <source>Citation box</source>
+                <target>Zitierbox</target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_2colsSidecol.wizard.title">
+                <source>Two columns container with side column</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="ce.w4_communitynet_2colsSidecol.wizard.description">
+                <source>Two columns container with side column</source>
+                <target>ZweiSpaltencontainer mit Seitensäule</target>
+            </trans-unit>
+            <trans-unit id="tt_content.header_layout.0">
+                <source>Default</source>
+                <target>Standard</target>
+            </trans-unit>
+            <trans-unit id="videopopup">
+                <source>Display video in popup</source>
+                <target>Video im Popup anzeigen</target>
+            </trans-unit>
+            <trans-unit id="column_1">
+                <source>Column 1</source>
+                <target>Spalte 1</target>
+            </trans-unit>
+            <trans-unit id="column_2">
+                <source>Column 2</source>
+                <target>Spalte 2</target>
+            </trans-unit>
+            <trans-unit id="column_3">
+                <source>Column 3</source>
+                <target>Spalte 3</target>
+            </trans-unit>
+            <trans-unit id="column_4">
+                <source>Column 4</source>
+                <target>Spalte 4</target>
+            </trans-unit>
+            <trans-unit id="visibility">
+                <source>Visibility</source>
+                <target>Sichtweite</target>
+            </trans-unit>
+            <trans-unit id="responsive">
+                <source>Hide content on these devices</source>
+                <target>Inhalte auf diesen Geräten ausblenden</target>
+            </trans-unit>
+            <trans-unit id="hidden.xs">
+                <source>Extra small: phones (&lt;576px)</source>
+                <target>Extra klein: Telefone (&lt;576px)</target>
+            </trans-unit>
+            <trans-unit id="hidden.sm">
+                <source>Small: phones (&gt;=576px)</source>
+                <target>Klein: Telefone (&gt;=576px)</target>
+            </trans-unit>
+            <trans-unit id="hidden.md">
+                <source>Medium: tablets (&gt;=768px)</source>
+                <target>Medium: Tabletten (&gt;=768px)</target>
+            </trans-unit>
+            <trans-unit id="hidden.lg">
+                <source>Large: desktops (&gt;=992px)</source>
+                <target>Groß: Desktops (&gt;=992px)</target>
+            </trans-unit>
+            <trans-unit id="hidden.xl">
+                <source>Extra large: desktops (&gt;=1200px)</source>
+                <target>Extra groß: Desktops (&gt;=1200px)</target>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_colorheader">
+                <source>With highlight color</source>
+                <target>Mit Highlight-Farbe</target>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_underlineheader">
+                <source>Underlined</source>
+                <target>Unterstrichen</target>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_pheader">
+                <source>Show as paragraph</source>
+                <target>Als Absatz anzeigen</target>
+            </trans-unit>
+            <trans-unit id="w4_community_net.icon_class">
+                <source>Top link icon</source>
+                <target>Top-Link-Symbol</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.news">
+                <source>News</source>
+                <target>Nachrichten</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.events">
+                <source>Events</source>
+                <target>Veranstaltungen</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.6">
+                <source>List</source>
+                <target>Liste</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.1">
+                <source>Three columns list</source>
+                <target>Liste mit drei Spalten</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.2">
+                <source>List</source>
+                <target>Liste</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.3">
+                <source>List with category filter</source>
+                <target>Liste mit Kategoriefilter</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.4">
+                <source>Detail page</source>
+                <target>Detailseite</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.5">
+                <source>Detail page</source>
+                <target>Detailseite</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

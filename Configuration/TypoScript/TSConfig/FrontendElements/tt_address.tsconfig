@@ -1,0 +1,14 @@
+TCEFORM {
+    tt_content {
+        pi_flexform {
+            ttaddress_listview {
+                sDISPLAY {
+                    settings\.displayMode.addItems {
+                        tablelist = Table List
+                        imagelist = Photo List 
+                    }
+                }
+            }
+        }
+    }
+}
