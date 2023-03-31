@@ -42,13 +42,13 @@
     display: flex;
     align-items: center;
     padding: 10px 0;
-    font-size: 1.125rem;
-    line-height: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
 
     @media #{$min-lg} {
       padding: 1rem 0;
-      font-size: 1.625rem;
-      line-height: 2.25rem;
+      font-size: 1.25rem;
+      line-height: 2rem;
     }
 
     span {
@@ -68,9 +68,8 @@
 
   &-toggler {
     position: relative;
-    height: 28px;
     margin: 0 0 0 auto;
-    padding: 0;
+    padding: 10px;
     border: none;
     text-align: center;
     background: transparent;
@@ -78,11 +77,10 @@
 
     .icon-bar {
       display: block;
-      width: 28px;
-      height: 4px;
+      width: 12px;
+      height: 2px;
       margin: 0 auto;
-      border-radius: 4px;
-      background: $headers-color;
+      background: $color-white;
 
       &+.icon-bar {
         margin-top: 5px;
@@ -98,9 +96,9 @@
         top: 50%;
         right: 0;
         left: 0;
-        width: 28px;
-        height: 3px;
-        margin: -2px auto 0;
+        width: 12px;
+        height: 2px;
+        margin: 0 auto;
 
         &:nth-of-type(1) {
           transform: rotateZ(45deg);

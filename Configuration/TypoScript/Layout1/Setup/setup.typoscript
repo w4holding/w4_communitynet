@@ -34,10 +34,10 @@ plugin {
     tx_indexedsearch {
         view {
             templateRootPaths {
-                10 = EXT:w4_communitynet/Resources/Private/Layout2/Extensions/indexed_search/Templates/
+                10 = EXT:w4_communitynet/Resources/Private/Layout1/Extensions/indexed_search/Templates/
             }
             partialRootPaths {
-                10 = EXT:w4_communitynet/Resources/Private/Layout2/Extensions/indexed_search/Partials/
+                10 = EXT:w4_communitynet/Resources/Private/Layout1/Extensions/indexed_search/Partials/
             }
         }
     }

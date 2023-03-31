@@ -1,13 +1,24 @@
+@media screen and (max-width: 991px) {
+  .footer-wrapper-interior {
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .footer-wrapper-interior {
+    margin-bottom: 50px;
+  }
+}
+
 footer {
   width: 100%;
   background: $red;
   color: $color-white;
   padding: 5px 0 0 0;
-  margin-top: 40px;
 
   p {
     margin-bottom: 0.2rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   a[href^="tel"] {
@@ -36,6 +47,10 @@ footer {
     padding-right: 0;
     padding-left: 0;
 
+    @media screen and (max-width: 575px) {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
     a {
       color: $color-white;
     }
@@ -43,15 +58,15 @@ footer {
 
   .headline,
   header {
-    margin: 1rem 0 1.5rem 0;
+    margin: 1rem 0;
 
     .h2 {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .subfooter {
@@ -112,7 +127,7 @@ footer th {
 
       a {
         color: $color-white;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
       }
     }
   }

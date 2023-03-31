@@ -10,13 +10,8 @@
   }
 
   @media #{$min-xxl} {
-    font-size: 1.125rem;
-    line-height: 1.375rem;
-  }
-
-  @media #{$max-lg} {
-    overflow: auto;
-    padding: 20px 0 0;
+    font-size: 1rem;
+    line-height: 1rem;
   }
 
   @at-root {
@@ -111,14 +106,11 @@
       white-space: nowrap;
       color: $headers-color;
       font-family: "Open Sans SemiBold";
-
-      @media #{$min-lg} {
-        padding: 2px 20px;
-        border-right: 1px solid $color-gray6;
-      }
+      padding: 2px 20px;
+      border-right: 1px solid $color-gray6;
 
       @media #{$min-xxl} {
-        font-size: 1.4375rem;
+        font-size: 1rem;
         line-height: 2rem;
       }
 
@@ -132,10 +124,8 @@
 
     &:last-of-type {
       &>a {
-        @media #{$min-lg} {
           padding-right: 0;
           border: 0;
-        }
       }
     }
 
@@ -167,6 +157,7 @@
       border-top: 2px solid $primary;
       border-bottom: 2px solid $nav-link-color;
       @include color-active(border-top-color);
+      box-shadow: 0 6px 12px rgba(0,0,0,.175);
     }
 
     a {
@@ -176,9 +167,7 @@
       color: $nav-link-color;
 
       @media #{$min-lg} {
-        padding: 8px 35px;
-        border-bottom: solid 1px $color-gray4;
-
+        padding: 8px 22x;
         &:hover {
           color: $nav-link-color;
           background: $color-gray4;
