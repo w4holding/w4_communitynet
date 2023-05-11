@@ -16,7 +16,7 @@ ul#side-contact-bar {
   display: block;
   position: fixed;
   left: calc(100% - 100px);
-  top: 175px;
+  top: 151px;
   height: 60px;
   z-index: 999;
   list-style: none;
@@ -477,13 +477,13 @@ ul#side-contact-bar {
   }
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1359px) {
   ul#side-contact-bar {
     display: none;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1359px) {
   #footer {
     #top-contact-bar {
       display: block;

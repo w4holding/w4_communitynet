@@ -118,11 +118,12 @@
 
 // Button for toggling the navbar when in its collapsed state
 .navbar-toggler {
-  padding: 10px;
+  padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
   @include font-size($navbar-toggler-font-size);
   line-height: 1;
   background-color: transparent; // remove default button style
   border: $border-width solid transparent; // remove default button style
+  @include border-radius($navbar-toggler-border-radius);
   @include transition($navbar-toggler-transition);
 
   &:hover {
@@ -134,14 +135,6 @@
     outline: 0;
     box-shadow: 0 0 0 $navbar-toggler-focus-width;
   }
-  .red-style-template & {
-    background: #d91231; }
-
-  .blue-style-template & {
-    background: #1e55a5; }
-
-  .green-style-template & {
-    background: #245c28; }
 }
 
 // Keep as a separate element so folks can easily override it with another icon
