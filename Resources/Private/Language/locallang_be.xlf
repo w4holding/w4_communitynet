@@ -141,6 +141,9 @@
             <trans-unit id="ce.w4_communitynet_counters.wizard.title">
                 <source>Counters</source>
             </trans-unit>
+            <trans-unit id="w4_communitynet_counter.counter">
+                <source>Counter</source>
+            </trans-unit>
             <trans-unit id="w4_communitynet_counter.name">
                 <source>Name</source>
             </trans-unit>
