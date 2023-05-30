@@ -11,7 +11,7 @@ return (function() {
 
     return [
         'ctrl' => [
-            'title' => $languageFilePrefix . 'ce.w4_communitynet_counters.wizard.title',
+            'title' => $languageFilePrefix . 'w4_communitynet_counter.counter',
             'label' => 'name',
             'prependAtCopy' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
             'hideAtCopy' => true,
@@ -34,7 +34,7 @@ return (function() {
                 'endtime' => 'endtime',
                 'fe_group' => 'fe_group',
             ],
-            'iconfile' => "EXT:$imgPath/favicon.png",
+            'iconfile' => 'EXT:w4_communitynet/Resources/Public/Images/Content/Counter.png',
             'searchFields' => 'name,text',
         ],
         'interface' => [

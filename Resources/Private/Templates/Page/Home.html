@@ -6,6 +6,7 @@
         <div class="header home">
             <f:cObject typoscriptObjectPath="lib.content.render" data="{colPos: 1}" />
         </div>
+        <!--TYPO3SEARCH_begin-->
         <div id="content-home" class="content content-home">
             <v:menu.list pages="{quicklinks}">
                 <div id="top-contact-bar">
@@ -23,8 +24,7 @@
             <div class="mb-3"></div>
             <f:cObject typoscriptObjectPath="lib.content.render" data="{colPos: 0}" />
         </div>
+        <!--TYPO3SEARCH_end-->
     </div>
-    <div class="footer-wrapper-home">
-        <f:render partial="Footer" arguments="{_all}" />
-    </div>
+    <f:render partial="Footer" arguments="{_all}" />
 </f:section>

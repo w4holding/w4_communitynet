@@ -187,6 +187,10 @@
                 <source>Counters</source>
                 <target>Zähler</target>
             </trans-unit>
+            <trans-unit id="w4_communitynet_counter.counter">
+                <source>Counter</source>
+                <target>Zähler</target>
+            </trans-unit>
             <trans-unit id="w4_communitynet_counter.name">
                 <source>Name</source>
                 <target>Name</target>

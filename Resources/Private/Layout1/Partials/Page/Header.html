@@ -53,4 +53,33 @@
             </ul>
         </div>
     </div>
+    <f:if condition="{quicklinks}">
+        <v:menu.list pages="{quicklinks}">
+            <ul class="side-contact-bar" id="side-contact-bar">
+                <f:for each="{menu}" as="menuPage" iteration="iteration">                
+                    <li class="item-desktop item-desktop-{iteration.cycle} {menuPage.tx_w4communitynet_icon_class}">
+                        <a href="{menuPage.link}" target="{menuPage.target}" title="{menuPage.linktext}">
+                            {menuPage.linktext}
+                        </a>
+                    </li>
+                    <li class="item-mobile">
+                        <a href="{menuPage.link}" target="{menuPage.target}" title="{menuPage.title}">
+                            {menuPage.linktext}
+                        </a>
+                    </li>
+                </f:for>
+            </ul>
+            <div id="top-contact-bar">
+                <ul class="items-{menu -> f:count()} container">
+                    <f:for each="{menu}" as="menuPage">	
+                        <li class="{menuPage.tx_w4communitynet_icon_class}">
+                            <a href="{menuPage.link}" target="{menuPage.target}" title="{menuPage.title}">
+                                <span>{menuPage.title}</span>
+                            </a>
+                        </li>
+                    </f:for>
+                </ul>
+            </div>
+        </v:menu.list>
+    </f:if>
 </nav>
