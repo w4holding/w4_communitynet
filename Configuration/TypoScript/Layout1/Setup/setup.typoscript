@@ -2,7 +2,7 @@ page {
     includeCSS {
         100 = EXT:w4_communitynet/Resources/Public/Layout1/Css/vendor.min.css
         105 = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/lightbox/css/lightbox.min.css
-        110 = EXT:w4_communitynet/Resources/Public/Layout1/Css/style.min.css
+        110 = EXT:w4_communitynet/Resources/Public/Layout1/Css/style.css
         font_awesome = EXT:w4_communitynet/Resources/Public/Css/fontawesome/css/all.min.css
         accordion = EXT:w4_communitynet/Resources/Public/Css/accordion.min.css
         
