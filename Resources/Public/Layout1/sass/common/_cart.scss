@@ -57,9 +57,15 @@
 
 /* Checkout */
 
+.tx-cart .checkout-step {
+    background-color: #fff !important;
+    box-shadow: 0 0 25px #e2e2e2;
+}
+
 .tx-cart .checkout-step-title,
-.tx-cart .confirmation-step-title {
-    background: #ccc;
+.tx-cart .confirmation-step-title,
+.tx-cart .checkout-step-content {
+    padding: 30px !important;
     margin: 0;
     padding: 0 2em;
     line-height: 2;
@@ -68,6 +74,7 @@
 .tx-cart .confirmation-step-title {
     font-size: 1rem;
     font-weight: 300;
+    background: #e5e5e5 !important;
 }
 
 .tx-cart .checkout-step-content {
@@ -84,15 +91,38 @@
     background: #333;
     color: #fff;
     display: inline-block;
-    width: 2em;
+    width: 3rem;
     border-radius: 50%;
     text-align: center;
-    height: 2em;
-    line-height: 2em;
-    font-size: 0.75em;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.5rem;
     vertical-align: middle;
     margin-right: 1em;
     margin-top: -3px;
+}
+
+.checkout-step .underline-header::after {
+  display: none;
+}
+
+#form-order .btn.btn-primary {
+  width: 100%;
+}
+
+.red-style-template .tx-cart #form-order .checkout-step-number,
+.red-style-template .tx-cart #form-cart .checkout-step-number {
+    background: #d91231;
+}
+
+.green-style-template .tx-cart #form-order .checkout-step-number,
+.green-style-template .tx-cart #form-cart .checkout-step-number {
+    background: #287a2f;
+}
+
+.blue-style-template .tx-cart #form-order .checkout-step-number,
+.blue-style-template .tx-cart #form-cart .checkout-step-number {
+    background: #1e55a5;
 }
 
 .shipping-same-as-billing-wrapper {
