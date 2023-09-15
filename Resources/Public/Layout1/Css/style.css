@@ -1184,16 +1184,8 @@ footer {
   footer h2,
   footer h3 {
     margin-bottom: 1.5rem; }
-  footer .container-footer {
-    padding-right: 0;
-    padding-left: 0; }
-    @media screen and (max-width: 575px) {
-      footer .container-footer {
-        padding-right: 15px;
-        padding-left: 15px; }
-    }
-    footer .container-footer a {
-      color: #fff; }
+  footer .container-footer a {
+    color: #fff; }
   footer .headline,
   footer header {
     margin: 1rem 0; }

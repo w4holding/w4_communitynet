@@ -44,13 +44,6 @@ footer {
   }
 
   .container-footer {
-    padding-right: 0;
-    padding-left: 0;
-
-    @media screen and (max-width: 575px) {
-        padding-right: 15px;
-        padding-left: 15px;
-    }
     a {
       color: $color-white;
     }
