@@ -3,7 +3,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'CommunityNet',
     'description' => 'W4 Basic Extension for CommunityNet websites.',
-    'version' => '1.0.2',
+    'version' => '1.0.3',
     'category' => 'fe',
     'constraints' => [
         'depends' => [
