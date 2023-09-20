@@ -525,3 +525,137 @@ div.form-buttons {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
+
+/* Checkbox */
+
+label.checkboxcontainer {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding: 0 0 10px 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 0.9rem;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #eee;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 11px;
+      top: 5px;
+      width: 8px;
+      height: 16px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  &:hover input~.checkmark {
+    background-color: #ccc;
+  }
+
+  input:checked~.checkmark {
+    background-color: $red;
+  }
+
+  input:checked~.checkmark:after {
+    display: block;
+  }
+}
+
+/* Radio */
+
+label.radiocontainer {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding: 0 0 10px 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #eee;
+    border-radius: 50%;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+    }
+  }
+
+  &:hover input~.checkmark {
+    background-color: #ccc;
+  }
+
+  input:checked~.checkmark {
+    background-color: $red;
+  }
+
+  input:checked~.checkmark:after {
+    display: block;
+  }
+}
+
+.blue-style-template {
+
+  label.checkboxcontainer input:checked~.checkmark,
+  label.radiocontainer input:checked~.checkmark {
+    background-color: $blue;
+  }
+}
+
+.green-style-template {
+
+  label.checkboxcontainer input:checked~.checkmark,
+  label.radiocontainer input:checked~.checkmark {
+    background-color: $green;
+  }
+}
+
+#newsletterTopics .form-group {
+    padding: 30px;
+    box-shadow: 0 0 25px #e2e2e2;
+}

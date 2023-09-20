@@ -118,10 +118,6 @@ ul#side-contact-bar {
     background-image: url("../img/questionmark.svg");
   }
 
-  li.sbb-icon {
-    background-image: url("../img/sbb.svg");
-  }
-
   li.webcam-icon {
     background-image: url("../img/webcam.svg");
   }
@@ -136,6 +132,70 @@ ul#side-contact-bar {
 
   li.smartserviceportal-icon {
     background-image: url("../img/smartserviceportal.png");
+  }
+
+  li.home-icon {
+    background-image: url("../img/home.svg");
+  }
+
+  li.pointer-icon {
+    background-image: url("../img/pointer.svg");
+  }
+
+  li.calendar-icon {
+    background-image: url("../img/calendar.svg");
+  }
+
+  li.grad360-icon {
+    background-image: url("../img/grad360.svg");
+  }
+
+  li.geop-icon {
+    background-image: url("../img/globe.svg");
+  }
+
+  li.home-cart {
+    background-image: url("../img/cart.svg");
+  }
+
+  li.university-icon {
+    background-image: url("../img/university.svg");
+  }
+
+  li.list-alt-icon {
+    background-image: url("../img/list-alt.svg");
+  }
+
+  li.wpforms-icon {
+    background-image: url("../img/wpforms.svg");
+  }
+
+  li.newspaper-icon {
+    background-image: url("../img/newspaper.svg");
+  }
+
+  li.laf-icon {
+    background-image: url("../img/laf.svg");
+  }
+
+  li.job-icon {
+    background-image: url("../img/job.svg");
+  }
+
+  li.trash-icon {
+    background-image: url("../img/trash.svg");
+  }
+
+  li.info-icon {
+    background-image: url("../img/info-circle.svg");
+  }
+
+  li.water-icon {
+    background-image: url("../img/water.svg");
+  }
+
+  li.document-icon {
+    background-image: url("../img/document.svg");
   }
 
   li {
@@ -335,14 +395,6 @@ ul#side-contact-bar {
       }
     }
 
-    li.sbb-icon {
-      a {
-        background-image: url("../img/sbb.svg");
-        background-position: center 25px;
-        background-size: 35px;
-      }
-    }
-
     li.webcam-icon {
       a {
         background-image: url("../img/webcam.svg");
@@ -369,6 +421,103 @@ ul#side-contact-bar {
         background-image: url("../img/smartserviceportal.png");
       }
     }
+
+    li.home-icon {
+      a {
+        background-image: url("../img/home.svg");
+      }
+    }
+
+    li.pointer-icon {
+      a {
+        background-image: url("../img/pointer.svg");
+      }
+    }
+
+    li.calendar-icon {
+      a {
+        background-image: url("../img/calendar.svg");
+      }
+    }
+
+    li.grad360-icon {
+      a {
+        background-image: url("../img/grad360.svg");
+      }
+    }
+
+    li.geop-icon {
+      a {
+        background-image: url("../img/globe.svg");
+      }
+    }
+
+    li.cart-icon {
+      a {
+        background-image: url("../img/cart.svg");
+      }
+    }
+
+    li.university-icon {
+      a {
+        background-image: url("../img/university.svg");
+      }
+    }
+
+    li.list-alt-icon {
+      a {
+        background-image: url("../img/list-alt.svg");
+      }
+    }
+
+    li.wpforms-icon {
+      a {
+        background-image: url("../img/wpforms.svg");
+      }
+    }
+
+    li.newspaper-icon {
+      a {
+        background-image: url("../img/newspaper.svg");
+      }
+    }
+
+    li.laf-icon {
+      a {
+        background-image: url("../img/laf.svg");
+      }
+    }
+
+    li.job-icon {
+      a {
+        background-image: url("../img/job.svg");
+      }
+    }
+
+    li.trash-icon {
+      a {
+        background-image: url("../img/trash.svg");
+      }
+    }
+
+    li.info-icon {
+      a {
+        background-image: url("../img/info-circle.svg");
+      }
+    }
+
+    li.water-icon {
+      a {
+        background-image: url("../img/water.svg");
+      }
+    }
+
+    li.document-icon {
+      a {
+        background-image: url("../img/document.svg");
+      }
+    }
+  
   }
 
   ul.items-1 {

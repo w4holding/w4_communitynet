@@ -2194,7 +2194,69 @@ ul#side-contact-bar {
   ul#side-contact-bar li.logout-icon {
     background-image: url("../img/logout.svg"); }
   ul#side-contact-bar li.smartserviceportal-icon {
-    background-image: url("../img/smartserviceportal.png"); }
+    background-image: url("../img/smartserviceportal.png"); }ul#side-contact-bar li.home-icon {
+      background-image: url("../img/home.svg");
+    }
+    
+    ul#side-contact-bar li.pointer-icon {
+      background-image: url("../img/pointer.svg");
+    }
+    
+    ul#side-contact-bar li.calendar-icon {
+      background-image: url("../img/calendar.svg");
+    }
+    
+    ul#side-contact-bar li.grad360-icon {
+      background-image: url("../img/globe.svg");
+    }
+    
+    ul#side-contact-bar li.geop-icon {
+      background-image: url("../img/globe.svg");
+    }
+    
+    ul#side-contact-bar li.cart-icon {
+      background-image: url("../img/cart.svg");
+    }
+    
+    ul#side-contact-bar li.university-icon {
+      background-image: url("../img/university.svg");
+    }
+    
+    ul#side-contact-bar li.list-alt-icon {
+      background-image: url("../img/list-alt.svg");
+    }
+    
+    ul#side-contact-bar li.wpforms-icon {
+      background-image: url("../img/wpforms.svg");
+    }
+    
+    ul#side-contact-bar li.newspaper-icon {
+      background-image: url("../img/newspaper.svg");
+    }
+    
+    ul#side-contact-bar li.laf-icon {
+      background-image: url("../img/laf.svg");
+    }
+    
+    ul#side-contact-bar li.job-icon {
+      background-image: url("../img/job.svg");
+    }
+    
+    ul#side-contact-bar li.trash-icon {
+      background-image: url("../img/trash.svg");
+    }
+    
+    ul#side-contact-bar li.info-icon {
+      background-image: url("../img/info-circle.svg");
+    }
+    
+    ul#side-contact-bar li.water-icon {
+      background-image: url("../img/water.svg");
+    }
+    
+    ul#side-contact-bar li.document-icon {
+      background-image: url("../img/document.svg");
+    }
   ul#side-contact-bar li a {
     width: 100%;
     padding-right: 30px;
@@ -2307,7 +2369,85 @@ ul#side-contact-bar {
       background-image: url("../img/logout.svg");
       background-size: 25px; }
     #top-contact-bar ul li.smartserviceportal-icon a {
-      background-image: url("../img/smartserviceportal.png"); }
+      background-image: url("../img/smartserviceportal.png"); }#top-contact-bar ul li.home-icon a {
+        background-image: url("../img/home.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.pointer-icon a {
+        background-image: url("../img/pointer.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.calendar-icon a {
+        background-image: url("../img/calendar.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.grad360-icon a {
+        background-image: url("../img/globe.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.geop-icon a {
+        background-image: url("../img/globe.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.cart-icon a {
+        background-image: url("../img/cart.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.university-icon a {
+        background-image: url("../img/university.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.list-alt-icon a {
+        background-image: url("../img/list-alt.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.wpforms-icon a {
+        background-image: url("../img/wpforms.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.newspaper-icon a {
+        background-image: url("../img/newspaper.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.laf-icon a {
+        background-image: url("../img/laf.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.job-icon a {
+        background-image: url("../img/job.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.trash-icon a {
+        background-image: url("../img/trash.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.info-icon a {
+        background-image: url("../img/info-circle.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.water-icon a {
+        background-image: url("../img/water.svg");
+        background-size: 25px;
+      }
+      
+      #top-contact-bar ul li.document-icon a {
+        background-image: url("../img/document.svg");
+        background-size: 25px;
+      }
   #top-contact-bar ul.items-1 li {
     width: 100%; }
   #top-contact-bar ul.items-2 li {
@@ -2660,5 +2800,139 @@ body.green-style-template .paginator ul li.active a, body.green-style-template .
 
 #mini-cart-holding-items {
   display: none; }
+
+/* Checkbox */
+
+label.checkboxcontainer {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding: 0 0 10px 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 0.9rem;
+}
+
+label.checkboxcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+label.checkboxcontainer .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color: #eee;
+}
+
+label.checkboxcontainer :after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 11px;
+  top: 5px;
+  width: 8px;
+  height: 16px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+label.checkboxcontainer:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+label.checkboxcontainer input:checked~.checkmark {
+  background-color: #d91231;
+}
+
+label.checkboxcontainer input:checked~.checkmark:after {
+  display: block;
+}
+
+.blue-style-template label.checkboxcontainer input:checked~.checkmark {
+  background-color: #1e55a5;
+}
+
+.green-style-template label.checkboxcontainer input:checked~.checkmark {
+  background-color: #287a2f;
+}
+
+/* Radio */
+
+label.radiocontainer {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding: 0 0 10px 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+label.radiocontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+label.radiocontainer .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+label.radiocontainer .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+label.radiocontainer .checkmark:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+input:checked~.checkmark {
+  background-color: #d91231;
+}
+
+input:checked~.checkmark:after {
+  display: block;
+}
+
+.blue-style-template label.radiocontainer input:checked~.checkmark {
+  background-color: #1e55a5;
+}
+
+.green-style-template label.radiocontainer input:checked~.checkmark {
+  background-color: #287a2f;
+}
+
+#newsletterTopics .form-group {
+    padding: 30px;
+    box-shadow: 0 0 25px #e2e2e2;
+}
 
 /*# sourceMappingURL=style.css.map */
