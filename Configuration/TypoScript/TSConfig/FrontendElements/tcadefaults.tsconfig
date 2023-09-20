@@ -2,4 +2,7 @@ TCAdefaults {
     tt_content {
         space_after_class = 100
     }
+    sys_file_reference {
+        showinpreview = 1
+    }
 }
