@@ -80,31 +80,28 @@
                         <div class="date">
                             <f:format.date format="d.m.Y">{newsItem.datetime}</f:format.date>
                         </div>
-                        <div class="image-wrapper">
-                            <f:alias map="{mediaElement: newsItem.falmedia.0}">
-                                <f:if condition="{mediaElement}">
-                                    <f:then>
-                                        <f:media
-                                            class="card-img-top"
-                                            file="{mediaElement}"
-                                            width="915c"
-                                            height="585c"
-                                            alt="{mediaElement.originalResource.alternative}"
-                                            title="{mediaElement.originalResource.title}"
-                                            loading="lazy"
-                                            additionalAttributes="{srcset: '{f:uri.image(image: mediaElement, maxWidth: 768)} 768w,
-                                                                            {f:uri.image(image: mediaElement, maxWidth: 990)} 990w,
-                                                                            {f:uri.image(image: mediaElement, maxWidth: 1200)} 1200w,
-                                                                            {f:uri.image(image: mediaElement, maxWidth: 1440)} 1440w,
-                                                                            {f:uri.image(image: mediaElement, maxWidth: 1900)} 1900w',
-                                                                   sizes: '(min-width: 1200px) 50vw, 100vw'}"
-                                        />
-                                    </f:then>
-                                    <f:else>
-                                        <img src="/typo3conf/ext/w4_communitynet/Resources/Public/Images/thumb-default.png"/>
-                                    </f:else>
-                                </f:if>
-                            </f:alias>
+                        <div class="image-wrapper">                            
+                            <f:for each="{newsItem.falmedia}" as="media">
+                                <f:alias map="{mediaElement: media}">
+                                    <f:if condition="{mediaElement} && {mediaElement.showinpreview}<2">
+                                            <f:media
+                                                class="card-img-top"
+                                                file="{mediaElement}"
+                                                width="915c"
+                                                height="585c"
+                                                alt="{mediaElement.originalResource.alternative}"
+                                                title="{mediaElement.originalResource.title}"
+                                                loading="lazy"
+                                                additionalAttributes="{srcset: '{f:uri.image(image: mediaElement, maxWidth: 768)} 768w,
+                                                                                {f:uri.image(image: mediaElement, maxWidth: 990)} 990w,
+                                                                                {f:uri.image(image: mediaElement, maxWidth: 1200)} 1200w,
+                                                                                {f:uri.image(image: mediaElement, maxWidth: 1440)} 1440w,
+                                                                                {f:uri.image(image: mediaElement, maxWidth: 1900)} 1900w',
+                                                                                sizes: '(min-width: 1200px) 50vw, 100vw'}"
+                                            />
+                                    </f:if>
+                                </f:alias>
+                            </f:for>
                         </div>
                         <div class="content" itemprop="articleBody">
                             <f:format.html>{newsItem.bodytext}</f:format.html>
