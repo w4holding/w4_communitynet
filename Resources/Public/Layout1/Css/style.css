@@ -501,8 +501,7 @@ b, strong {
     .navbar-nav {
       display: flex;
       justify-content: flex-end;
-      width: 100%;
-      height: 100%; } }
+      width: 100%; } }
   @media screen and (min-width: 1470px) {
     .navbar-nav {
       font-size: 1rem;

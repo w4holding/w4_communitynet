@@ -12,8 +12,9 @@
         homePageNews();
         initCounters();
 
-            initIframeModal();
+        initIframeModal();
         datatablesProducts();
+        initSubmitLinks();
         sidebar();
 
     });
@@ -276,7 +277,7 @@ function sidebar() {
         $("#top-contact-bar").addClass("sticky");
     }
 }
-
+/*
 var mybutton = document.getElementById("btn-back-to-top");
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
@@ -286,7 +287,15 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
+*/
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+}
+
+function initSubmitLinks() {
+    $('a.submit-link').on('click', function (e) {
+        $('#' + $(this).attr('data-target')).click();
+        return false;
+    });
 }
