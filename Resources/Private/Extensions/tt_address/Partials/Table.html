@@ -1,54 +1,54 @@
 {namespace v=FluidTYPO3\Vhs\ViewHelpers}
 <f:variable name="columns" value="{v:iterator.explode(content:settings.fields , glue:',')}" />
 <div class="table-responsive">
-	<table class="table"> 
-		<thead> 
-			<tr>
-				<f:for each="{columns}" as="column">
-					<th class="col  ">							
-						<f:if condition="{f:translate(key:'label.{column}')}" >	
-							<f:then>
-								{f:translate(key:'label.{column}')}
-							</f:then>
-							<f:else>
-								<f:format.case mode="capital">{column}</f:format.case>
-							</f:else>
-						</f:if>
-					</th>			
-				</f:for> 
-			</tr> 
-		</thead>
-		<f:for each="{addresses}" as="address" iteration="iterator">
-			<tr class="table vcard-row" itemscope="" itemtype="http://schema.org/Person">
-				<f:for each="{columns}" as="column"> 
-					<td class="col  ">
-						<f:switch expression="{column}">								
-							<f:case value="birthday"><f:format.date format="d.m.Y">{address.birthday}</f:format.date>&nbsp;</f:case>
-							<f:case value="phone"><a href="tel:{address.cleanedPhone}">{address.cleanedPhone}</a>&nbsp;</f:case>
-							<f:case value="fax"><a href="tel:{address.cleanedFax}">{address.cleanedFax}</a>&nbsp;</f:case>
-							<f:case value="mobile"><a href="tel:{address.cleanedMobile}">{address.cleanedMobile}</a>&nbsp;</f:case>
-							<f:case value="email"><a href="mailto:{address.email}">{address.email}</a>&nbsp;</f:case>
-							<f:case value="www"><a href="{address.www}">{address.www}</a>&nbsp;</f:case>
-							<f:case value="socialmedia">									
-								<f:if condition="{address.skype}">
-									<a href="skype:{address.skype}?call"><i class="fa-brands fa-skype"></i></a>
-								</f:if>
-								<f:if condition="{address.twitter}">
-									<a href="https://twitter.com/{address.twitter}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-								</f:if>
-								<f:if condition="{address.facebook}">
-									<a href="https://www.facebook.com/{address.facebook}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-								</f:if>
-								<f:if condition="{address.linkedin}">
-									<a href="https://www.linkedin.com/in/{address.linkedin}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></i></a>
-								</f:if>
-							</f:case> 
-							<f:defaultCase>{address.{column}}</f:defaultCase>
-						</f:switch>
-					&nbsp;</td>				 					
-				</f:for>			
-			</tr>
-		</f:for>
-	</tbody>
-	</table>
+    <table class="table"> 
+        <thead> 
+            <tr>
+                <f:for each="{columns}" as="column">
+                    <th class="col  ">							
+                        <f:if condition="{f:translate(key:'label.{column}')}" >	
+                            <f:then>
+                                {f:translate(key:'label.{column}')}
+                            </f:then>
+                            <f:else>
+                                <f:format.case mode="capital">{column}</f:format.case>
+                            </f:else>
+                        </f:if>
+                    </th>			
+                </f:for> 
+            </tr> 
+        </thead>
+        <f:for each="{addresses}" as="address" iteration="iterator">
+            <tr class="table vcard-row" itemscope="" itemtype="http://schema.org/Person">
+                <f:for each="{columns}" as="column"> 
+                    <td class="col  ">
+                        <f:switch expression="{column}">								
+                            <f:case value="birthday"><f:format.date format="d.m.Y">{address.birthday}</f:format.date>&nbsp;</f:case>
+                            <f:case value="phone"><a href="tel:{address.cleanedPhone}">{address.phone}</a>&nbsp;</f:case>
+                            <f:case value="fax"><a href="tel:{address.cleanedFax}">{address.fax}</a>&nbsp;</f:case>
+                            <f:case value="mobile"><a href="tel:{address.cleanedMobile}">{address.mobile}</a>&nbsp;</f:case>
+                            <f:case value="email"><a href="mailto:{address.email}">{address.email}</a>&nbsp;</f:case>
+                            <f:case value="www"><a href="{address.www}">{address.www}</a>&nbsp;</f:case>
+                            <f:case value="socialmedia">									
+                                <f:if condition="{address.skype}">
+                                    <a href="skype:{address.skype}?call"><i class="fa-brands fa-skype"></i></a>
+                                </f:if>
+                                <f:if condition="{address.twitter}">
+                                    <a href="https://twitter.com/{address.twitter}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                                </f:if>
+                                <f:if condition="{address.facebook}">
+                                    <a href="https://www.facebook.com/{address.facebook}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                                </f:if>
+                                <f:if condition="{address.linkedin}">
+                                    <a href="https://www.linkedin.com/in/{address.linkedin}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></i></a>
+                                </f:if>
+                            </f:case> 
+                            <f:defaultCase>{address.{column}}</f:defaultCase>
+                        </f:switch>
+                    &nbsp;</td>				 					
+                </f:for>			
+            </tr>
+        </f:for>
+    </tbody>
+    </table>
 </div>
