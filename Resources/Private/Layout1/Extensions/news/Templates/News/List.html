@@ -6,15 +6,17 @@
 
 <f:section name="content">
     <f:switch expression="{settings.templateLayout}">
-        <f:case value="homePageLayout">
-            <f:variable name="class" value="home" />
+        <f:case value="1">
+            <f:variable name="class" value="cols" />
         </f:case>
         <f:defaultCase>
-            <f:variable name="class" value="default" />
+            <f:variable name="class" value="list" />
         </f:defaultCase>
-    </f:switch>
+    </f:switch>    
     <f:if condition="{news}">
         <f:then>
+            <style>
+            </style>
             <f:if condition="{settings.eventRestriction}!='1'">
                 <f:then>
                     <div class="news-list-view news-list-{class} container" id="news-container-{contentObjectData.uid}">

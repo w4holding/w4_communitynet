@@ -34,7 +34,7 @@ class Cacheautoclear
                 if ($record['table']==$table) {
                     $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
 
-                    if ($record['wherePageUid']=='###PID###') {
+                    if ( isset($record['wherePageUid']) && $record['wherePageUid']=='###PID###' ) {
                         try {
                             $cacheManager->flushCachesInGroupByTag('pages', 'pageId_' . $parentObject->checkValue_currentRecord['pid']);
                         } catch (NoSuchCacheGroupException $e) {
