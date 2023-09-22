@@ -2107,6 +2107,21 @@ div.form-buttons {
   display: flow-root;
   margin-bottom: 15px; }
 
+.form-group-with-shadow {
+  padding: 60px 60px 30px 60px;
+  box-shadow: 0 0 25px #e2e2e2; }
+
+  .form-group ul.nav li {
+    width: 33.33333333%;
+    -ms-flex-preferred-size: 33.33333333%;
+    flex-basis: 33.33333333%;
+    float: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 60px;
+    padding-right: 10px;
+}
 .sky-form .col {
   float: left;
   min-height: 1px;
@@ -2931,11 +2946,6 @@ input:checked~.checkmark:after {
 
 .green-style-template label.radiocontainer input:checked~.checkmark {
   background-color: #287a2f;
-}
-
-#newsletterTopics .form-group {
-    padding: 30px;
-    box-shadow: 0 0 25px #e2e2e2;
 }
 
 .news-list-cols .newsitem {
