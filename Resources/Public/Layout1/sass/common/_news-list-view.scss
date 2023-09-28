@@ -209,7 +209,7 @@
 
     display: inline-table;
     width: 100%;
-    margin-bottom: 95px;
+    margin-bottom: 10px;
     
     a {
       color: #454545;
@@ -287,6 +287,7 @@
       width: calc(50% - 50px);
       height: 500px;
       max-height: 500px;
+      margin-bottom: 40px;
     }
   
     @media (min-width: 1240px) {

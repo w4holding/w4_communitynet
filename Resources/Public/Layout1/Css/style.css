@@ -2951,7 +2951,7 @@ input:checked~.checkmark:after {
 .news-list-cols .newsitem {
   display: inline-table;
   width: 100%;
-  margin-bottom: 95px;
+  margin-bottom: 10px;
 }
 
 .news-list-cols .newsitem a {
@@ -3009,6 +3009,7 @@ input:checked~.checkmark:after {
       width: calc(50% - 50px);
       height: 500px;
       max-height: 500px;
+      margin-bottom: 40px;
   }
   .news-list-cols .newsitem.newsitem-1,
   .news-list-cols .newsitem.newsitem-3,
