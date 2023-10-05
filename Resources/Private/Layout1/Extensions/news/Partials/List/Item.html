@@ -12,8 +12,7 @@
             </f:alias>
             <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
                 <div class="article articletype-0" itemscope="itemscope" itemtype="http://schema.org/Article">
-                    
-                    <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}"{f:if(condition: '{image}', then: ' style="background-image: url({image});"')}>
+                    <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}" style="background-image: url({f:if(condition: '{image}', then: '{image}', else: '{f:uri.image(src: \'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png\', absolute: 1)}')});">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAHCCAYAAADGof6RAAAABHNCSVQICAgIfAhkiAAABP5JREFUeJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvBvJXwAB7a65GAAAAABJRU5ErkJggg==" width="720" height="450" alt="{newsItem.title}" />
                     </div>
                     <div class="text-wrapper">
@@ -57,7 +56,7 @@
                             <f:variable name="image" value="{f:uri.image(image: '{mediaElement}', width: '400c', height: '250c')}" />
                         </f:if>
                     </f:alias>
-                    <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}"{f:if(condition: '{image}', then: ' style="background-image: url({image});"')} alt=""></div>
+                    <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}" style="background-image: url({f:if(condition: '{image}', then: '{image}', else: '{f:uri.image(src: \'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png\', absolute: 1)}')});"></div>
                     <div class="article-infos">
                         <span class="date">
                             <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">

@@ -32,6 +32,7 @@
       }
 
       .image-wrapper {
+        position: relative;
         width: 100%;
         height: 250px;
         background: #f0f0f0 center center no-repeat;
@@ -132,6 +133,37 @@
             background-image: url("../Images/li-green.svg");
           }
         }
+      }
+    }
+    .image-wrapper-no-image {
+      display: none;
+      position: relative;
+      div {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 85px;
+        vertical-align: middle;
+        opacity: .5;
+        color: #454545;
+        text-align: center;
+        img {
+          height: 85px;
+          margin-top: -25px;
+        }
+        p {
+          display: inline-block;
+          margin: auto;
+          text-align: left;
+          span {
+            margin-top: 15px;
+            display: inline-block;
+          }
+        }
+      }
+      @media (min-width: 920px) {
+        display: block;
       }
     }
   }
@@ -265,14 +297,6 @@
       .image-wrapper {
         background: #f0f0f0 center center no-repeat;
         background-size: cover;
-      }
-
-      .image-wrapper-no-image {
-        display: none;
-
-        @media (min-width: 920px) {
-          display: block;
-        }
       }
 
       @media (min-width: 920px) {

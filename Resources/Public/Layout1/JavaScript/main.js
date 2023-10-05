@@ -17,6 +17,8 @@
         initSubmitLinks();
         sidebar();
 
+        insertLogoInDefaultNewsThumbnails();
+
     });
 })(jQuery);
 
@@ -299,3 +301,10 @@ function initSubmitLinks() {
         return false;
     });
 }
+
+function insertLogoInDefaultNewsThumbnails() {
+    if ($(".image-wrapper-no-image").length) {
+        $(".image-wrapper-no-image").append("<div><p>" + $("#logo").html() + "</p></div>");
+    }
+}
+

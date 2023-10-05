@@ -11,12 +11,7 @@
             <f:variable name="newsurl" value="{n:link(newsItem: '{newsItem}', settings: '{settings}', uriOnly: '1', configuration: '{forceAbsoluteUrl: 1}')}" />
             <f:alias map="{mediaElement: newsItem.falmedia.0}">
                 <f:if condition="{mediaElement}">
-                    <f:then>
-                        <f:variable name="thumbImage" value="{f:uri.image(image: '{newsItem.falmedia.0}', width:'915c',height:'585c'  absolute:1 )}" />                     
-                    </f:then>
-                    <f:else>
-                        <f:variable name="thumbImage" value="{f:uri.image(src: 'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png', absolute: 1 )}" />
-                    </f:else>
+                    <f:variable name="thumbImage" value="{f:uri.image(image: '{newsItem.falmedia.0}', width:'915c',height:'585c'  absolute:1 )}" />  
                 </f:if>
             </f:alias>
             <f:if condition="!{newsItem.isEvent}">
