@@ -7,6 +7,9 @@ TCEFORM {
         CType {
             removeItems = header, text, textpic, image, media, bullets
         }
+        list_type {
+            removeItems = faq_question, faq_singlecategory
+        }
         layout {
             keepItems =
             addItems {

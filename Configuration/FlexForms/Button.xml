@@ -64,7 +64,7 @@
                                 <items type="array">
                                     <numIndex index="0" type="array">
                                         <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.alignment.1</numIndex>
-                                        <numIndex index="1"></numIndex>
+                                        <numIndex index="1">text-left</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
                                         <numIndex index="0">LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xml:ce.w4_communitynet_button.alignment.2</numIndex>

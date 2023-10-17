@@ -60,10 +60,12 @@
 
   &>li {
     position: relative;
+    cursor: pointer;
 
     @media #{$min-lg} {
       display: flex;
       align-items: center;
+      height: 122px;
     }
 
     &.active {

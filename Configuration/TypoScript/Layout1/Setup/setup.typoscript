@@ -7,7 +7,6 @@ page {
         
     }
     includeJSFooterlibs {
-        10  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/jquery-3.6.0.min.js
         20  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/bootstrap/bootstrap.bundle.min.js
         30  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/lightbox/js/lightbox.js
         40  = EXT:w4_communitynet/Resources/Public/Layout1/JavaScript/datatables.min.js
@@ -58,6 +57,11 @@ plugin {
             partialRootPaths {
                 10 = EXT:w4_communitynet/Resources/Private/Extensions/faq/Partials/
             }
+        }
+    }
+    tx_form {
+        view {
+            partialRootPaths.10 = EXT:w4_communitynet/Resources/Private/Layout1/Extensions/form/Frontend/Partials/
         }
     }
 }

@@ -163,6 +163,10 @@
                 <source>Instagram</source>
                 <target>Instagram</target>
             </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_linkedin">
+                <source>LinkedIn</source>
+                <target>LinkedIn</target>
+            </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_search">
                 <source>Search page</source>
                 <target>Suchseite</target>
@@ -174,6 +178,14 @@
             <trans-unit id="pages.tx_w4communitynet_headerbg">
                 <source>Header background image</source>
                 <target>Header-Hintergrundbild</target>
+            </trans-unit>        
+            <trans-unit id="pages.tx_w4communitynet_footerlogoenabled">
+                <source>Show logo in the footer if no social media icons are specified</source>
+                <target>Logo in der Fußzeile anzeigen wenn keine Symbole für soziale Medien angegeben sind</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_searchboxintopbarenabled">
+                <source>Show search box in top navigation bar</source>
+                <target>Suchfeld in der oberen Navigationsleiste anzeigen</target>
             </trans-unit>
             <trans-unit id="ce.w4_communitynet_button.wizard.title">
                 <source>Button</source>

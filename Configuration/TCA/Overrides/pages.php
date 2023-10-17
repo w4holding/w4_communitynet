@@ -80,6 +80,14 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
                 'eval' => 'trim'
             ]
         ],
+        'tx_w4communitynet_linkedin' => [
+            'label' => $languageFilePrefix . 'tx_w4communitynet_linkedin',
+            'displayCond' => 'FIELD:is_siteroot:REQ:true',
+            'config' => [
+                'type' => 'input',
+                'eval' => 'trim'
+            ]
+        ],
         'tx_w4communitynet_quicklinks' => [
             'label' => $languageFilePrefix . 'tx_w4communitynet_quicklinks',
             'displayCond' => 'FIELD:is_siteroot:REQ:true',
@@ -87,8 +95,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
                 'type' => 'group',
                 'internal_type' => 'db',
                 'allowed' => 'pages',
-                'size' => 5,
-                'maxitems' => 10
+                'size' => 5
             ],
         ],
         'tx_w4communitynet_search' => [
@@ -172,6 +179,24 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
                 'svg,png,jpeg,jpg'
             ),
         ],
+        'tx_w4communitynet_footerlogoenabled' => [
+            'exclude' => true,
+            'displayCond' => 'FIELD:is_siteroot:REQ:true',
+            'label' => $languageFilePrefix . 'tx_w4communitynet_footerlogoenabled',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle'
+            ]
+        ],
+        'tx_w4communitynet_searchboxintopbarenabled' => [
+            'exclude' => true,
+            'displayCond' => 'FIELD:is_siteroot:REQ:true',
+            'label' => $languageFilePrefix . 'tx_w4communitynet_searchboxintopbarenabled',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle'
+            ]
+        ],
     
     ];
 
@@ -191,7 +216,10 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
         tx_w4communitynet_facebook,
         tx_w4communitynet_twitter,
         tx_w4communitynet_instagram,
-        tx_w4communitynet_footerlinks'
+        tx_w4communitynet_linkedin,
+        tx_w4communitynet_footerlinks,
+        tx_w4communitynet_searchboxintopbarenabled,
+        tx_w4communitynet_footerlogoenabled'
     );
 
     ExtensionManagementUtility::addToAllTCAtypes(

@@ -8,9 +8,25 @@
         <div class="container-lg">
             <div class="navbar-top--items" id="navbar-top--items">
                 <f:if condition="{pageinfo.tx_w4communitynet_search}">
-                    <f:link.typolink parameter="{pageinfo.tx_w4communitynet_search}">
-                        <i class="icon-search"></i>
-                    </f:link.typolink>
+                    <f:if condition="{searchboxintopbarenabled}">
+                        <f:then>
+                            <form method="post" id="tx_indexedsearch_top" action="{f:uri.page(pageUid: '{pageinfo.tx_w4communitynet_search}', additionalParams: '{tx_indexedsearch_pi2: {action: \'search\', controller: \'Search\'}}')}">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input id="tx-indexedsearch-searchbox-button-submit" type="submit" value="{f:translate(key: 'LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:search')}"
+                                            name="tx_indexedsearch_pi2[search][submitButton]" />
+                                        <input placeholder="{f:translate(key: 'LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:searchPlaceholder')}" class="form-control" id="tx-indexedsearch-searchbox-word" type="text"
+                                            name="tx_indexedsearch_pi2[search][sword]" value="" />
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </f:then>
+                        <f:else>
+                            <f:link.typolink parameter="{pageinfo.tx_w4communitynet_search}">
+                                <i class="icon-search"></i>
+                            </f:link.typolink>
+                        </f:else>
+                    </f:if>
                 </f:if>
                 <f:if condition="{pageinfo.tx_w4communitynet_loginpage}">
                     <f:link.typolink parameter="{pageinfo.tx_w4communitynet_loginpage}">
@@ -31,8 +47,7 @@
             <a class="navbar-brand" href="/" id="logo">
                 <v:resource.record.fal table="pages" field="tx_w4communitynet_logo" uid="1" as="resources">
                     <f:if condition="{resources.0.url}" >
-                        <f:variable name="logo" value="{resources.0.url}" />
-                        <img src="{resources.0.url}" class="image-embed-item" alt="{pageinfo.tx_w4communitynet_logoname} {pageinfo.tx_w4communitynet_logosubname}">
+                        <img src="{resources.0.url}" class="image-embed-item" alt="{pageinfo.tx_w4communitynet_logoname} {pageinfo.tx_w4communitynet_logosubname}" />
                     </f:if>
                 </v:resource.record.fal>
                 <span>
@@ -71,17 +86,28 @@
                     </f:for>
                 </ul>
             </f:if>
-            <div id="top-contact-bar">
-                <ul class="items-{menu -> f:count()} container">
-                    <f:for each="{menu}" as="menuPage">	
-                        <li class="{menuPage.tx_w4communitynet_icon_class}">
-                            <a href="{menuPage.link}" target="{menuPage.target}" title="{menuPage.title}">
-                                <span>{menuPage.title}</span>
-                            </a>
-                        </li>
-                    </f:for>
-                </ul>
-            </div>
+            <f:spaceless>
+                <div id="top-contact-bar">
+                    <ul class="items-{menu -> f:count()} container">
+                        <f:for each="{menu}" as="menuPage">	
+                            <li class="{menuPage.tx_w4communitynet_icon_class}">
+                                <a href="{menuPage.link}" target="{menuPage.target}" title="{menuPage.title}">
+                                    <span>
+                                        <f:if condition="{menuPage.nav_title}">
+                                            <f:then>
+                                                {menuPage.nav_title}
+                                            </f:then>
+                                            <f:else>
+                                                {menuPage.title}
+                                            </f:else>
+                                        </f:if>
+                                    </span>
+                                </a>
+                            </li>
+                        </f:for>
+                    </ul>
+                </div>
+            </f:spaceless>
         </v:menu.list>
     </f:if>
 </nav>

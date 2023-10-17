@@ -1,4 +1,5 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:w4_communitynet/Configuration/TypoScript/Setup/Extensions/*.typoscript'
 @import 'EXT:w4_communitynet/Configuration/TypoScript/Setup/Library/*.typoscript'
 
 config {
@@ -44,10 +45,16 @@ page {
             twitter.data = DB:pages:1:tx_w4communitynet_twitter
             instagram = TEXT
             instagram.data = DB:pages:1:tx_w4communitynet_instagram
+            linkedin = TEXT
+            linkedin.data = DB:pages:1:tx_w4communitynet_linkedin
             quicklinks = TEXT
             quicklinks.data = DB:pages:1:tx_w4communitynet_quicklinks
             footerlinks = TEXT
-            footerlinks.data = DB:pages:1:tx_w4communitynet_footerlinks            
+            footerlinks.data = DB:pages:1:tx_w4communitynet_footerlinks
+            footerlogoenabled = TEXT
+            footerlogoenabled.data = DB:pages:1:tx_w4communitynet_footerlogoenabled
+            searchboxintopbarenabled = TEXT
+            searchboxintopbarenabled.data = DB:pages:1:tx_w4communitynet_searchboxintopbarenabled
             layoutcolor = TEXT
             layoutcolor.data = DB:sys_template:1:tx_w4communitynet_layoutcolor
             sidebar < lib.sidebar
@@ -69,6 +76,13 @@ page {
     bodyTagCObject.data = field:uid
     bodyTagCObject.wrap = <body class="{$communitynet.color}-style-template" data-uid="|">
     meta.viewport = width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no
+    includeCSS {
+        1 = EXT:w4_communitynet/Resources/Public/JavaScript/jquery-ui-1.13.2.custom/jquery-ui.css
+    }
+    includeJSFooterlibs {
+        10  = EXT:w4_communitynet/Resources/Public/JavaScript/jquery-3.6.0.min.js
+        15  = EXT:w4_communitynet/Resources/Public/JavaScript/jquery-ui-1.13.2.custom/jquery-ui.min.js
+    }
 }
 
 lib {

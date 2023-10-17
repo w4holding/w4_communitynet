@@ -1,62 +1,105 @@
 <f:layout name="Default"/>
 
 <f:section name="content">
-	<f:render partial="Faq/Categories" arguments="{categories: categories}"/>
-	<f:if condition="{questions}">
-		<f:then>
-			<div class="row">
-				<f:for each="{subCategories}" as="subCategory" iteration="categoryIterator">
-					<div class="col-2">
-						<f:if condition="{subCategory.category.description}">
-							<f:then>
-								<h3>
-									<f:format.html>{subCategory.category.description}</f:format.html>
-								</h3>
-							</f:then>
-							<f:else>
-								<h3>{subCategory.category.title}</h3>
-							</f:else>
-						</f:if>
-					</div>
-					<div class="col-10">
-						<div class="accordion" id="accordionExample">
-							<f:for each="{subCategory.questions}" as="question" iteration="questionIterator">
-								<f:if condition="{questionIterator.cycle} > {settings.faq.itemsPerPage}">
-									<f:then>
-										<f:render partial="Faq/Answer"
-															arguments="{question: question, suffix: '', questionIterator: questionIterator, settings: settings}"/>
-									</f:then>
-									<f:else>
-										<f:render partial="Faq/Answer"
-															arguments="{question: question, suffix: '', questionIterator: questionIterator, settings: settings}"/>
-									</f:else>
-								</f:if>
-							</f:for>
-						</div>
-						<f:if condition="{f:count(subject: subCategory.questions)} > {settings.faq.itemsPerPage}">
-							<f:then>
-								load more
-								</button>
-							</f:then>
-						</f:if>
-					</div>
-				</f:for>
-			</div>
-			<f:if condition="{paginator.numberOfPages} > 1">
-				<f:if condition="{settings.faq.enablePagination}">
-					<f:then>
-						<div class="col-12 mt-5">
-							<f:render partial="Paginator"
-												arguments="{pagination: pagination, pages: pages, paginator: paginator}"/>
-						</div>
-					</f:then>
-				</f:if>
-			</f:if>
-		</f:then>
-		<f:else>
-			<f:translate key="no_questions_found">
-				<p>No questions found.</p>
-			</f:translate>
-		</f:else>
-	</f:if>
+    <div class="form-group form-group-with-shadow mb-5">
+        <div id="my-accordion-{contentObjectData.uid}-filter" class="subpages-nav events-categories element checkbox">
+            <ul class="nav clearfix check-all">
+                <li>
+                    <label for="my-accordion-{contentObjectData.uid}-categories-all" class="form-check-label">
+                        <input type="checkbox" name="categories-all" id="my-accordion-{contentObjectData.uid}-categories-all" checked="true" value="all">
+                        <span class="checkmark"></span>
+                        {f:translate( key: 'plugin.FaqAll')}
+                    </label>
+                </li>
+            </ul>
+            <ul class="nav clearfix">
+                <f:for each="{categories -> v:iterator.sort(sortBy: 'title')}" as="category">
+                    <li>
+                        <label for="my-accordion-{contentObjectData.uid}-category-{category.uid}" class="form-check-label">
+                            <input type="checkbox" name="category-{category.uid}" id="my-accordion-{contentObjectData.uid}-category-{category.uid}" checked="true" value="{category.uid}">
+                            <span class="checkmark"></span>
+                            {category.title}
+                        </label>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+    </div>
+    
+<script>
+    /* Faq's list checkbox filtering */
+    window.onload = function() <f:format.raw value="{" />
+            ( function($) <f:format.raw value="{" />
+            let all = $('#my-accordion-{contentObjectData.uid}-filter input#my-accordion-{contentObjectData.uid}-categories-all'),
+                categories = $('#my-accordion-{contentObjectData.uid}-filter input').not('input#my-accordion-{contentObjectData.uid}-categories-all'),
+                checkBoxes = $('#my-accordion-{contentObjectData.uid}-filter input');
+            all.change( function() <f:format.raw value="{" />
+                categories.each( function() <f:format.raw value="{" />
+                    $(this).prop( 'checked', all.is(':checked'));
+                });
+            });
+            checkBoxes.change( function( e) <f:format.raw value="{" />
+                if (all.is(':checked')) <f:format.raw value="{" />
+                    $('#my-accordion-{contentObjectData.uid} .faq').show();
+                } else <f:format.raw value="{" />
+                    $('#my-accordion-{contentObjectData.uid} .faq').hide();
+                }
+                let categoriess = (
+                    all.get(0) === e.target && !$(e.target).is(':checked') || all.get(0) !== e.target
+                        ? categories.filter(':checked')
+                        : categories
+                    ).map(function() <f:format.raw value="{" />
+                        return parseInt( $(this).val());
+                    }).toArray();
+                if (all.get(0) !== e.target) <f:format.raw value="{" />
+                    all.prop( 'checked', categoriess.length === categories.length);
+                    $('#my-accordion-{contentObjectData.uid} .faq').each( function() <f:format.raw value="{" />
+                        let showit = false, cats = $(this).data('categories');
+                        $.each(categoriess, function( index, value ) <f:format.raw value="{" />
+                            if (cats.indexOf(',' + value + ',') > -1) <f:format.raw value="{" />
+                                showit = true;
+                            }
+                        });
+                        if (showit) <f:format.raw value="{" />
+                            $(this).show();
+                        } else <f:format.raw value="{" />
+                            $(this).hide();
+                        }
+                    });
+                } 
+                $('#my-accordion-{contentObjectData.uid} .letter').each( function() <f:format.raw value="{" />
+                    if ($('#my-accordion-{contentObjectData.uid} .faq[data-first-letter="' + $(this).data('letter') +'"]:not(:hidden)').length) <f:format.raw value="{" />
+                        $(this).show();
+                    } else <f:format.raw value="{" />
+                        $(this).hide();
+                    }
+                });
+            });
+        })( jQuery);
+    }
+</script>
+    <div class="accordion-module scroll-to">
+        <ul id="my-accordion-{contentObjectData.uid}" class="accordion accordionjs xpp">
+            <f:variable name="letter" value="" />
+            <f:for each="{questions}" as="question"><f:variable name="categories" value="," />
+                <f:variable name="thisletter" value="<f:format.crop maxCharacters='1' append=''>{f:format.case( mode: 'capital', value: question.title)}</f:format.crop>" />                
+                <f:if condition="{thisletter} != {letter}">
+                    <li class="letter" data-letter="{thisletter}"><span>{thisletter}</span></li>
+                    <f:variable name="letter" value="{thisletter}" />               
+                </f:if>
+                <f:for each="{question.categories}" as="category">
+                    <f:variable name="categories" value="{categories}{category.uid}," /> 
+                </f:for>
+                <li class="acc_section faq" data-first-letter="{thisletter}" data-categories="{categories}" data-id="{question.uid}">
+                    <div class="accordion-title acc_head">
+                        {question.title}
+                        <span class="accordion-icon"></span>
+                    </div>
+                    <div class="accordion-body acc_content" style="display: none;">
+                        {question.answer -> f:format.raw()}
+                    </div>
+                </li>
+            </f:for>
+        </ul>
+    </div>
 </f:section>

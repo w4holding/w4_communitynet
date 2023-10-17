@@ -1,5 +1,5 @@
 .table {
-  border-spacing: 6px 10px;
+  border-spacing: 6px;
   border-collapse: separate;
 
   th,
@@ -21,6 +21,20 @@
 
   td.small-td {
       width: 10px;
+  }
+}
+
+.container-bg .ce-table {
+  th,
+  td {
+    background: #fff;
+  }
+}
+
+.container-bg .table {
+  th,
+  td {
+    background: #fff;
   }
 }
 

@@ -1,0 +1,9 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="tx-indexedsearch-res">
+    <h3>
+        {row.title -> f:format.raw()}
+    </h3>
+    {row.path -> f:format.html()}
+    <p class="tx-indexedsearch-description">{row.description -> f:format.raw()}</p>
+</div>
+</html>

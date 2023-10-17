@@ -8,6 +8,9 @@
     </f:if>
     <f:if condition="{instagram}">
         <schema:property -as="sameAs" value="{instagram}"/>
+    </f:if>  
+    <f:if condition="{linkedin}">
+        <schema:property -as="sameAs" value="{linkedin}"/>
     </f:if>    
     <schema:property -as="url" value="{v:site.url()}"/>
  </schema:type.WebSite>

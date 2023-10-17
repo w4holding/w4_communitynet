@@ -1,0 +1,142 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:if condition="{files}">
+        <ul class="uploads-list uploads-list-{data.uploads_type}">
+            <f:for each="{files}" as="file" iteration="fileIterator">
+                <f:switch expression="{file.extension}">
+                    <f:case value="pdf">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="pdf"></f:variable>
+                    </f:case>
+                    <f:case value="doc">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="doc"></f:variable>
+                    </f:case>
+                    <f:case value="docx">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="doc"></f:variable>
+                    </f:case>
+                    <f:case value="odt">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="odt"></f:variable>
+                    </f:case>
+                    <f:case value="xls">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="xls"></f:variable>
+                    </f:case>
+                    <f:case value="xlsx">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="xls"></f:variable>
+                    </f:case>
+                    <f:case value="csv">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="csv"></f:variable>
+                    </f:case>
+                    <f:case value="ods">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="ods"></f:variable>
+                    </f:case>
+                    <f:case value="ppt">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="ppt"></f:variable>
+                    </f:case>
+                    <f:case value="pptx">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="ppt"></f:variable>
+                    </f:case>
+                    <f:case value="odp">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="odt"></f:variable>
+                    </f:case>
+                    <f:case value="txt">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="txt"></f:variable>
+                    </f:case>
+                    <f:case value="zip">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="zip"></f:variable>
+                    </f:case>
+                    <f:case value="jpg">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="jpg"></f:variable>
+                    </f:case>
+                    <f:case value="jpeg">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="jpg"></f:variable>
+                    </f:case>
+                    <f:case value="png">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="png"></f:variable>
+                    </f:case>
+                    <f:case value="gif">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="png"></f:variable>
+                    </f:case>
+                    <f:case value="mp4">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="mp4"></f:variable>
+                    </f:case>
+                    <f:case value="mp3">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="mp3"></f:variable>
+                    </f:case>
+                    <f:defaultCase>
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="file"></f:variable>
+                    </f:defaultCase>
+                </f:switch>
+                <li{f:if(condition: '{data.uploads_type}==1' , then: ' class="uploads-filetype uploads-filetype-{file_icon}"')}>
+                    <f:switch expression="{data.uploads_type}">
+                        <f:case value="1">
+                            <f:render section="filelink" arguments="{_all}" />
+                        </f:case>
+                        <f:case value="2">
+                            <f:render section="thumbnail" arguments="{_all}" />
+                            <f:render section="filelink" arguments="{_all}" />
+                        </f:case>
+                        <f:defaultCase>
+                            <f:render section="filelink" arguments="{_all}" />
+                        </f:defaultCase>
+                    </f:switch>
+                </li>
+            </f:for>
+        </ul>
+    </f:if>
+</f:section>
+
+<f:section name="filelink">
+    <div class="uploads-fileNameWrap">
+        <span class="uploads-fileName">
+            <strong>{f:if(condition: file.properties.title, then: file.properties.title, else: file.name) -> f:format.htmlspecialchars()}</strong>
+            <f:if condition="{data.uploads_type}>0">
+                <br />
+                <f:render section="filesize" arguments="{_all}" />
+            </f:if>
+        </span>
+        <a href="{file.publicUrl}" class="btn-u btn-u-filled btn-u-small" {f:if(condition:data.target,then: ' target="{data.target}"')}">
+            <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:download" />
+        </a>
+    </div>
+</f:section>
+
+<f:section name="filesize">
+    <f:if condition="{data.filelink_size}">
+        <span class="uploads-filesize">
+            <f:format.bytes value="{file.properties.size}" />
+        </span>
+    </f:if>
+</f:section>
+
+<f:section name="thumbnail">
+    <a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"' )}>
+        <div class="thumbnail">
+            <f:if condition="{show_thumb} && {f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
+                <f:media file="{file}" width="150" alt="{file.properties.alternative}" />
+            </f:if>
+        </div>
+    </a>
+</f:section>
+
+</html>

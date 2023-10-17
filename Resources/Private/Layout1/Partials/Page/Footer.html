@@ -36,22 +36,38 @@
                    </div>
                 </div>
                 <div class="col-sm-6">
-                   <div class="container">
-                      <div class="contentElement">
-                         <div class="headline">
-                            <div class="h2"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.followUs"/></div>
-                         </div>
-                      </div>
-                      <f:if condition="{facebook}">
-                         <a href="{facebook -> f:format.raw()}" target="_blank" title="Facebook"><i class="social-icon facebook"></i></a>
-                      </f:if>
-                      <f:if condition="{twitter}">
-                         <a href="{twitter -> f:format.raw()}" target="_blank" title="Twitter"><i class="social-icon twitter"></i></a>
-                      </f:if>
-                      <f:if condition="{instagram}">
-                         <a href="{instagram -> f:format.raw()}" target="_blank" title="Instagram"><i class="social-icon instagram"></i></a> 
-                      </f:if>
-                   </div>
+                    <div class="container">
+                        <div class="contentElement">
+                            <f:if condition="{facebook} || {twitter} || {instagram} || {linkedin}">
+                                <f:then>
+                                    <div class="headline">
+                                        <div class="h2"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.followUs"/></div>
+                                    </div>
+                                    <f:if condition="{facebook}">
+                                        <a href="{facebook -> f:format.raw()}" target="_blank" title="Facebook"><i class="social-icon facebook"></i></a>
+                                    </f:if>
+                                    <f:if condition="{twitter}">
+                                        <a href="{twitter -> f:format.raw()}" target="_blank" title="Twitter"><i class="social-icon twitter"></i></a>
+                                    </f:if>
+                                    <f:if condition="{instagram}">
+                                        <a href="{instagram -> f:format.raw()}" target="_blank" title="Instagram"><i class="social-icon instagram"></i></a> 
+                                    </f:if>
+                                    <f:if condition="{linkedin}">
+                                        <a href="{linkedin -> f:format.raw()}" target="_blank" title="LinkedIn"><i class="social-icon linkedin"></i></a> 
+                                    </f:if>
+                                </f:then>
+                                <f:else>
+                                    <f:if condition="{footerlogoenabled}">
+                                        <v:resource.record.fal table="pages" field="tx_w4communitynet_logo" uid="1" as="resources">
+                                            <f:if condition="{resources.0.url}" >
+                                                <img src="{resources.0.url}" alt="{pageinfo.tx_w4communitynet_logoname} {pageinfo.tx_w4communitynet_logosubname}" class="mt-5" />
+                                            </f:if>
+                                        </v:resource.record.fal>
+                                    </f:if>
+                                </f:else>
+                            </f:if>
+                        </div>
+                    </div>
                 </div>
              </div>
           </div>
@@ -71,83 +87,3 @@
  </footer>
  
 <div id="mini-cart-holding-items"></div>
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="navbar-top">
-        <div class="container-lg">
-            <div class="navbar-top--items" id="navbar-top--items">
-                <f:if condition="{pageinfo.tx_w4communitynet_search}">
-                    <f:link.typolink parameter="{pageinfo.tx_w4communitynet_search}">
-                        <i class="icon-search"></i>
-                    </f:link.typolink>
-                </f:if>
-                <f:if condition="{pageinfo.tx_w4communitynet_loginpage}">
-                    <f:link.typolink parameter="{pageinfo.tx_w4communitynet_loginpage}">
-                       <i class="icon-user"></i>
-                    </f:link.typolink>
-                </f:if>
-                <f:if condition="{pageinfo.tx_w4communitynet_cart}">
-                    <f:link.typolink parameter="{pageinfo.tx_w4communitynet_cart}" class="cart-link">
-                        <span class="mini-cart-total-items-items">&nbsp;&nbsp;</span>
-                        <i class="icon-basket"></i>
-                    </f:link.typolink>
-                </f:if>
-            </div>
-        </div>
-    </div>
-    <div class="container-lg">
-        <div class="navbar-bottom">
-            <a class="navbar-brand" href="/">
-                <v:resource.record.fal table="pages" field="tx_w4communitynet_logo" uid="1" as="resources">
-                    <f:if condition="{resources.0.url}" >
-                        <f:variable name="logo" value="{resources.0.url}" />
-                        <img src="{resources.0.url}" class="image-embed-item" alt="{pageinfo.tx_w4communitynet_logoname} {pageinfo.tx_w4communitynet_logosubname}">
-                    </f:if>
-                </v:resource.record.fal>
-                <span>
-                    <strong>{pageinfo.tx_w4communitynet_logoname}</strong><br />{pageinfo.tx_w4communitynet_logosubname}
-                </span>
-            </a>
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#site-header-menu" aria-controls="site-header" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="site-header-menu">
-            <ul class="navbar-nav">
-                <v:page.menu as="menu">
-                    <f:render partial="Menu" arguments="{menu:menu}"/>
-                </v:page.menu>
-            </ul>
-        </div>
-    </div>
-    <f:if condition="{quicklinks}">
-        <v:menu.list pages="{quicklinks}">
-            <ul class="side-contact-bar" id="side-contact-bar">
-                <f:for each="{menu}" as="menuPage" iteration="iteration">                
-                    <li class="item-desktop item-desktop-{iteration.cycle} {menuPage.tx_w4communitynet_icon_class}">
-                        <a href="{menuPage.link}" target="{menuPage.target}" title="{menuPage.linktext}">
-                            {menuPage.linktext}
-                        </a>
-                    </li>
-                    <li class="item-mobile">
-                        <a href="{menuPage.link}" target="{menuPage.target}" title="{menuPage.title}">
-                            {menuPage.linktext}
-                        </a>
-                    </li>
-                </f:for>
-            </ul>
-            <div id="top-contact-bar">
-                <ul class="items-{menu -> f:count()} container">
-                    <f:for each="{menu}" as="menuPage">	
-                        <li class="{menuPage.tx_w4communitynet_icon_class}">
-                            <a href="{menuPage.link}" target="{menuPage.target}" title="{menuPage.title}">
-                                <span>{menuPage.title}</span>
-                            </a>
-                        </li>
-                    </f:for>
-                </ul>
-            </div>
-        </v:menu.list>
-    </f:if>
-</nav>

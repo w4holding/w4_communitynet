@@ -1,0 +1,129 @@
+.uploads-list {
+    padding-left: 0;
+
+    li {
+        position: relative;
+        width: 100%;
+        min-height: 67px;
+        display: flex;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #f4f4f4;
+        margin-bottom: 10px;
+
+        &:nth-child(2n) {
+            background-color: #f4f4f4;
+        }
+
+        .uploads-fileNameWrap {
+            float: left;
+            width: 100%;
+            margin: 0;
+        }
+
+        .uploads-fileName {
+            float: left;
+            margin: 0;
+            font-family: OpenSans-Bold;
+            line-height: 1.3rem;
+        }
+
+        .uploads-fileNameWrap a {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            float: right;
+            zoom: 70%;
+            zoom: .8;
+            -ms-zoom: .8;
+            -webkit-zoom: .8;
+            -moz-transform: scale(.8);
+            -moz-transform-origin: right top;
+        }
+
+        &.uploads-filetype {
+            padding-left: 70px !important;
+            background-position: 20px 20px;
+            background-repeat: no-repeat;
+            background-size: 40px;
+            background-image: url(../img/files/file.svg);
+        }
+
+        &.uploads-filetype-pdf {
+            background-image: url(../img/files/pdf.svg);
+        }
+
+        &.uploads-filetype-doc {
+            background-image: url(../img/files/doc.svg);
+        }
+
+        &.uploads-filetype-odt {
+            background-image: url(../img/files/odt.svg);
+        }
+
+        &.uploads-filetype-xls {
+            background-image: url(../img/files/xls.svg);
+        }
+
+        &.uploads-filetype-csv {
+            background-image: url(../img/files/csv.svg);
+        }
+
+        &.uploads-filetype-ods {
+            background-image: url(../img/files/ods.svg);
+        }
+
+        &.uploads-filetype-ppt {
+            background-image: url(../img/files/ppt.svg);
+        }
+
+        &.uploads-filetype-txt {
+            background-image: url(../img/files/txt.svg);
+        }
+
+        &.uploads-filetype-zip {
+            background-image: url(../img/files/zip.svg);
+        }
+
+        &.uploads-filetype-jpg {
+            background-image: url(../img/files/jpg.svg);
+        }
+
+        &.uploads-filetype-png {
+            background-image: url(../img/files/png.svg);
+        }
+
+        &.uploads-filetype-mp4 {
+            background-image: url(../img/files/mp4.svg);
+        }
+
+        &.uploads-filetype-mp3 {
+            background-image: url(../img/files/mp3.svg);
+        }
+
+        .thumbnail {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .uploads-list li .uploads-fileName {
+        width: 100%;
+    }
+
+    .uploads-list li .uploads-fileNameWrap a {
+        width: auto;
+        position: relative;
+        top: 0;
+        right: auto;
+        float: left;
+        margin-left: -29px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .uploads-list li .uploads-fileName {
+        padding-right: 190px;
+    }
+}

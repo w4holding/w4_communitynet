@@ -122,15 +122,24 @@
             </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_instagram">
                 <source>Instagram</source>
+            </trans-unit> 
+            <trans-unit id="pages.tx_w4communitynet_linkedin">
+                <source>LinkedIn</source>
             </trans-unit>  
             <trans-unit id="pages.tx_w4communitynet_search">
                 <source>Search page</source>
             </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_footerlinks">
                 <source>Footer Links</source>
-            </trans-unit>
+            </trans-unit>    
             <trans-unit id="pages.tx_w4communitynet_headerbg">
                 <source>Header Background Image</source>
+            </trans-unit>      
+            <trans-unit id="pages.tx_w4communitynet_footerlogoenabled">
+                <source>Show logo in the footer if no social media icons are specified</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_searchboxintopbarenabled">
+                <source>Show search box in top navigation bar</source>
             </trans-unit>
             <trans-unit id="ce.w4_communitynet_button.wizard.title">
                 <source>Button</source>
