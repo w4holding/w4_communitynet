@@ -33,7 +33,7 @@ ul#side-contact-bar {
     z-index: 10;
     background: $red 15px center no-repeat;
     background-size: 30px;
-    transition: all 0.2s;
+    transition: all 0.2s ease-in-out;
     -webkit-box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.25);

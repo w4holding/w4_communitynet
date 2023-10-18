@@ -1,7 +1,29 @@
 <div class="breadcrumbs"> 
     <div class="container"> 
-        <div class="headline clearfix"> 
-            <f:format.raw>{breadcrumb}</f:format.raw>
+        <div class="headline clearfix">
+            <ul>
+                <v:page.breadCrumb as="breadcrumb">
+                    <f:for each="{breadcrumb}" as="item" iteration="i">
+                        <li>
+                            <f:if condition="{i.isLast}">
+                                <f:then>
+                                    <f:if condition="{pagetitle}">
+                                        <f:then>
+                                            {pagetitle}
+                                        </f:then>
+                                        <f:else>
+                                            {item.title}
+                                        </f:else>
+                                    </f:if>
+                                </f:then>
+                                <f:else>
+                                    <a href="{item.link}">{item.title}</a>
+                                </f:else>
+                            </f:if>
+                        </li>
+                    </f:for>
+                </v:page.breadCrumb>
+            </ul>
         </div> 
     </div> 
 </div>

@@ -2,11 +2,11 @@
 <f:if condition="{data.image_zoom}">
     <f:then>
         <a href="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1')}" data-lightbox="lightbox-{data.uid}" data-title="{file.description}">
-            <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="{settings.media.lazyLoading}" decoding="{settings.media.imageDecoding}" />
+            <f:media class="image-embed-item" file="{file}" width="{f:if(condition: '{data.imageorient}==7', then: '768c', else: '{dimensions.width}')}" height="{f:if(condition: '{data.imageorient}==7', then: '490c', else: '{dimensions.height}')}" alt="{file.alternative}" title="{file.title}" loading="{settings.media.lazyLoading}" decoding="{settings.media.imageDecoding}" alt="{file.alternative}" title="{file.title}" additionalAttributes="{description: '{file.description}'}" />
         </a>
     </f:then>
     <f:else>
-        <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="{settings.media.lazyLoading}" decoding="{settings.media.imageDecoding}" />
+        <f:media class="image-embed-item" file="{file}" width="{f:if(condition: '{data.imageorient}==7', then: '768c', else: '{dimensions.width}')}" height="{f:if(condition: '{data.imageorient}==7', then: '490c', else: '{dimensions.height}')}" alt="{file.alternative}" title="{file.title}" loading="{settings.media.lazyLoading}" decoding="{settings.media.imageDecoding}" alt="{file.alternative}" title="{file.title}" additionalAttributes="{description: '{file.description}'}" />
     </f:else>
 </f:if>
 </html>

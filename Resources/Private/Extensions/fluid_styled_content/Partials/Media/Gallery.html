@@ -1,5 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:if condition="{gallery.rows}">    
+<f:if condition="{gallery.rows}"> 
     <f:if condition="{data.imageorient} == 100 || {data.imageorient} == 101">
         <f:then>
             <div id="ce-gallery-slider-{data.uid}" class="carousel slide" data-bs-ride="carousel">              
@@ -119,26 +119,16 @@
                     </div>
                 </f:then>
                 <f:else>
-                    <div class="ce-gallery" data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
-                        <f:if condition="{gallery.position.horizontal} == 'center'">
-                            <div class="ce-outer">
-                                <div class="ce-inner">
-                        </f:if>
-                        <f:for each="{gallery.rows}" as="row">
-                            <div class="ce-row">
+                    <div class="ce-gallery ce-gallery-{gallery.count.columns}-cols" data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
+                        <f:spaceless>
+                            <f:for each="{gallery.rows}" as="row">
                                 <f:for each="{row.columns}" as="column">
                                     <f:if condition="{column.media}">
-                                        <div class="ce-column">
-                                            <f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
-                                        </div>
+                                        <f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
                                     </f:if>
                                 </f:for>
-                            </div>
-                        </f:for>
-                        <f:if condition="{gallery.position.horizontal} == 'center'">
-                                </div>
-                            </div>
-                        </f:if>
+                            </f:for>
+                        </f:spaceless>
                     </div>
                 </f:else>
             </f:if>

@@ -138,38 +138,42 @@
                     <div class="events-detail-view">
                         <div class="event-info">
                             <f:if condition="{newsItem.datetime}">
-                            <div class="event-info-item-wrapper">
-                                <div class="event-info-item">
-                                    <div class="subtitle"><f:translate key="'LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.startDate" /></div>
-                                    <div class="value"> <f:format.date format="%d. %B %Y">{newsItem.datetime}</f:format.date>
-                                    <br><f:format.date format="%H:%m">{newsItem.datetime}</f:format.date></div>
+                                <div class="event-info-item-wrapper">
+                                    <div class="event-info-item">
+                                        <div class="subtitle"><f:translate key="'LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.startDate" /></div>
+                                        <div class="value">
+                                            <f:format.date format="%d. %B %Y">{newsItem.datetime}</f:format.date>
+                                            <br /><f:format.date format="%H:%m">{newsItem.datetime}</f:format.date>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
                             </f:if>
                             <f:if condition="{newsItem.eventEnd}">
                                 <div class="event-info-item-wrapper">
                                     <div class="event-info-item">
                                         <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.eventEnd" /></div>
-                                        <div class="value"> <f:format.date format="%d. %B %Y">{newsItem.eventEnd}</f:format.date>
-                                            <br><f:format.date format="%H:%m">{newsItem.eventEnd}</f:format.date></div>
+                                        <div class="value">
+                                            <f:format.date format="%d. %B %Y">{newsItem.eventEnd}</f:format.date>
+                                            <br /><f:format.date format="%H:%m">{newsItem.eventEnd}</f:format.date>
+                                        </div>
                                     </div>
                                 </div>
                             </f:if>
                             <f:if condition="{newsItem.organizerSimple}">
-                            <div class="event-info-item-wrapper">
-                                <div class="event-info-item">
-                                    <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.organisator" /></div>
-                                    <div class="value">{newsItem.organizerSimple}</div>
+                                <div class="event-info-item-wrapper">
+                                    <div class="event-info-item">
+                                        <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.organisator" /></div>
+                                        <div class="value">{newsItem.organizerSimple}</div>
+                                    </div>
                                 </div>
-                            </div>
                             </f:if>
                             <f:if condition="{newsItem.locationSimple}">
-                            <div class="event-info-item-wrapper">
-                                <div class="event-info-item">
-                                    <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.ort" /></div>
-                                    <div class="value">{newsItem.locationSimple}</div>
+                                <div class="event-info-item-wrapper">
+                                    <div class="event-info-item">
+                                        <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.ort" /></div>
+                                        <div class="value">{newsItem.locationSimple}</div>
+                                    </div>
                                 </div>
-                            </div>
                             </f:if>
                         </div>
                         <div class="row">
@@ -202,6 +206,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="content" itemprop="articleBody">
+                                    <h1 class="h2">{newsItem.title}</h1>
                                     <f:format.html>{newsItem.bodytext}</f:format.html>
                                 </div>
                             </div>

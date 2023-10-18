@@ -29,7 +29,6 @@ page {
         partialRootPaths.10 = EXT:w4_communitynet/Resources/Private/Partials/Page
         templateRootPaths.10 = EXT:w4_communitynet/Resources/Private/Templates/Page
         variables {
-            breadcrumb < lib.breadcrumb
             pagetitle < lib.pagetitle
             footer1 < lib.footer1
             footer2 < lib.footer2

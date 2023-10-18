@@ -54,6 +54,9 @@
             <trans-unit id="tt_content.imageorient.101">
                 <source>Slider with navigation buttons</source>
             </trans-unit>
+            <trans-unit id="tt_content.imageorient.7">
+                <source>Gallery</source>
+            </trans-unit>
             <trans-unit id="tt_content.tx_w4communitynet_boxtextheight">
                 <source>Adapt box height to the text</source>
             </trans-unit>
@@ -68,6 +71,9 @@
             </trans-unit>
             <trans-unit id="tt_content.tx_w4communitynet_sliderheight.2">
                 <source>Big (1050px)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_slidermask">
+                <source>Show mask to dark images</source>
             </trans-unit>
             <trans-unit id="tt_content.tx_w4communitynet_slidermask">
                 <source>Show mask to dark images</source>

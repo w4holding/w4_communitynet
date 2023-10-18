@@ -5,7 +5,7 @@
 
   .article {
     box-shadow: 0 0 25px #00000012;
-    transition: all 0.2s;
+    transition: all 0.2s ease-in-out;
     margin-bottom: 50px !important;
     padding: 0;
 
@@ -125,6 +125,7 @@
           background-image: url("../Images/li-red.svg");
           background-size: contain;
           background-repeat: no-repeat;
+          transition: all 0.2s ease-in-out;
           body.blue-style-template & {
             background-image: url("../Images/li-blue.svg");
           }
@@ -195,7 +196,7 @@
     background-size: auto;
     background-size: 15px;
     box-shadow: 0 0 25px #00000012;
-    transition: all 0.2s;
+    transition: all 0.2s ease-in-out;
     width: 100%;
 
     @media #{$min-md} {

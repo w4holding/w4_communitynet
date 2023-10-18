@@ -30,7 +30,7 @@ function getScrollbarWidth() {
 
 function windowResize() {
     let f = () => {
-        window.isMobile = window.innerWidth < 992;
+        window.isMobile = window.innerWidth < 1360;
     };
 
     $(window).on('resize', f);

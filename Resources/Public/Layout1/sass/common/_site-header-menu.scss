@@ -62,7 +62,7 @@
     position: relative;
     cursor: pointer;
 
-    @media #{$min-lg} {
+    @media #{$min-xll} {
       display: flex;
       align-items: center;
       height: 122px;
@@ -108,15 +108,15 @@
       color: $headers-color;
       font-family: "Open Sans SemiBold";
       padding: 2px 20px;
-      border-right: 1px solid $color-gray6;
 
       @media #{$min-xxl} {
         font-size: 1rem;
         line-height: 2rem;
+        border-right: 1px solid $color-gray6;
       }
 
       &:hover {
-        @media #{$min-lg} {
+        @media #{$min-xll} {
           color: $primary;
           @include color(color);
         }
@@ -150,7 +150,7 @@
     padding: 0;
     list-style: none;
 
-    @media #{$min-lg} {
+    @media #{$min-xll} {
       display: none !important;
       position: absolute;
       top: -2px;
@@ -178,7 +178,7 @@
 
     &>.has-inner {
       &>a {
-        @media #{$min-lg} {
+        @media #{$min-xll} {
           position: relative;
 
           &::after {
@@ -198,7 +198,7 @@
       }
 
       ul li a {
-        @media #{$max-lg} {
+        @media #{$max-xll} {
           padding: 5px 15px 5px 70px;
         }
       }

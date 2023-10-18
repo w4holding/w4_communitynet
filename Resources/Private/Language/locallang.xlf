@@ -54,6 +54,78 @@
             <trans-unit id="download">
                 <source>Download</source>
             </trans-unit>
+            <trans-unit id="months.full.1">
+                <source>January</source>
+            </trans-unit>
+            <trans-unit id="months.full.2">
+                <source>February</source>
+            </trans-unit>
+            <trans-unit id="months.full.3">
+                <source>March</source>
+            </trans-unit>
+            <trans-unit id="months.full.4">
+                <source>April</source>
+            </trans-unit>
+            <trans-unit id="months.full.5">
+                <source>May</source>
+            </trans-unit>
+            <trans-unit id="months.full.6">
+                <source>June</source>
+            </trans-unit>
+            <trans-unit id="months.full.7">
+                <source>July</source>
+            </trans-unit>
+            <trans-unit id="months.full.8">
+                <source>August</source>
+            </trans-unit>
+            <trans-unit id="months.full.9">
+                <source>September</source>
+            </trans-unit>
+            <trans-unit id="months.full.10">
+                <source>October</source>
+            </trans-unit>
+            <trans-unit id="months.full.11">
+                <source>November</source>
+            </trans-unit>
+            <trans-unit id="months.full.12">
+                <source>December</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.1">
+                <source>Jan</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.2">
+                <source>Feb</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.3">
+                <source>March</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.4">
+                <source>April</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.5">
+                <source>May</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.6">
+                <source>Jun</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.7">
+                <source>Jul</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.8">
+                <source>Aug</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.9">
+                <source>Sep</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.10">
+                <source>Oct</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.11">
+                <source>Nov</source>
+            </trans-unit>
+            <trans-unit id="months.abbreviated.12">
+                <source>Dec</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

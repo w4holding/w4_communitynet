@@ -1,0 +1,15 @@
+<v:menu expandAll="1" entryLevel="2" as="menu">
+    <f:if condition="{menu}">
+        <div class="nav-subpages">
+            <ul>
+                <f:for each="{menu}" as="item">
+                    <li>
+                        <a href="{item.link}" target="{item.target}" title="{item.title}">
+                            <span>{item.title}</span>
+                        </a>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+    </f:if>
+</v:menu>

@@ -691,7 +691,13 @@ progress {
 
 @media (min-width: 1400px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1470px;
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 1360px) and (max-width: 1599px) {
+  .content > .container-xxl, .content > .container-xl, .content > .container-lg, .content > .container-md, .content > .container-sm, .content > .container {
+    max-width: calc(100% - 100px) !important;
   }
 }
 
@@ -4161,31 +4167,31 @@ textarea.form-control-lg {
   }
 }
 
-@media (min-width: 992px) {
-  .navbar-expand-lg {
+@media (min-width: 1360px) {
+  .navbar-expand-xll {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-  .navbar-expand-lg .navbar-nav {
+  .navbar-expand-xll .navbar-nav {
     flex-direction: row;
   }
-  .navbar-expand-lg .navbar-nav .dropdown-menu {
+  .navbar-expand-xll .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-lg .navbar-nav-scroll {
+  .navbar-expand-xll .navbar-nav-scroll {
     overflow: visible;
   }
-  .navbar-expand-lg .navbar-collapse {
+  .navbar-expand-xll .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
   }
-  .navbar-expand-lg .navbar-toggler {
+  .navbar-expand-xll .navbar-toggler {
     display: none;
   }
-  .navbar-expand-lg .offcanvas-header {
+  .navbar-expand-xll .offcanvas-header {
     display: none;
   }
-  .navbar-expand-lg .offcanvas {
+  .navbar-expand-xll .offcanvas {
     position: inherit;
     bottom: 0;
     z-index: 1000;
@@ -4197,13 +4203,13 @@ textarea.form-control-lg {
     transition: none;
     transform: none;
   }
-  .navbar-expand-lg .offcanvas-top,
-.navbar-expand-lg .offcanvas-bottom {
+  .navbar-expand-xll .offcanvas-top,
+.navbar-expand-xll .offcanvas-bottom {
     height: auto;
     border-top: 0;
     border-bottom: 0;
   }
-  .navbar-expand-lg .offcanvas-body {
+  .navbar-expand-xll .offcanvas-body {
     display: flex;
     flex-grow: 0;
     padding: 0;

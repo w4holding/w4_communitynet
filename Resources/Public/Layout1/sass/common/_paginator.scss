@@ -27,7 +27,7 @@
         text-decoration: none;
         background-color: $color-white;
         border: 1px solid $gray-dark;
-        transition: all 0.2s;
+        transition: all 0.2s ease-in-out;
       }
 
       &.active a,

@@ -70,6 +70,8 @@ TCEFORM {
                 100.icon = EXT:w4_communitynet/Resources/Public/Images/Content/imageorient100.png
                 101 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.imageorient.101
                 101.icon = EXT:w4_communitynet/Resources/Public/Images/Content/imageorient101.png
+                7 = LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:tt_content.imageorient.7
+                7.icon = EXT:w4_communitynet/Resources/Public/Images/Content/imageorient7.png
             }
         }
         header_layout {

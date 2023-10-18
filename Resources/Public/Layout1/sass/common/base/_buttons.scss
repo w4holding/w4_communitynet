@@ -77,11 +77,11 @@
 }
 
 .btn-u {
-  padding: 12px 48px;
+  padding: 8/px 48px;
   background-color: $red;
   border: 1px solid $red;
   border-radius: 12px;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
   text-align: center;
   color: $color-white  !important;
   cursor: pointer;
@@ -102,7 +102,7 @@
   }
 
   &:hover {
-    padding: 12px 32px 12px 64px;
+    padding: 8px 32px 8px 64px;
     text-decoration: none;
     color: $color-white;
     background: $red-active;
@@ -180,7 +180,7 @@
   }
 
   &.btn-u-small {
-    padding: 9px 34px !important;
+    padding: 6px 34px !important;
     font-size: 12px !important;
     border-radius: 6.3px;
 
@@ -189,15 +189,19 @@
     }
 
     &:before {
-      left: 27px;
+      left: 20px;
       width: 8.4px;
       height: 14px;
       background-size: contain;
-      top: 22px;
+      top: 20px;
     }
 
     &:hover {
-      padding: 9px 24px 9px 44px !important;
+      padding: 6px 24px 6px 44px !important;
+
+      &:before {
+        left: 27px;
+      }
     }
   }
 }
