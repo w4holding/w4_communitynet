@@ -52,6 +52,8 @@ page {
             footerlinks.data = DB:pages:1:tx_w4communitynet_footerlinks
             footerlogoenabled = TEXT
             footerlogoenabled.data = DB:pages:1:tx_w4communitynet_footerlogoenabled
+            footerlayout = TEXT
+            footerlayout.data = DB:pages:1:tx_w4communitynet_footerlayout
             searchboxintopbarenabled = TEXT
             searchboxintopbarenabled.data = DB:pages:1:tx_w4communitynet_searchboxintopbarenabled
             layoutcolor = TEXT

@@ -3,87 +3,211 @@
 <f:variable name="rootline" value="{v:page.rootline()}" />
 <f:variable name="pageinfo" value="{v:page.info(pageUid : '{rootline.0.uid}')}" />
 <footer id="footer">
-    <div class="container container-footer">
-       <div class="row">
-          <div class="col-md-6">
-             <div class="row">
-                <div class="col-sm-6">
-                     <div class="container">
-                      <f:format.raw>{footer1}</f:format.raw>
-                   </div>
-                </div>
-                <div class="col-sm-6">
-                   <div class="container">
-                      <f:format.raw>{footer2}</f:format.raw>
-                   </div>
-                </div>
-             </div>
-          </div>
-          <div class="col-md-6">
-             <div class="row">
-                <div class="col-sm-6">
-                   <div class="container">
+   <div class="container container-footer">
+      <div class="row">
+         <f:switch expression="{footerlayout}">
+            <f:case value="2">
+               <div class="col-sm-4">
+                  <div class="container">
+                     <f:format.raw>{footer1}</f:format.raw>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                  <div class="container">
+                     <f:format.raw>{footer2}</f:format.raw>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                  <div class="container">
                      <div class="contentElement">
-                         <div class="headline">
-                            <div class="h2"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.directLinks"/></div>
-                         </div>
-                      </div>
-                      <v:menu.list pages="{quicklinks}">
-                         <f:for each="{menu}" as="menuPage">
-                             <p><a href="{menuPage.link}">{menuPage.linktext}</a></p>
-                         </f:for>
-                      </v:menu.list>
-                   </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="container">
-                        <div class="contentElement">
-                            <f:if condition="{facebook} || {twitter} || {instagram} || {linkedin}">
-                                <f:then>
-                                    <div class="headline">
-                                        <div class="h2"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.followUs"/></div>
-                                    </div>
-                                    <f:if condition="{facebook}">
-                                        <a href="{facebook -> f:format.raw()}" target="_blank" title="Facebook"><i class="social-icon facebook"></i></a>
-                                    </f:if>
-                                    <f:if condition="{twitter}">
-                                        <a href="{twitter -> f:format.raw()}" target="_blank" title="Twitter"><i class="social-icon twitter"></i></a>
-                                    </f:if>
-                                    <f:if condition="{instagram}">
-                                        <a href="{instagram -> f:format.raw()}" target="_blank" title="Instagram"><i class="social-icon instagram"></i></a> 
-                                    </f:if>
-                                    <f:if condition="{linkedin}">
-                                        <a href="{linkedin -> f:format.raw()}" target="_blank" title="LinkedIn"><i class="social-icon linkedin"></i></a> 
-                                    </f:if>
-                                </f:then>
-                                <f:else>
-                                    <f:if condition="{footerlogoenabled}">
-                                        <v:resource.record.fal table="pages" field="tx_w4communitynet_logo" uid="1" as="resources">
-                                            <f:if condition="{resources.0.url}" >
-                                                <img src="{resources.0.url}" alt="{pageinfo.tx_w4communitynet_logoname} {pageinfo.tx_w4communitynet_logosubname}" class="mt-5" />
-                                            </f:if>
-                                        </v:resource.record.fal>
-                                    </f:if>
-                                </f:else>
-                            </f:if>
+                        <div class="headline">
+                           <div class="h2">
+                              <f:translate
+                                 key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.directLinks" />
+                           </div>
                         </div>
-                    </div>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
-    <div class="subfooter">
-       <div class="container">
-          <ul class="nav navbar-nav" id="footer-nav">
-             <v:menu.list pages="{footerlinks}">
-                <f:for each="{menu}" as="menuPage">
-                    <li><a href="{menuPage.link}" title="{menuPage.linktext}" >{menuPage.linktext}</a></li>
-                </f:for>
-             </v:menu.list>
-          </ul>
-       </div>
-    </div>
- </footer>
- 
+                     </div>
+                     <v:menu.list pages="{quicklinks}">
+                        <f:for each="{menu}" as="menuPage">
+                           <p><a href="{menuPage.link}">{menuPage.linktext}</a></p>
+                        </f:for>
+                     </v:menu.list>
+                  </div>
+               </div>
+            </f:case>
+            <f:case value="3">
+               <div class="col-sm-4">
+                  <div class="container">
+                     <f:format.raw>{footer1}</f:format.raw>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                  <div class="container">
+                     <f:format.raw>{footer2}</f:format.raw>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                  <div class="container">
+                     <div class="contentElement">
+                        <f:if condition="{facebook} || {twitter} || {instagram} || {linkedin}">
+                           <f:then>
+                              <div class="headline">
+                                 <div class="h2">
+                                    <f:translate
+                                       key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.followUs" />
+                                 </div>
+                              </div>
+                              <f:if condition="{facebook}">
+                                 <a href="{facebook -> f:format.raw()}" target="_blank" title="Facebook"><i
+                                       class="social-icon facebook"></i></a>
+                              </f:if>
+                              <f:if condition="{twitter}">
+                                 <a href="{twitter -> f:format.raw()}" target="_blank" title="Twitter"><i
+                                       class="social-icon twitter"></i></a>
+                              </f:if>
+                              <f:if condition="{instagram}">
+                                 <a href="{instagram -> f:format.raw()}" target="_blank" title="Instagram"><i
+                                       class="social-icon instagram"></i></a>
+                              </f:if>
+                              <f:if condition="{linkedin}">
+                                 <a href="{linkedin -> f:format.raw()}" target="_blank" title="LinkedIn"><i
+                                       class="social-icon linkedin"></i></a>
+                              </f:if>
+                           </f:then>
+                           <f:else>
+                              <f:if condition="{footerlogoenabled}">
+                                 <v:resource.record.fal table="pages" field="tx_w4communitynet_logo" uid="1"
+                                    as="resources">
+                                    <f:if condition="{resources.0.url}">
+                                       <img src="{resources.0.url}"
+                                          alt="{pageinfo.tx_w4communitynet_logoname} {pageinfo.tx_w4communitynet_logosubname}"
+                                          class="mt-5" />
+                                    </f:if>
+                                 </v:resource.record.fal>
+                              </f:if>
+                           </f:else>
+                        </f:if>
+                     </div>
+                     <v:resource.record.fal table="pages" field="tx_w4communitynet_footerimages" uid="1" as="resources">
+                        <f:if condition="{resources -> f:count()}">
+                           <f:for each="{resources}" as="resource">
+                              <f:link.typolink parameter="{resource.link}" title="{resource.title}">
+                                 <img src="{resource.url}" alt="{resource.description}" class="mt-5" />
+                              </f:link.typolink>
+                           </f:for>
+                        </f:if>
+                     </v:resource.record.fal>
+                  </div>
+               </div>
+            </f:case>
+            <f:case value="4">
+               <div class="col-sm-6">
+                  <div class="container">
+                     <f:format.raw>{footer1}</f:format.raw>
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="container">
+                     <f:format.raw>{footer2}</f:format.raw>
+                  </div>
+               </div>
+            </f:case>
+            <f:defaultCase>
+               <div class="col-sm-3">
+                  <div class="container">
+                     <f:format.raw>{footer1}</f:format.raw>
+                  </div>
+               </div>
+               <div class="col-sm-3">
+                  <div class="container">
+                     <f:format.raw>{footer2}</f:format.raw>
+                  </div>
+               </div>
+               <div class="col-sm-3">
+                  <div class="container">
+                     <div class="contentElement">
+                        <div class="headline">
+                           <div class="h2">
+                              <f:translate
+                                 key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.directLinks" />
+                           </div>
+                        </div>
+                     </div>
+                     <v:menu.list pages="{quicklinks}">
+                        <f:for each="{menu}" as="menuPage">
+                           <p><a href="{menuPage.link}">{menuPage.linktext}</a></p>
+                        </f:for>
+                     </v:menu.list>
+                  </div>
+               </div>
+               <div class="col-sm-3">
+                  <div class="container">
+                     <div class="contentElement">
+                        <f:if condition="{facebook} || {twitter} || {instagram} || {linkedin}">
+                           <f:then>
+                              <div class="headline">
+                                 <div class="h2">
+                                    <f:translate
+                                       key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.followUs" />
+                                 </div>
+                              </div>
+                              <f:if condition="{facebook}">
+                                 <a href="{facebook -> f:format.raw()}" target="_blank" title="Facebook"><i
+                                       class="social-icon facebook"></i></a>
+                              </f:if>
+                              <f:if condition="{twitter}">
+                                 <a href="{twitter -> f:format.raw()}" target="_blank" title="Twitter"><i
+                                       class="social-icon twitter"></i></a>
+                              </f:if>
+                              <f:if condition="{instagram}">
+                                 <a href="{instagram -> f:format.raw()}" target="_blank" title="Instagram"><i
+                                       class="social-icon instagram"></i></a>
+                              </f:if>
+                              <f:if condition="{linkedin}">
+                                 <a href="{linkedin -> f:format.raw()}" target="_blank" title="LinkedIn"><i
+                                       class="social-icon linkedin"></i></a>
+                              </f:if>
+                           </f:then>
+                           <f:else>
+                              <f:if condition="{footerlogoenabled}">
+                                 <v:resource.record.fal table="pages" field="tx_w4communitynet_logo" uid="1"
+                                    as="resources">
+                                    <f:if condition="{resources.0.url}">
+                                       <img src="{resources.0.url}"
+                                          alt="{pageinfo.tx_w4communitynet_logoname} {pageinfo.tx_w4communitynet_logosubname}"
+                                          class="mt-5" />
+                                    </f:if>
+                                 </v:resource.record.fal>
+                              </f:if>
+                           </f:else>
+                        </f:if>
+                     </div>
+                     <v:resource.record.fal table="pages" field="tx_w4communitynet_footerimages" uid="1" as="resources">
+                        <f:if condition="{resources -> f:count()}">
+                           <f:for each="{resources}" as="resource">
+                              <f:link.typolink parameter="{resource.link}" title="{resource.title}">
+                                 <img src="{resource.url}" alt="{resource.description}" class="mt-5" />
+                              </f:link.typolink>
+                           </f:for>
+                        </f:if>
+                     </v:resource.record.fal>
+                  </div>
+               </div>
+            </f:defaultCase>
+         </f:switch>
+      </div>
+   </div>
+   <div class="subfooter">
+      <div class="container">
+         <ul class="nav navbar-nav" id="footer-nav">
+            <v:menu.list pages="{footerlinks}">
+               <f:for each="{menu}" as="menuPage">
+                  <li><a href="{menuPage.link}" title="{menuPage.linktext}">{menuPage.linktext}</a></li>
+               </f:for>
+            </v:menu.list>
+         </ul>
+      </div>
+   </div>
+</footer>
+
 <div id="mini-cart-holding-items"></div>

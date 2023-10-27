@@ -119,51 +119,51 @@
                 <source>December</source>
                 <target>Dezember</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.1">
+            <trans-unit id="months.abbreviated.1">
                 <source>Jan</source>
                 <target>Jan</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.2">
+            <trans-unit id="months.abbreviated.2">
                 <source>Feb</source>
                 <target>Feb</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.3">
+            <trans-unit id="months.abbreviated.3">
                 <source>March</source>
                 <target>März</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.4">
+            <trans-unit id="months.abbreviated.4">
                 <source>April</source>
                 <target>Apr</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.5">
+            <trans-unit id="months.abbreviated.5">
                 <source>May</source>
                 <target>Mai</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.6">
+            <trans-unit id="months.abbreviated.6">
                 <source>Jun</source>
                 <target>Jun</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.7">
+            <trans-unit id="months.abbreviated.7">
                 <source>Jul</source>
                 <target>Jul</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.8">
+            <trans-unit id="months.abbreviated.8">
                 <source>Aug</source>
                 <target>Aug</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.9">
+            <trans-unit id="months.abbreviated.9">
                 <source>Sep</source>
                 <target>Sep</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.10">
+            <trans-unit id="months.abbreviated.10">
                 <source>Oct</source>
                 <target>Okt</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.11">
+            <trans-unit id="months.abbreviated.11">
                 <source>Nov</source>
                 <target>Nov</target>
             </trans-unit>
-            <trans-unit id="months.abbreviate.12">
+            <trans-unit id="months.abbreviated.12">
                 <source>Dec</source>
                 <target>Dez</target>
             </trans-unit>

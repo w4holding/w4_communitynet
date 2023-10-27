@@ -28,7 +28,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
         'tx_w4communitynet_logo' => [
             'displayCond' => 'FIELD:is_siteroot:REQ:true',
             'label' => $languageFilePrefix . 'tx_w4communitynet_logo',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'tx_w4communitynet_logo',
                 [
                     'appearance' => [
@@ -123,7 +123,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
             ],
         ],
         'tx_w4communitynet_icon_class' => [
-            'label' => 'Auswahl Toplink-Icon',
+            'label' => $languageFilePrefix . 'tx_w4communitynet_footerimages',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -167,7 +167,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
         ],
         'tx_w4communitynet_headerbg' => [
             'label' => $languageFilePrefix . 'tx_w4communitynet_headerbg',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'tx_w4communitynet_headerbg',
                 [
                     'appearance' => [
@@ -181,7 +181,15 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
         ],
         'tx_w4communitynet_footerlogoenabled' => [
             'exclude' => true,
-            'displayCond' => 'FIELD:is_siteroot:REQ:true',
+            'displayCond' => [
+                'AND' => [
+                    'FIELD:is_siteroot:REQ:true',
+                    'OR' => [
+                        'FIELD:tx_w4communitynet_footerlayout:=:1',
+                        'FIELD:tx_w4communitynet_footerlayout:=:3'
+                    ]
+                ]
+            ],
             'label' => $languageFilePrefix . 'tx_w4communitynet_footerlogoenabled',
             'config' => [
                 'type' => 'check',
@@ -196,6 +204,84 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
                 'type' => 'check',
                 'renderType' => 'checkboxToggle'
             ]
+        ],
+        'tx_w4communitynet_footerlayout' => [
+            'exclude' => true,
+            'displayCond' => 'FIELD:is_siteroot:REQ:true',
+            'label' => $languageFilePrefix . 'tx_w4communitynet_footerlayout',
+            'onChange' => 'reload',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [ $languageFilePrefix . 'tx_w4communitynet_footerlayout.1', '1'],
+                    [ $languageFilePrefix . 'tx_w4communitynet_footerlayout.2', '2'],
+                    [ $languageFilePrefix . 'tx_w4communitynet_footerlayout.3', '3'],
+                    [ $languageFilePrefix . 'tx_w4communitynet_footerlayout.4', '4'],
+                ],
+                'size' => 1,
+                'maxitems' => 1,
+            ]
+        ],
+        'tx_w4communitynet_footerimages' => [
+            'displayCond' => [
+                'AND' => [
+                    'FIELD:is_siteroot:REQ:true',
+                    'OR' => [
+                        'FIELD:tx_w4communitynet_footerlayout:=:1',
+                        'FIELD:tx_w4communitynet_footerlayout:=:3'
+                    ]
+                ]
+            ],
+            'label' => $languageFilePrefix . 'tx_w4communitynet_footerimages',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'tx_w4communitynet_footerimages',
+                [
+                    'overrideChildTca' => [
+                        'types' => [
+                            '0' => [
+                                'showitem' => '
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                                'showitem' => '
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                                'showitem' => '
+                                    --palette--;;audioOverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                                'showitem' => '
+                                    --palette--;;videoOverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                                'showitem' => '
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                        ],
+                    ],
+                    'behaviour' => [
+                        'allowLanguageSynchronization' => true,
+                    ],
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+                    ],
+                    'minitems' => 0,
+                    'maxitems' => 5,
+                ],
+                'svg,png,jpg,jpeg'
+            ),
         ],
     
     ];
@@ -213,13 +299,15 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
         tx_w4communitynet_logosubname,
         tx_w4communitynet_search,
         tx_w4communitynet_quicklinks,
+        tx_w4communitynet_searchboxintopbarenabled,
         tx_w4communitynet_facebook,
         tx_w4communitynet_twitter,
         tx_w4communitynet_instagram,
         tx_w4communitynet_linkedin,
         tx_w4communitynet_footerlinks,
-        tx_w4communitynet_searchboxintopbarenabled,
-        tx_w4communitynet_footerlogoenabled'
+        tx_w4communitynet_footerimages,
+        tx_w4communitynet_footerlogoenabled,
+        tx_w4communitynet_footerlayout'
     );
 
     ExtensionManagementUtility::addToAllTCAtypes(

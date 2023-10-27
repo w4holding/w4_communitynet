@@ -42,7 +42,7 @@
             <trans-unit id="tt_content.footer.colPos.3">
                 <source>Footer 3. Column</source>
                 <target>Fußzeile 3. Spalte</target>
-            </trans-unit>           
+            </trans-unit>   
             <trans-unit id="tt_content.layout.1">
                 <source>With grey background</source>
                 <target>Mit grauem Hintergrund</target>
@@ -182,7 +182,7 @@
             <trans-unit id="pages.tx_w4communitynet_headerbg">
                 <source>Header background image</source>
                 <target>Header-Hintergrundbild</target>
-            </trans-unit>        
+            </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_footerlogoenabled">
                 <source>Show logo in the footer if no social media icons are specified</source>
                 <target>Logo in der Fußzeile anzeigen wenn keine Symbole für soziale Medien angegeben sind</target>
@@ -190,6 +190,34 @@
             <trans-unit id="pages.tx_w4communitynet_searchboxintopbarenabled">
                 <source>Show search box in top navigation bar</source>
                 <target>Suchfeld in der oberen Navigationsleiste anzeigen</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footeronlytwocolumns">
+                <source>Hide direct links and social media columns in footer</source>
+                <target>Direkte Links- und Social Media Spalten in der Fußzeile ausblenden</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout">
+                <source>Footer layout</source>
+                <target>Fußzeilenlayout</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout.1">
+                <source>Two columns with content + Quick links column + Social media column</source>
+                <target>Zwei Spalten mit Inhalt + Quick-Links Spalte + soziale Medien Spalte</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout.2">
+                <source>Two columns with content + Quick links column</source>
+                <target>Zwei Spalten mit Inhalt + Quick-Links Spalte</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout.3">
+                <source>Two columns with content + Social media column</source>
+                <target>Zwei Spalten mit Inhalt + soziale Medien Spalte</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout.4">
+                <source>Two columns with content</source>
+                <target>Zwei Spalten mit Inhalt</target>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_icon_class">
+                <source>Quick link icon</source>
+                <target>Quick-Link-Symbol</target>
             </trans-unit>
             <trans-unit id="ce.w4_communitynet_button.wizard.title">
                 <source>Button</source>

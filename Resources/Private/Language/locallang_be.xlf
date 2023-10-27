@@ -128,24 +128,45 @@
             </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_instagram">
                 <source>Instagram</source>
-            </trans-unit> 
+            </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_linkedin">
                 <source>LinkedIn</source>
-            </trans-unit>  
+            </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_search">
                 <source>Search page</source>
             </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_footerlinks">
                 <source>Footer Links</source>
-            </trans-unit>    
+            </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_headerbg">
                 <source>Header Background Image</source>
-            </trans-unit>      
+            </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_footerlogoenabled">
                 <source>Show logo in the footer if no social media icons are specified</source>
             </trans-unit>
             <trans-unit id="pages.tx_w4communitynet_searchboxintopbarenabled">
                 <source>Show search box in top navigation bar</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout">
+                <source>Footer layout</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout.1">
+                <source>Two columns with content + Quick links column + Social media column</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout.2">
+                <source>Two columns with content + Quick links column</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout.3">
+                <source>Two columns with content + Social media column</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerlayout.4">
+                <source>Two columns with content</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_footerimages">
+                <source>Images to be shown in the footer social media column</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_w4communitynet_icon_class">
+                <source>Quick link icon</source>
             </trans-unit>
             <trans-unit id="ce.w4_communitynet_button.wizard.title">
                 <source>Button</source>

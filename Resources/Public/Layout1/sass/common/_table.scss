@@ -42,6 +42,22 @@
   display: none;
 }
 
+
+footer {
+  .ce-table,
+  .table {
+    width: auto;
+    border-spacing: 0;
+  }
+  .ce-table th,
+  .ce-table td,
+  .table th,
+  .table td {
+    padding: 0 15px 5px 0;
+    background: none;
+  }
+}
+
 @media #{$max-md} {
 
   table#list-of-products th:nth-child(3),
