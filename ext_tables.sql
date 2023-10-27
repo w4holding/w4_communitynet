@@ -27,6 +27,8 @@ CREATE TABLE pages
     tx_w4communitynet_headerbg                 int(11) unsigned DEFAULT '0' NOT NULL,
     tx_w4communitynet_footerlogoenabled        smallint(1) unsigned DEFAULT '0' NOT NULL,
     tx_w4communitynet_searchboxintopbarenabled smallint(1) unsigned DEFAULT '0' NOT NULL,
+    tx_w4communitynet_footerlayout             smallint(1) unsigned DEFAULT '1' NOT NULL,
+    tx_w4communitynet_footerimages             int(11) unsigned DEFAULT '0' NOT NULL,
 
 );
 
