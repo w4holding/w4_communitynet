@@ -30,3 +30,9 @@
     margin: 20px 0 30px 0;
   }
 }
+
+@media (min-width: 1360px) and (max-width: 1599px) {
+  .breadcrumbs .container {
+    max-width: calc(100% - 100px) !important;
+  }
+}
