@@ -534,140 +534,160 @@ div.form-buttons {
 /* Checkbox */
 
 label.form-check-label {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  padding: 0 0 10px 50px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-size: 0.9rem;
-
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    background-color: #eee;
-
-    &:after {
-      content: "";
-      position: absolute;
-      display: none;
-      left: 11px;
-      top: 5px;
-      width: 8px;
-      height: 16px;
-      border: solid #fff;
-      border-width: 0 2px 2px 0;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
-    }
-  }
-
-  &:hover input~.checkmark {
-    background-color: #ccc;
-  }
-
-  input:checked~.checkmark {
-    background-color: $red;
-  }
-
-  input:checked~.checkmark:after {
     display: block;
-  }
+    position: relative;
+    cursor: pointer;
+    padding: 0 0 10px 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 0.9rem;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 30px;
+        width: 30px;
+        background-color: #eee;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 11px;
+            top: 5px;
+            width: 8px;
+            height: 16px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    &:hover input~.checkmark {
+        background-color: #ccc;
+    }
+
+    input:checked~.checkmark {
+        background-color: $red;
+    }
+
+    input:checked~.checkmark:after {
+        display: block;
+    }
 }
 
 /* Radio */
 
 label.form-radio-label {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  padding: 0 0 10px 50px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    background-color: #eee;
-    border-radius: 50%;
-
-    &:after {
-      content: "";
-      position: absolute;
-      display: none;
-      top: 4px;
-      left: 4px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #fff;
-    }
-  }
-
-  &:hover input~.checkmark {
-    background-color: #ccc;
-  }
-
-  input:checked~.checkmark {
-    background-color: $red;
-  }
-
-  input:checked~.checkmark:after {
     display: block;
-  }
+    position: relative;
+    cursor: pointer;
+    padding: 0 0 10px 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 30px;
+        width: 30px;
+        background-color: #eee;
+        border-radius: 50%;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            top: 4px;
+            left: 4px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #fff;
+        }
+    }
+
+    &:hover input~.checkmark {
+        background-color: #ccc;
+    }
+
+    input:checked~.checkmark {
+        background-color: $red;
+    }
+
+    input:checked~.checkmark:after {
+        display: block;
+    }
 }
 
 .blue-style-template {
 
-  label.form-check-label input:checked~.checkmark,
-  label.form-radio-label input:checked~.checkmark {
-    background-color: $blue;
-  }
+    label.form-check-label input:checked~.checkmark,
+    label.form-radio-label input:checked~.checkmark {
+        background-color: $blue;
+    }
 }
 
 .green-style-template {
 
-  label.form-check-label input:checked~.checkmark,
-  label.form-radio-label input:checked~.checkmark {
-    background-color: $green;
-  }
+    label.form-check-label input:checked~.checkmark,
+    label.form-radio-label input:checked~.checkmark {
+        background-color: $green;
+    }
 }
 
-.form-group ul.nav li {
-    width: 33.33333333%;
-    -ms-flex-preferred-size: 33.33333333%;
-    flex-basis: 33.33333333%;
-    float: left;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 60px;
-    padding-right: 10px;
+.form-group ul.nav {
+    li {
+        width: 33.33333333%;
+        -ms-flex-preferred-size: 33.33333333%;
+        flex-basis: 33.33333333%;
+        float: left;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 60px;
+        padding-right: 10px;
+
+        @media #{$max-lg} {
+            width: 50%;
+            -ms-flex-preferred-size: 50%;
+            flex-basis: 50%;
+        }
+
+        @media #{$max-md} {
+            width: 100%;
+            -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+        }
+    }
+
+    &.check-all li {
+        width: 100%;
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    }
 }
