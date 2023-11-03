@@ -72,6 +72,7 @@
                                 name="{newsItem.author}" />
                             </f:if>                           
                         </schema:type.article>
+                        <h1>{newsItem.title}</h1>
                         <div class="date">
                             <f:format.date format="d.m.Y">{newsItem.datetime}</f:format.date>
                         </div>
@@ -101,6 +102,7 @@
                         <div class="content" itemprop="articleBody">
                             <f:format.html>{newsItem.bodytext}</f:format.html>
                         </div>
+                        <f:render section="relatedfiles" arguments="{_all}" />
                         <div class="center">
                             <f:link.page pageUid="{settings.backPid}" class="btn-u return">
                                 <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.BackToOverview" />
@@ -140,10 +142,10 @@
                             <f:if condition="{newsItem.datetime}">
                                 <div class="event-info-item-wrapper">
                                     <div class="event-info-item">
-                                        <div class="subtitle"><f:translate key="'LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.startDate" /></div>
+                                        <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.startDate" /></div>
                                         <div class="value">
                                             <f:format.date format="%d. %B %Y">{newsItem.datetime}</f:format.date>
-                                            <br /><f:format.date format="%H:%m">{newsItem.datetime}</f:format.date>
+                                            <br /><f:format.date format="H:i">{newsItem.datetime}</f:format.date>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +156,7 @@
                                         <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.eventEnd" /></div>
                                         <div class="value">
                                             <f:format.date format="%d. %B %Y">{newsItem.eventEnd}</f:format.date>
-                                            <br /><f:format.date format="%H:%m">{newsItem.eventEnd}</f:format.date>
+                                            <br /><f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
                                         </div>
                                     </div>
                                 </div>
@@ -208,6 +210,7 @@
                                 <div class="content" itemprop="articleBody">
                                     <h1 class="h2">{newsItem.title}</h1>
                                     <f:format.html>{newsItem.bodytext}</f:format.html>
+                                    <f:render section="relatedfiles" arguments="{_all}" />
                                 </div>
                             </div>
                         </div>
@@ -221,6 +224,111 @@
             </f:if>
         </f:then>
     </f:if>    
+</f:section>
+
+<f:section name="relatedfiles">
+    <f:if condition="{newsItem.relatedFiles}">
+        <ul class="uploads-list uploads-list-1 mb-5">
+            <f:for each="{newsItem.relatedFiles}" as="file" iteration="fileIterator">
+                <f:switch expression="{file.originalResource.extension}">
+                    <f:case value="pdf">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="pdf"></f:variable>
+                    </f:case>
+                    <f:case value="doc">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="doc"></f:variable>
+                    </f:case>
+                    <f:case value="docx">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="doc"></f:variable>
+                    </f:case>
+                    <f:case value="odt">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="odt"></f:variable>
+                    </f:case>
+                    <f:case value="xls">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="xls"></f:variable>
+                    </f:case>
+                    <f:case value="xlsx">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="xls"></f:variable>
+                    </f:case>
+                    <f:case value="csv">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="csv"></f:variable>
+                    </f:case>
+                    <f:case value="ods">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="ods"></f:variable>
+                    </f:case>
+                    <f:case value="ppt">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="ppt"></f:variable>
+                    </f:case>
+                    <f:case value="pptx">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="ppt"></f:variable>
+                    </f:case>
+                    <f:case value="odp">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="odt"></f:variable>
+                    </f:case>
+                    <f:case value="txt">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="txt"></f:variable>
+                    </f:case>
+                    <f:case value="zip">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="zip"></f:variable>
+                    </f:case>
+                    <f:case value="jpg">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="jpg"></f:variable>
+                    </f:case>
+                    <f:case value="jpeg">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="jpg"></f:variable>
+                    </f:case>
+                    <f:case value="png">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="png"></f:variable>
+                    </f:case>
+                    <f:case value="gif">
+                        <f:variable name="show_thumb" value="1"></f:variable>
+                        <f:variable name="file_icon" value="png"></f:variable>
+                    </f:case>
+                    <f:case value="mp4">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="mp4"></f:variable>
+                    </f:case>
+                    <f:case value="mp3">
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="mp3"></f:variable>
+                    </f:case>
+                    <f:defaultCase>
+                        <f:variable name="show_thumb" value="0"></f:variable>
+                        <f:variable name="file_icon" value="file"></f:variable>
+                    </f:defaultCase>
+                </f:switch>
+                <li class="uploads-filetype uploads-filetype-{file_icon}">
+                    <div class="uploads-fileNameWrap">
+                        <span class="uploads-fileName">
+                            <strong>{f:if(condition:file.originalResource.title, then:file.originalResource.title, else:file.originalResource.name)}</strong>
+                            <br />
+                            <span class="uploads-filesize">
+                                <f:format.bytes value="{file.originalResource.size}" />
+                            </span>
+                        </span>
+                        <a href="{file.originalResource.publicUrl -> f:format.htmlspecialchars()}" class="btn-u btn-u-filled btn-u-small" target="_blank">
+                            <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:download" />
+                        </a>
+                    </div>
+                </li>
+            </f:for>
+        </ul>
+    </f:if>
 </f:section>
 
 </html>

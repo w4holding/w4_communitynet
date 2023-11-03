@@ -59,16 +59,19 @@
           &.date {
             width: 120px;
             padding: 27px 35px;
+            font-size: 1.0666rem;
           }
 
           &.time {
             width: 182px;
             padding: 27px 35px;
+            font-size: 1.0666rem;
             border-right: 3px solid #fff;
           }
 
           &.title {
             width: calc(100% - 356px);
+            font-size: 0.8889rem;
           }
         }
       }
@@ -140,5 +143,23 @@ body.green-style-template .events-list-view table tr {
     color: #fff;
     background: #88c18d url("../img/li-white.svg") no-repeat;
     background-position: right 25px center;
+  }
+}
+
+table.event-month {
+  th.day {
+    background-color: #e4e9f0;
+  }
+  td {
+    min-width: 95px;
+    max-width: 120px;
+    &.week-number {
+      min-width: 25px;
+      width: 25px;
+      background-color: #e4e9f0;
+    }
+    ul li {
+      line-height: 1rem;
+    }
   }
 }

@@ -1,25 +1,20 @@
 .navbar-nav {
   font-size: 1rem;
   line-height: 1.25rem;
+  margin-bottom: 50px;
 
   @media #{$min-lg} {
     display: flex;
     justify-content: flex-end;
     width: 100%;
   }
+  @media #{$min-xll} {
+    margin-bottom: 0;
+  }
 
   @media #{$min-xxl} {
     font-size: 1rem;
     line-height: 1rem;
-  }
-
-  @at-root {
-    .navbar-collapse {
-      @media #{$max-lg} {
-        width: calc(100% + #{$grid-gutter-width});
-        margin: 0 calc(-#{$grid-gutter-width} / 2);
-      }
-    }
   }
 
   a {
@@ -101,18 +96,19 @@
     &>a {
       display: block;
       width: 100%;
-      padding: 8px 40px 8px 35px;
       font-size: 1.125rem;
       line-height: 1.5rem;
       white-space: nowrap;
       color: $headers-color;
       font-family: "Open Sans SemiBold";
       padding: 2px 20px;
+      border-bottom: 1px solid #eee;
 
       @media #{$min-xxl} {
         font-size: 1rem;
         line-height: 2rem;
         border-right: 1px solid $color-gray6;
+        border-bottom: none;
       }
 
       &:hover {
@@ -125,8 +121,8 @@
 
     &:last-of-type {
       &>a {
-          padding-right: 0;
-          border: 0;
+        padding-right: 0;
+        border: 0;
       }
     }
 
@@ -141,6 +137,11 @@
       @media #{$max-lg} {
         display: none;
       }
+    }
+
+    &:last-child>ul {
+      left: auto;
+      right: 0;
     }
   }
 
@@ -158,7 +159,7 @@
       border-top: 2px solid $primary;
       border-bottom: 2px solid $nav-link-color;
       @include color-active(border-top-color);
-      box-shadow: 0 6px 12px rgba(0,0,0,.175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     }
 
     a {
@@ -166,9 +167,12 @@
       width: 100%;
       padding: 5px 15px 5px 50px;
       color: $nav-link-color;
+      white-space: nowrap;
+      font-size: 0.8889rem;
 
       @media #{$min-lg} {
-        padding: 8px 22x;
+        padding: 12px 22x;
+
         &:hover {
           color: $nav-link-color;
           background: $color-gray4;
@@ -213,7 +217,7 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 20px;
+        right: 8px;
         margin: auto;
         border: solid $nav-link-color;
         border-width: 0 0 2px 2px;
@@ -288,4 +292,3 @@
     }
   }
 }
-

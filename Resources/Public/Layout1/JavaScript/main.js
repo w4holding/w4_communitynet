@@ -103,6 +103,14 @@ function siteHeaderMenuInit () {
             openSubMenu($parent);
         }
     });
+
+    $('.events-list-view tr').click(function() {
+      var url = $(this).find('a').attr('href');
+      if(url.length > 0){
+        window.location = url;
+      }      
+    });
+
 }
 
 

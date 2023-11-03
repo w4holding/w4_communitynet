@@ -1,0 +1,58 @@
+{namespace events=GeorgRinger\Eventnews\ViewHelpers}
+{namespace n=GeorgRinger\News\ViewHelpers}
+<f:layout name="General" />
+
+<f:section name="content">
+    <events:calendar newsList="{newsWithNoDaySupport}" demand="{demand}" firstDayOfWeek="1">
+        <div class="table-responsive">
+            <table class="table event-month">
+                <tr class="title">
+                    <th colspan="8" class="text-center">
+                        <f:link.action controller="News" action="month" arguments="{overwriteDemand:{month:previousMonthData.month,year:previousMonthData.year}}" pageUid="{currentPageId}" rel="nofollow" title="{f:format.date(date:previousMonthData.date,format:'%B %Y')}" class="float-start">
+                            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                        </f:link.action>
+                        {f:format.date(date:currentMonthData.date,format:'%B %Y')}
+                        <f:link.action controller="News" action="month" arguments="{overwriteDemand:{month:nextMonthData.month,year:nextMonthData.year}}" pageUid="{currentPageId}" rel="nofollow" title="{f:format.date(date:nextMonthData.date,format:'%B %Y')}" class="float-end">
+                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                        </f:link.action>
+                    </th>
+                </tr>
+                <tr class="days">
+                    <th></th>
+                    <f:for each="{weeks.0}" as="day">
+                        <th class="day text-center">
+                            {f:format.date(date: day.ts, format: '%A')}
+                        </th>
+                    </f:for>
+                </tr>
+                <f:for each="{weeks}" as="week">
+                    <tr>
+                        <f:for each="{week}" as="day" iteration="i">
+                            <f:if condition="{i.isFirst}">
+                                <td class="week-number text-end">{f:format.date(date:day.ts,format:'W')}</td>
+                            </f:if>                        
+                            <f:render section="calday" arguments="{day:day, settings:settings}" />
+                        </f:for>
+                    </tr>
+                </f:for>
+            </table>
+        </div>
+    </events:calendar>
+</f:section>
+
+<f:section name="calday">
+    <td class="day{f:format.date(date: day.ts, format: 'N')} {f:if(condition: day.curmonth, then: 'curmonth', else: 'othermonth')}{f:if(condition: day.news, then: ' hasevents')}{f:if(condition: day.curday, then: ' today'} align-text-top">
+        <f:if condition="{day.curmonth}">
+            <p class="text-end mb-0"><f:if condition="{day.day}<10">0</f:if>{day.day}</p>
+            <f:if condition="{day.news}">
+                <ul class="ps-3 mb-2">
+                    <f:for each="{day.news}" as="newsItem">
+                        <li class="mb-1">
+                            <n:link newsItem="{newsItem}" settings="{settings}" class="article-more" title="{newsItem.title}">{newsItem.title}</n:link>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:if>
+        </f:if>
+    </td>
+</f:section>
