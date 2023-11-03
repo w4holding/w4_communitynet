@@ -1,8 +1,4 @@
 plugin.tx_indexedsearch.view {
-    templateRootPaths {
-        20 = EXT:w4_community_net/Resources/Private/Extensions/indexed_search/Templates/
-    }
-    partialRootPaths {
-        20 = EXT:w4_community_net/Resources/Private/Extensions/indexed_search/Partials/
-    }
+    templateRootPaths.20 = EXT:w4_communitynet/Resources/Private/Extensions/indexed_search/Templates/
+    partialRootPaths.20 = EXT:w4_communitynet/Resources/Private/Extensions/indexed_search/Partials/
 }

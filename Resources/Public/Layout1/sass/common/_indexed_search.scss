@@ -1,0 +1,186 @@
+.tx-indexedsearch-res {
+    margin: 1.5rem 0;
+
+    p {
+        margin-bottom: 0.2rem;
+
+        &:not(.tx-indexedsearch-description) a {
+            color: #b8b0a5;
+        }
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.2rem;
+    }
+}
+
+.tx-indexedsearch-searchbox {
+    #tx-indexedsearch-searchbox-sword {
+        display: inline;
+        width: 200px;
+    }
+
+    #tx-indexedsearch-searchbox-button-submit {
+        border: none;
+        width: 47px;
+        height: 47px;
+        margin: -8px 0 0 10px;
+        background: #ccc url(../img/search.svg) center center no-repeat;
+        background-size: auto;
+        background-size: auto;
+        background-size: 25px;
+        border-radius: 4px;
+        padding: 21px 2px 18px;
+    }
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+
+    &>li {
+        display: inline;
+
+        &>a,
+        &>span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #d91231;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        &:first-child>a,
+        &:first-child>span {
+            margin-left: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        &:last-child>a,
+        &:last-child>span {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        &>a:hover,
+        &>span:hover,
+        &>a:focus,
+        &>span:focus {
+            z-index: 2;
+            color: #d91231;
+            background-color: #eee;
+            border-color: #ddd;
+        }
+
+        &.active>a,
+        &.active>span,
+        &.active>a:hover,
+        &.active>span:hover,
+        &.active>a:focus,
+        &.active>span:focus {
+            z-index: 3;
+            color: #fff;
+            cursor: default;
+            background-color: #d91231;
+            border-color: #d91231;
+        }
+
+        &.disabled>span,
+        &.disabled>span:hover,
+        &.disabled>span:focus,
+        &.disabled>a,
+        &.disabled>a:hover,
+        &.disabled>a:focus {
+            color: #777;
+            cursor: not-allowed;
+            background-color: #fff;
+            border-color: #ddd;
+        }
+    }
+}
+
+.pagination-lg>li>a,
+.pagination-lg>li>span {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+}
+
+.pagination-lg>li:first-child>a,
+.pagination-lg>li:first-child>span {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.pagination-lg>li:last-child>a,
+.pagination-lg>li:last-child>span {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.pagination-sm>li>a,
+.pagination-sm>li>span {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.pagination-sm>li:first-child>a,
+.pagination-sm>li:first-child>span {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.pagination-sm>li:last-child>a,
+.pagination-sm>li:last-child>span {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.blue-style-template .pagination>li>a,
+.blue-style-template .pagination>li>span,
+.blue-style-template .pagination>li>a:hover,
+.blue-style-template .pagination>li>span:hover,
+.blue-style-template .pagination>li>a:focus,
+.blue-style-template .pagination>li>span:focus {
+    color: #1e55a5;
+}
+
+.blue-style-template .pagination>.active>a,
+.blue-style-template .pagination>.active>span,
+.blue-style-template .pagination>.active>a:hover,
+.blue-style-template .pagination>.active>span:hover,
+.blue-style-template .pagination>.active>a:focus,
+.blue-style-template .pagination>.active>span:focus {
+    background-color: #1e55a5;
+    border-color: #1e55a5;
+    color: #fff;
+}
+
+.green-style-template .pagination>li>a,
+.green-style-template .pagination>li>span,
+.green-style-template .pagination>li>a:hover,
+.green-style-template .pagination>li>span:hover,
+.green-style-template .pagination>li>a:focus,
+.green-style-template .pagination>li>span:focus {
+    color: #245c28;
+}
+
+.green-style-template .pagination>.active>a,
+.green-style-template .pagination>.active>span,
+.green-style-template .pagination>.active>a:hover,
+.green-style-template .pagination>.active>span:hover,
+.green-style-template .pagination>.active>a:focus,
+.green-style-template .pagination>.active>span:focus {
+    background-color: #245c28;
+    border-color: #245c28;
+    color: #fff;
+}
