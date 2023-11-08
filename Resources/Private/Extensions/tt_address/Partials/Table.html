@@ -6,7 +6,7 @@
             <tr>
                 <f:for each="{columns}" as="column">
                     <th class="col  ">							
-                        <f:if condition="{f:translate(key:'label.{column}')}" >	
+                        <f:if condition="{f:translate(key:'label.{column}')}">	
                             <f:then>
                                 {f:translate(key:'label.{column}')}
                             </f:then>
@@ -24,10 +24,10 @@
                     <td class="col  ">
                         <f:switch expression="{column}">								
                             <f:case value="birthday"><f:format.date format="d.m.Y">{address.birthday}</f:format.date>&nbsp;</f:case>
-                            <f:case value="phone"><a href="tel:{address.cleanedPhone}">{address.phone}</a>&nbsp;</f:case>
-                            <f:case value="fax"><a href="tel:{address.cleanedFax}">{address.fax}</a>&nbsp;</f:case>
-                            <f:case value="mobile"><a href="tel:{address.cleanedMobile}">{address.mobile}</a>&nbsp;</f:case>
-                            <f:case value="email"><a href="mailto:{address.email}">{address.email}</a>&nbsp;</f:case>
+                            <f:case value="phone"><a href="tel:{address.cleanedPhone}" class="text-nowrap">{address.phone}</a></f:case>
+                            <f:case value="fax"><a href="tel:{address.cleanedFax}" class="text-nowrap">{address.fax}</a></f:case>
+                            <f:case value="mobile"><a href="tel:{address.cleanedMobile}" class="text-nowrap">{address.mobile}</a></f:case>
+                            <f:case value="email"><a href="mailto:{address.email}" class="text-nowrap">{address.email}</a></f:case>
                             <f:case value="www"><a href="{address.www}">{address.www}</a>&nbsp;</f:case>
                             <f:case value="socialmedia">									
                                 <f:if condition="{address.skype}">
