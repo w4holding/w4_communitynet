@@ -13,9 +13,7 @@
                 />
                 span class="checkmark"></span>
                 {formvh:translateElementProperty(element: element, property: 'label')}<f:if condition="{element.required}"><f:render partial="Field/Required" /></f:if>
-            </label>
-            {_all -> f:debug(title: '')}
-            
+            </label>            
         </div>
     </f:render>
 </formvh:renderRenderable>
