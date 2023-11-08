@@ -78,6 +78,9 @@
             <trans-unit id="tt_content.tx_w4communitynet_slidermask">
                 <source>Show mask to dark images</source>
             </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_showeventorganizer">
+                <source>Show event organizer</source>
+            </trans-unit>
             <trans-unit id="sys_template.tx_w4communitynet_layout">
                 <source>Layout</source>
             </trans-unit>
@@ -357,9 +360,6 @@
             <trans-unit id="tx_news.templateLayouts.events">
                 <source>Events</source>
             </trans-unit>
-            <trans-unit id="tx_news.templateLayouts.6">
-                <source>List</source>
-            </trans-unit>
             <trans-unit id="tx_news.templateLayouts.1">
                 <source>Three columns list</source>
             </trans-unit>
@@ -367,13 +367,22 @@
                 <source>List</source>
             </trans-unit>
             <trans-unit id="tx_news.templateLayouts.3">
-                <source>List with category filter</source>
+                <source>List with thumbnail</source>
             </trans-unit>
             <trans-unit id="tx_news.templateLayouts.4">
                 <source>Detail page</source>
             </trans-unit>
             <trans-unit id="tx_news.templateLayouts.5">
                 <source>Detail page</source>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.6">
+                <source>List</source>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.7">
+                <source>List with organizer and type of event</source>
+            </trans-unit>
+            <trans-unit id="tx_news.event_type">
+                <source>Event type</source>
             </trans-unit>
         </body>
     </file>

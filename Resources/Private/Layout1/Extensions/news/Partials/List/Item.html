@@ -1,9 +1,13 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
       data-namespace-typo3-fluid="true">
+<f:variable name="cats" value="," />
+<f:for each="{newsItem.categories}" as="category">
+    <f:variable name="cats" value="{cats}{category.uid}," />
+</f:for>
 <f:switch expression="{settings.templateLayout}">
     <f:case value="1">
-        <div class="newsitem newsitem-{iterator.cycle}" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <div class="newsitem newsitem-{iterator.cycle} newseventitem" data-categories="{cats}" itemscope="itemscope" itemtype="http://schema.org/Article">
             <f:variable name="image" value="" />
             <f:alias map="{mediaElement: newsItem.falmedia.0}">
                 <f:if condition="{mediaElement}">
@@ -44,10 +48,58 @@
             </n:link>
         </div>
     </f:case>
+    <f:case value="2">
+        <tr class="newseventitem" data-categories="{cats}">
+            <td class="date">
+                <strong><f:format.date format="d">{newsItem.datetime}</f:format.date></strong>
+                <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:months.abbreviated.{newsItem.datetime -> f:format.date(format: 'n')}" />
+            </td> 
+            <td class="time">
+                <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
+                <f:if condition="{newsItem.eventEnd}">
+                    - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
+                </f:if>
+            </td>
+            <td class="title">
+                <n:link newsItem="{newsItem}" settings="{settings}" class="article-more" title="{newsItem.title}">
+                    {newsItem.title}
+                </n:link>
+            </td>
+        </tr>
+    </f:case>
+    <f:case value="7">        
+        <f:variable name="type" value="" />
+        <f:if condition="{newsItem.eventType}">
+            <f:variable name="type" value="{f:translate(key: 'event_type.{newsItem.eventType}') -> f:format.crop(maxCharacters: 1, append: '')}" />
+        </f:if>
+        <tr class="newseventitem newseventitem-withorganizer" data-categories="{cats}">
+            <td class="date">
+                <strong><f:format.date format="d">{newsItem.datetime}</f:format.date></strong>
+                <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:months.abbreviated.{newsItem.datetime -> f:format.date(format: 'n')}" />
+            </td> 
+            <td class="time">
+                <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
+                <f:if condition="{newsItem.eventEnd}">
+                    - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
+                </f:if>
+            </td>
+            <td class="type">
+                {type}
+            </td>
+            <td class="title">
+                <n:link newsItem="{newsItem}" settings="{settings}" class="article-more" title="{newsItem.title}">
+                    {newsItem.title}&nbsp;<span>{type}</span>
+                    <div>{newsItem.organizerSimple}</div>
+                </n:link>
+            </td>
+            <td class="organizer">
+                {newsItem.organizerSimple}
+            </td>
+        </tr>        
+    </f:case>
     <f:defaultCase>
         <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
-            <div class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}"
-                itemscope="itemscope" itemtype="https://schema.org/Article">
+            <div class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')} newseventitem" data-categories="{cats}" itemscope="itemscope" itemtype="https://schema.org/Article">
                 <n:excludeDisplayedNews newsItem="{newsItem}" />
                 <div class="article-inner">
                     <f:variable name="image" value="" />
@@ -58,18 +110,46 @@
                     </f:alias>
                     <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}" style="background-image: url({f:if(condition: '{image}', then: '{image}', else: '{f:uri.image(src: \'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png\', absolute: 1)}')});"></div>
                     <div class="article-infos">
-                        <span class="date">
-                            <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
-                                <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
-                            </time>
-                        </span>
-                        <div class="infos-sup">
-                        </div>
-                        <div class="header">
-                            <h3>
-                                <span itemprop="headline">{newsItem.title}</span>
-                            </h3>
-                        </div>
+                        <f:if condition="{settings.templateLayout}==3">
+                            <f:then>
+                                <div class="header">
+                                    <h3>
+                                        <span itemprop="headline">{newsItem.title}</span>
+                                    </h3>
+                                </div>
+                                <span class="date">
+                                    <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+                                        <f:format.date format="%d">{newsItem.datetime}</f:format.date>.
+                                        <f:translate key="month.{newsItem.datetime -> f:format.date(format: '%m')}" />
+                                        <f:format.date format="%Y">{newsItem.datetime}</f:format.date>
+                                        .
+                                        <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
+                                        <f:if condition="{newsItem.eventEnd}">
+                                            - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
+                                        </f:if>
+                                    </time>
+                                </span>
+                                <f:if condition="{newsItem.eventType}">
+                                    <p><f:translate key="event_type.{newsItem.eventType}" /></p>
+                                </f:if>
+                                <div class="infos-sup mb-2">
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <span class="date">
+                                    <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+                                        <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+                                    </time>
+                                </span>
+                                <div class="infos-sup">
+                                </div>
+                                <div class="header">
+                                    <h3>
+                                        <span itemprop="headline">{newsItem.title}</span>
+                                    </h3>
+                                </div>
+                            </f:else>
+                        </f:if>
                         <div class="text">
                             <n:removeMediaTags>
                                 <f:if condition="{newsItem.teaser}">

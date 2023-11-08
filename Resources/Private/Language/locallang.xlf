@@ -15,6 +15,9 @@
             <trans-unit id="w4_communitynet.news.organisator">
                 <source>Organisator</source>
             </trans-unit>
+            <trans-unit id="w4_communitynet.news.eventtype">
+                <source>Event type</source>
+            </trans-unit>
             <trans-unit id="w4_communitynet.news.ort">
                 <source>Location</source>
             </trans-unit>
@@ -47,6 +50,9 @@
             </trans-unit>
             <trans-unit id="all">
                 <source>All</source>
+            </trans-unit>
+            <trans-unit id="all_categories">
+                <source>All categories</source>
             </trans-unit>
             <trans-unit id="filter">
                 <source>Filter</source>

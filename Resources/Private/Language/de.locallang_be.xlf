@@ -99,6 +99,10 @@
                 <source>Show mask to dark images</source>
                 <target>Maske zu dunklen Bildern anzeigen</target>
             </trans-unit>
+            <trans-unit id="tt_content.tx_w4communitynet_showeventorganizer">
+                <source>Show event organizer</source>
+                <target>Veranstalter anzeigen</target>
+            </trans-unit>
             <trans-unit id="sys_template.tx_w4communitynet_layout">
                 <source>Layout</source>
                 <target>Layout</target>
@@ -471,10 +475,6 @@
                 <source>Events</source>
                 <target>Veranstaltungen</target>
             </trans-unit>
-            <trans-unit id="tx_news.templateLayouts.6">
-                <source>List</source>
-                <target>Liste</target>
-            </trans-unit>
             <trans-unit id="tx_news.templateLayouts.1">
                 <source>Three columns list</source>
                 <target>Liste mit drei Spalten</target>
@@ -484,8 +484,8 @@
                 <target>Liste</target>
             </trans-unit>
             <trans-unit id="tx_news.templateLayouts.3">
-                <source>List with category filter</source>
-                <target>Liste mit Kategoriefilter</target>
+                <source>List with thumbnail</source>
+                <target>Liste mit Miniaturansicht</target>
             </trans-unit>
             <trans-unit id="tx_news.templateLayouts.4">
                 <source>Detail page</source>
@@ -494,6 +494,18 @@
             <trans-unit id="tx_news.templateLayouts.5">
                 <source>Detail page</source>
                 <target>Detailseite</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.6">
+                <source>List</source>
+                <target>Liste</target>
+            </trans-unit>
+            <trans-unit id="tx_news.templateLayouts.7">
+                <source>List with organizer and type of event</source>
+                <target>Liste mit Veranstalter und Art der Veranstaltung</target>
+            </trans-unit>
+            <trans-unit id="tx_news.event_type">
+                <source>Event type</source>
+                <target>Art der Veranstaltung</target>
             </trans-unit>
         </body>
     </file>

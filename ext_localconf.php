@@ -38,5 +38,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_userauth.php']['postUserLookUp'][] =
      \W4Services\W4Communitynet\Hooks\OverwriteFlexForm::class . '->overwrite';
+     
+     $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['classes']['Domain/Model/News']['w4_communitynet'] = 'w4_communitynet';
 
 })( 'w4_communitynet');

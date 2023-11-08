@@ -48,7 +48,7 @@
                 <ul class="ps-3 mb-2">
                     <f:for each="{day.news}" as="newsItem">
                         <li class="mb-1">
-                            <n:link newsItem="{newsItem}" settings="{settings}" class="article-more" title="{newsItem.title}">{newsItem.title}</n:link>
+                            <n:link newsItem="{newsItem}" settings="{settings}" class="article-more" title="{newsItem.title}">{newsItem.title} <f:if condition="{newsItem.eventType}"><span style="color: black;">({f:translate(key: 'event_type.{newsItem.eventType}') -> f:format.crop(maxCharacters: 1, append: '')})</span></f:if></n:link>
                         </li>
                     </f:for>
                 </ul>

@@ -1,0 +1,92 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:layout name="General" />
+<f:section name="content">	
+    <f:if condition="{categories}">
+        <f:then>
+            <div id="my-newsevents-{contentObjectData.uid}-filter" class="subpages-nav events-categories element checkbox">
+                <div class="form-group form-group-with-shadow mb-5">
+                    <ul class="nav clearfix check-all">
+                        <li>
+                            <label for="my-newsevents-{contentObjectData.uid}-categories-all" class="form-check-label">
+                                <input type="checkbox" name="categories-all" id="my-newsevents-{contentObjectData.uid}-categories-all" checked="true" value="all" />
+                                <span class="checkmark"></span>
+                                <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:all_categories" />
+                            </label>
+                        </li>
+                    </ul>
+                    <ul class="nav clearfix">
+                        <f:render section="categoryTree" arguments="{categories:categories, overwriteDemand:overwriteDemand}" />
+                    </ul>
+                </div>
+            </div>    
+            <script>
+                /* Events list checkbox filtering */
+                window.onload = function() <f:format.raw value="{" />
+                        ( function($) <f:format.raw value="{" />
+                        let all = $('#my-newsevents-{contentObjectData.uid}-filter input#my-newsevents-{contentObjectData.uid}-categories-all'),
+                            categories = $('#my-newsevents-{contentObjectData.uid}-filter input').not('input#my-newsevents-{contentObjectData.uid}-categories-all'),
+                            checkBoxes = $('#my-newsevents-{contentObjectData.uid}-filter input');
+                        all.change( function() <f:format.raw value="{" />
+                            categories.each( function() <f:format.raw value="{" />
+                                $(this).prop( 'checked', all.is(':checked'));
+                            });
+                        });
+                        checkBoxes.change( function( e) <f:format.raw value="{" />
+                            if (all.is(':checked')) <f:format.raw value="{" />
+                                $('.newsevents-list-view .newseventitem').show();
+                            } else <f:format.raw value="{" />
+                                $('.newsevents-list-view .newseventitem').hide();
+                            }
+                            let categoriess = (
+                                all.get(0) === e.target && !$(e.target).is(':checked') || all.get(0) !== e.target
+                                    ? categories.filter(':checked')
+                                    : categories
+                                ).map(function() <f:format.raw value="{" />
+                                    return parseInt( $(this).val());
+                                }).toArray();
+                            if (all.get(0) !== e.target) <f:format.raw value="{" />
+                                all.prop( 'checked', categoriess.length === categories.length);
+                                $('.newsevents-list-view .newseventitem').each( function() <f:format.raw value="{" />
+                                    let showit = false, cats = $(this).data('categories');
+                                    $.each(categoriess, function( index, value ) <f:format.raw value="{" />
+                                        if (cats.indexOf(',' + value + ',') > -1) <f:format.raw value="{" />
+                                            showit = true;
+                                        }
+                                    });
+                                    if (showit) <f:format.raw value="{" />
+                                        $(this).show();
+                                    } else <f:format.raw value="{" />
+                                        $(this).hide();
+                                    }
+                                });
+                            }
+                        });
+                    })( jQuery);
+                }
+            </script>
+        </f:then>
+        <f:else>
+            <f:translate key="list_nocategoriesfound" />
+        </f:else>
+    </f:if>
+</f:section>
+<f:section name="categoryTree">
+    <f:for each="{categories}" as="category">
+        {n:category.count(categoryUid:category.item.uid) -> f:variable(name: 'categoryUsageCount')}
+        <f:if condition="{categoryUsageCount}">
+            <li class="event">
+                <label for="my-newsevents-{contentObjectData.item.uid}-category-{category.item.uid}" class="form-check-label">
+                    <input type="checkbox" name="category-{category.item.uid}" id="my-newsevents-{contentObjectData.uid}-category-{category.item.uid}" checked="true" value="{category.item.uid}" />
+                    <span class="checkmark"></span>
+                    {category.item.title}
+                </label>
+            </li>
+        </f:if>
+        <f:if condition="{category.children}">
+            <f:render section="categoryTree" arguments="{categories: category.children, overwriteDemand:overwriteDemand}" />
+        </f:if>
+    </f:for>
+</f:section>
+</html>

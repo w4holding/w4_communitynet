@@ -19,13 +19,17 @@
                 <source>Organisator</source>
                 <target>Organisator</target>
             </trans-unit>
+            <trans-unit id="w4_communitynet.news.eventtype">
+                <source>Event type</source>
+                <target>Art der Veranstaltung</target>
+            </trans-unit>
             <trans-unit id="w4_communitynet.news.ort">
                 <source>Location</source>
                 <target>Ort</target>
             </trans-unit>
             <trans-unit id="w4_communitynet.news.eventDate">
                 <source>Event date</source>
-                <target></target>
+                <target>Datum</target>
             </trans-unit>
             <trans-unit id="w4_communitynet.news.time">
                 <source></source>
@@ -62,6 +66,10 @@
             <trans-unit id="all">
                 <source>All</source>
                 <target>Alle</target>
+            </trans-unit>
+            <trans-unit id="all_categories">
+                <source>All categories</source>
+                <target>Alle Kategorien</target>
             </trans-unit>
             <trans-unit id="filter">
                 <source>Filter</source>

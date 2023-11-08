@@ -96,3 +96,10 @@ CREATE TABLE tx_w4communitynet_domain_model_counter
     PRIMARY KEY (uid),
     KEY              parent (pid),
 );
+
+#
+# Table structure for table 'tx_news_domain_model_news '
+#
+CREATE TABLE tx_news_domain_model_news (
+	event_type varchar(255) DEFAULT '' NOT NULL
+);

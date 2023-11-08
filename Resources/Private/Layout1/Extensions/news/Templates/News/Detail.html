@@ -7,7 +7,10 @@
 
 <f:section name="content">
     <f:if condition="{newsItem}">
-        <f:then>
+        <f:then>            
+            <style>
+                .events-categories { display: none; }
+            </style>
             <f:variable name="newsurl" value="{n:link(newsItem: '{newsItem}', settings: '{settings}', uriOnly: '1', configuration: '{forceAbsoluteUrl: 1}')}" />
             <f:alias map="{mediaElement: newsItem.falmedia.0}">
                 <f:if condition="{mediaElement}">
@@ -158,6 +161,14 @@
                                             <f:format.date format="%d. %B %Y">{newsItem.eventEnd}</f:format.date>
                                             <br /><f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
                                         </div>
+                                    </div>
+                                </div>
+                            </f:if>
+                            <f:if condition="{newsItem.eventType}">
+                                <div class="event-info-item-wrapper">
+                                    <div class="event-info-item">
+                                        <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.eventtype" /></div>
+                                        <div class="value"><f:translate key="event_type.{newsItem.eventType}" /></div>
                                     </div>
                                 </div>
                             </f:if>
