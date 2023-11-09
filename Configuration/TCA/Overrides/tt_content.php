@@ -196,19 +196,19 @@ use \TYPO3\CMS\Core\Utility\GeneralUtility;
         $tempColumns
     );
     
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    ExtensionManagementUtility::addFieldsToPalette(
         'tt_content',
         'visibility',
         'tx_w4communitynet_visibility'
     );
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    ExtensionManagementUtility::addFieldsToPalette(
         'tt_content',
         'header',
         'tx_w4communitynet_citationbg,tx_w4communitynet_citationtext,tx_w4communitynet_columnorder,tx_w4communitynet_citationcolor'
     );
  
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    ExtensionManagementUtility::addToAllTCAtypes(
         'tt_content',
         '--palette--;;visibility',
         '',

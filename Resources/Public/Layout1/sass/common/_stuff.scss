@@ -12,6 +12,9 @@ body {
   @media (max-width: 991px) {
     margin: 120px 0 0 0;
   }
+  &.lock-scroll {
+    overflow: hidden;
+  }
 }
 
 img {

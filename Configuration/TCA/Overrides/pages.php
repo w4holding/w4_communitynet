@@ -234,7 +234,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
                 ]
             ],
             'label' => $languageFilePrefix . 'tx_w4communitynet_footerimages',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'tx_w4communitynet_footerimages',
                 [
                     'overrideChildTca' => [
@@ -291,7 +291,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
         $tempColumns
     );
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    ExtensionManagementUtility::addToAllTCAtypes(
         'pages',
         '--div--;' . $languageFilePrefix . 'layoutfieldsdiv,
         tx_w4communitynet_logo,
@@ -317,7 +317,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
         'after:backend_layout_next_level'
     );
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    ExtensionManagementUtility::addFieldsToPalette(
         'pages',
         'layout',
         'tx_w4communitynet_icon_class;LLL:EXT:w4_communitynet/Resources/Private/Language/locallang_be.xlf:w4_community_net.icon_class',

@@ -292,3 +292,11 @@
     }
   }
 }
+
+body.lock-scroll #site-header-menu {
+  overflow-y: auto !important;
+  max-height: calc(100vh - 159px);
+  @media screen and (max-width: 991px ) {
+    max-height: calc(100vh - 121px);  
+  }
+}

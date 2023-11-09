@@ -2258,6 +2258,10 @@ body {
   margin: 150px 0 0 0;
 }
 
+body.lock-scroll {
+  overflow: hidden;
+}
+
 @media (max-width: 991px) {
   body {
     margin: 120px 0 0 0;
@@ -2476,7 +2480,6 @@ img {
   margin: 0;
   outline: none;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  font: 13px/1.55 "Open Sans", Helvetica, Arial, sans-serif;
   color: #666;
 }
 
@@ -2488,6 +2491,10 @@ img {
   font-size: 25px;
   font-weight: 300;
   color: #000;
+}
+
+.sky-form header h2 {
+  margin: 0;
 }
 
 .sky-form fieldset {
@@ -2942,7 +2949,7 @@ img {
   margin: 1rem 0 2.5rem;
 }
 
-div.form-buttons {
+.form-buttons {
   text-align: center;
   margin-bottom: 15px !important;
 }
@@ -2978,6 +2985,11 @@ div.form-buttons {
   max-width: 560px;
   margin: auto;
   box-shadow: 0 0 25px #00000012;
+}
+
+#tx-srfeuserregister-pi1-fe_users_form .form-buttons a {
+  min-width: 260px;
+  margin-top: 10px;
 }
 
 .form-group {
@@ -4842,6 +4854,18 @@ background-image: none !important;
 }.nav-subpages ul li a:hover {
 color: #fff;
 opacity: 1;
+}
+
+body.lock-scroll #site-header-menu {
+    overflow-y: auto !important;
+    max-height: calc(100vh - 159px);
+}
+
+@media screen and (max-width: 991px ) {
+  body.lock-scroll #site-header-menu {
+      max-height: calc(100vh - 121px);
+      
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
