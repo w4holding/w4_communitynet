@@ -21,8 +21,12 @@
       position: absolute;
     }
 
-    &:last-child a {
+    a {
       color: #b1b1b1;
+    }
+
+    &:last-child a {
+      color: #000;
     }
   }
 

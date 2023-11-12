@@ -21,6 +21,8 @@
 
         initBurgerMenu();
 
+        initNavSubpages();
+
     });
 })(jQuery);
 
@@ -33,10 +35,12 @@ function getScrollbarWidth() {
 function windowResize() {
     let f = () => {
         window.isMobile = window.innerWidth < 1360;
+        initNavSubpages();
     };
 
     $(window).on('resize', f);
     f(); // first init
+
 }
 
 
@@ -309,5 +313,18 @@ function initBurgerMenu() {
             $('body').addClass("lock-scroll");
           }
     });
+}
+
+function initNavSubpages() {
+    if ($('.nav-subpages').length) {
+        let lastElement = false;
+        $(".nav-subpages li").each(function() {
+            $(this).removeClass("last-in-row");
+            if (lastElement && lastElement.offset().top != $(this).offset().top) {
+                $(lastElement).addClass("last-in-row");
+            }
+            lastElement = $(this);
+        }).last().addClass("last-in-row");
+    }
 }
 

@@ -1,4 +1,4 @@
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1359px) {
   .footer-wrapper-interior {
     margin-bottom: 60px;
   }
@@ -20,7 +20,7 @@ footer {
     margin-bottom: 0.2rem;
     font-size: 0.8rem;
   }
-  
+
   td {
     font-size: 0.8rem;
   }
@@ -227,10 +227,34 @@ div.container.container-footer a {
   .blue-style-template & {
     background: $blue;
   }
+
   .green-style-template & {
     background: $green;
   }
+
   .red-style-template & {
     background: $red;
+  }
+}
+
+#footer-nav {
+  margin-bottom: 55px;
+  text-align: center;
+
+  @media screen and (min-width: 640px) {
+    margin-bottom: 60px;
+  }
+
+  @media screen and (min-width: 1360px) {
+    margin-bottom: 0;
+  }
+
+  a {
+    border-right: 1px solid #d6d6d6;
+    border-bottom: none;
+  }
+
+  li:last-of-type>a {
+    border-right: none;
   }
 }

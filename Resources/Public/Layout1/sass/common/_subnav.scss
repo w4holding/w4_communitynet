@@ -34,7 +34,8 @@
                     opacity: 1;
                 }
             }
-            &:last-child a {
+            &:last-child a,
+            &.last-in-row a {
                 border-right: none;
             }
         }

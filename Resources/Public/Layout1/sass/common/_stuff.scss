@@ -8,9 +8,12 @@ body {
   min-height: 100%;
   flex-direction: column;
   overflow-x: hidden;
-  margin: 150px 0 0 0;
+  margin: 159px 0 0 0;
+  @media (max-width: 1359px) {
+    margin: 143px 0 0 0;
+  }
   @media (max-width: 991px) {
-    margin: 120px 0 0 0;
+    margin: 121px 0 0 0;
   }
   &.lock-scroll {
     overflow: hidden;

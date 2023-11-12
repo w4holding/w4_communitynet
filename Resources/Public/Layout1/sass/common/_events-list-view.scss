@@ -35,6 +35,16 @@
           text-align: center;
         }
 
+        &.type {
+          display: none;
+          width: 25px;
+          padding: 27px 5px 25px 5px;
+          border-right: 3px solid #fff;
+          background: #e5e5e5;
+          text-align: center;
+          font-weight: 700;
+        }
+
         &.title {
           width: 100%;
           padding: 27px 80px 25px 35px;
@@ -59,16 +69,6 @@
           span {
             font-weight: 700;
           }
-        }
-
-        &.type {
-          display: none;
-          width: 25px;
-          padding: 27px 5px 25px 5px;
-          border-right: 3px solid #fff;
-          background: #e5e5e5;
-          text-align: center;
-          font-weight: 700;
         }
 
         &.organizer {
@@ -100,6 +100,11 @@
             border-right: 3px solid #fff;
           }
 
+          &.type,
+          &.organizer {
+            display: table-cell;
+          }
+
           &.title {
             width: calc(100% - 356px);
             font-size: 0.8889rem;
@@ -108,11 +113,6 @@
             span {
               display: none;
             }
-          }
-
-          &.type,
-          &.organizer {
-            display: table-cell;
           }
         }
       }
@@ -123,9 +123,14 @@
             background: #e1415a;
           }
 
+          &.type {
+            color: #fff;
+            background: #e66579;
+          }
+
           &.title {
             color: #fff;
-            background: #e66579 url("../img/li-white.svg") no-repeat;
+            background-color: #e66579;
             background-position: right 25px center;
 
             a {
@@ -133,46 +138,44 @@
               text-decoration: none;
             }
           }
-          &.type {
-            color: #fff;
-            background: #e66579;
-          }
+
           &.organizer {
             color: #fff;
-            background: #e66579 url("../img/li-white.svg") no-repeat;
+            background-color: #e66579;
             background-position: right 25px center;
+          }
+        }
+      }
+
+      &.newseventitem-withorganizer {
+        td {
+          &.title {
+            @media #{$min-sm} {
+              width: calc(35% - 175px);
+              background-image: none;
+            }
+          }
+        }
+
+        &:hover {
+          td {
+
+            &.type,
+            &.title {
+              color: #fff;
+              background-color: #e66579;
+            }
+
+            &.organizer {
+              color: #fff;
+              background-color: #e66579;
+              background-position: right 25px center;
+            }
           }
         }
       }
     }
 
-    &.newseventitem-withorganizer {
-      td {
-        title {
-          @media #{$min-sm} {
-            width: calc(35% - 175px);
-            background-image: none;
-          }
-        }
-      }
-      &:hover {
-        td {
-          &.title {
-            width: calc(35% - 175px);
-            background-image: none;
-          }
-          &.type {
-            color: #fff;
-            background: #e66579;
-          }
-          &.organizer {
-            color: #fff;
-            background: #e66579 url("../img/li-white.svg") no-repeat;
-            background-position: right 25px center;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -180,50 +183,54 @@
 body.blue-style-template .events-list-view table tr {
   td {
     &.date {
-      background: #1e55a5;
+      background-color: #1e55a5;
     }
 
     &.time {
-      background: #517ab7;
+      background-color: #517ab7;
     }
 
-    &.title {
-      background: #e5e5e5 url("../img/li-blue.svg") no-repeat;
-      background-position: right 32px center;
-    }
-
+    &.title,
     &.organizer {
       background: #e5e5e5 url("../img/li-blue.svg") no-repeat;
       background-position: right 32px center;
+    }
+    &.title {
+      @media #{$min-sm} {
+        background-image: none;
+      }
     }
   }
 
   &:hover td {
-    &.title {
-      color: #fff;
-      background: #6788b9 url("../img/li-white.svg") no-repeat;
-      background-position: right 25px center;
-    }
+
+    &.title,
     &.organizer {
       color: #fff;
-      background: #6788b9 url("../img/li-white.svg") no-repeat;
+      background-color: #6788b9;
       background-position: right 25px center;
     }
   }
+
   &.newseventitem-withorganizer {
     &:hover {
       td {
         &.type {
           color: #fff;
-          background: #6788b9;
+          background-color: #6788b9;
         }
         &.title {
           color: #fff;
-          background: #6788b9;
+          background-color: #6788b9;
+          @media #{$min-sm} {
+            background-image: none;
+          }
         }
+
+        &.title,
         &.organizer {
           color: #fff;
-          background: #6788b9 url("../img/li-white.svg") no-repeat;
+          background-color: #6788b9;
           background-position: right 25px center;
         }
       }
@@ -235,50 +242,57 @@ body.blue-style-template .events-list-view table tr {
 body.green-style-template .events-list-view table tr {
   td {
     &.date {
-      background: #287a2f;
+      background-color: #287a2f;
     }
 
     &.time {
-      background: #4fb058;
+      background-color: #4fb058;
     }
 
-    &.title {
-      background: #e5e5e5 url("../img/li-green.svg") no-repeat;
-      background-position: right 32px center;
-    }
-
+    &.title,
     &.organizer {
       background: #e5e5e5 url("../img/li-green.svg") no-repeat;
       background-position: right 32px center;
+    }
+    &.title {
+      @media #{$min-sm} {
+        background-image: none;
+      }
     }
   }
 
   &:hover td {
     &.title {
       color: #fff;
-      background: #88c18d url("../img/li-white.svg") no-repeat;
+      background-color: #88c18d;
       background-position: right 25px center;
     }
+
     &.organizer {
       color: #fff;
-      background: #88c18d url("../img/li-white.svg") no-repeat;
+      background-color: #88c18d;
       background-position: right 25px center;
     }
   }
+
   &.newseventitem-withorganizer {
     &:hover {
       td {
         &.type {
           color: #fff;
-          background: #88c18d;
+          background-color: #88c18d;
         }
         &.title {
           color: #fff;
-          background: #88c18d;
+          background-color: #88c18d;
+          @media #{$min-sm} {
+            background-image: none;
+          }
         }
+
         &.organizer {
           color: #fff;
-          background: #88c18d url("../img/li-white.svg") no-repeat;
+          background-color: #88c18d;
           background-position: right 25px center;
         }
       }

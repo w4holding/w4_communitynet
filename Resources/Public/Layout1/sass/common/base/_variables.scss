@@ -12,6 +12,7 @@ $path-img: "../img/";
         md: 768px,
         lg: 992px,
         xl: 1210px,
+        xll: 1360px,
         xxl: 1400px
 );*/
 $screen-xs-min: 375px;
@@ -19,6 +20,7 @@ $screen-sm-min: 576px;
 $screen-md-min: 768px;
 $screen-lg-min: 992px;
 $screen-xl-min: 1200px;
+$screen-xll-min: 1360px;
 $screen-xxl-min: 1470px; // 1440 + 30
 $screen-xxxl-min: 1920px;
 
@@ -27,6 +29,7 @@ $max-sm: "(max-width: " media-breakpoint-max($screen-sm-min) ")";
 $max-md: "(max-width: " media-breakpoint-max($screen-md-min) ")";
 $max-lg: "(max-width: " media-breakpoint-max($screen-lg-min) ")";
 $max-xl: "(max-width: " media-breakpoint-max($screen-xl-min) ")";
+$max-xll: "(max-width: " media-breakpoint-max($screen-xll-min) ")";
 $max-xxl: "(max-width: " media-breakpoint-max($screen-xxl-min) ")";
 $max-xxxl: "(max-width: " media-breakpoint-max($screen-xxxl-min) ")";
 
@@ -35,6 +38,7 @@ $min-sm: "screen and (min-width: " $screen-sm-min ")";
 $min-md: "screen and (min-width: " $screen-md-min ")";
 $min-lg: "screen and (min-width: " $screen-lg-min ")";
 $min-xl: "screen and (min-width: " $screen-xl-min ")";
+$min-xll: "screen and (min-width: " $screen-xll-min ")";
 $min-xxl: "screen and (min-width: " $screen-xxl-min ")";
 $min-xxxl: "screen and (min-width: " $screen-xxxl-min ")";
 

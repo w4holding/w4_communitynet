@@ -43,7 +43,11 @@
 
     &>li {
         display: inline;
+        margin-right: 3px;
 
+        &>a {
+            margin-right: 5px;
+        }
         &>a,
         &>span {
             position: relative;
@@ -51,7 +55,7 @@
             padding: 6px 12px;
             margin-left: -1px;
             line-height: 1.42857143;
-            color: #d91231;
+            color: #000;
             text-decoration: none;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -60,14 +64,6 @@
         &:first-child>a,
         &:first-child>span {
             margin-left: 0;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
-
-        &:last-child>a,
-        &:last-child>span {
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
         }
 
         &>a:hover,
@@ -75,9 +71,9 @@
         &>a:focus,
         &>span:focus {
             z-index: 2;
-            color: #d91231;
-            background-color: #eee;
-            border-color: #ddd;
+            color: #fff;
+            background-color: #d91231;
+            border-color: #d91231;
         }
 
         &.active>a,
