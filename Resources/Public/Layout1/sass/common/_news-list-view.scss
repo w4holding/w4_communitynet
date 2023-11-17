@@ -150,7 +150,12 @@
         color: #454545;
         text-align: center;
         img {
-          height: 85px;
+          width: auto !important;
+          height: 85px !important;
+          &.onlylogo {
+            max-width: 80% !important;
+            margin: 0 10%;
+          }
         }
         p {
           display: inline-block;

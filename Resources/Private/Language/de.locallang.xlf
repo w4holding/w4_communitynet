@@ -17,7 +17,7 @@
             </trans-unit>
             <trans-unit id="w4_communitynet.news.organisator">
                 <source>Organisator</source>
-                <target>Organisator</target>
+                <target>Veranstalter</target>
             </trans-unit>
             <trans-unit id="w4_communitynet.news.eventtype">
                 <source>Event type</source>
@@ -25,7 +25,7 @@
             </trans-unit>
             <trans-unit id="w4_communitynet.news.ort">
                 <source>Location</source>
-                <target>Ort</target>
+                <target>Veranstaltungsort</target>
             </trans-unit>
             <trans-unit id="w4_communitynet.news.eventDate">
                 <source>Event date</source>

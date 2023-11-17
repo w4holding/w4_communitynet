@@ -10,6 +10,14 @@
     overflow: hidden;
     text-align: center;
 
+    .blue-style-template & {
+        background: $blue;
+    }
+
+    .green-style-template & {
+        background: $green;
+    }
+
     ul {
         list-style-type: none;
         max-width: 1024px;
@@ -29,11 +37,13 @@
                 font-size: 1rem;
                 opacity: .8;
                 transition: all .2s;
+
                 &:hover {
                     color: #fff;
                     opacity: 1;
                 }
             }
+
             &:last-child a,
             &.last-in-row a {
                 border-right: none;

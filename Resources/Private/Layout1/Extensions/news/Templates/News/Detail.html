@@ -172,23 +172,33 @@
                                     </div>
                                 </div>
                             </f:if>
-                            <f:if condition="{newsItem.organizerSimple}">
+                            <f:if condition="{newsItem.organizer} || {newsItem.organizerSimple}">
                                 <div class="event-info-item-wrapper">
                                     <div class="event-info-item">
                                         <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.organisator" /></div>
-                                        <div class="value">{newsItem.organizerSimple}</div>
+                                        <f:if condition="{newsItem.organizer}">
+                                            <div class="value">{newsItem.organizer.title}</div>
+                                        </f:if>
+                                        <f:if condition="{newsItem.organizerSimple}">
+                                            <div class="value">{newsItem.organizerSimple}</div>
+                                        </f:if>
                                     </div>
                                 </div>
                             </f:if>
-                            <f:if condition="{newsItem.locationSimple}">
+                            <f:if condition="{newsItem.location} || {newsItem.locationSimple}">
                                 <div class="event-info-item-wrapper">
                                     <div class="event-info-item">
                                         <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.ort" /></div>
-                                        <div class="value">{newsItem.locationSimple}</div>
+                                        <f:if condition="{newsItem.location}">
+                                            <div class="value">{newsItem.location.title}</div>
+                                        </f:if>
+                                        <f:if condition="{newsItem.locationSimple}">
+                                            <div class="value">{newsItem.locationSimple}</div>
+                                        </f:if>
                                     </div>
                                 </div>
                             </f:if>
-                        </div>
+                        </div>                        
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="image-wrapper">

@@ -1,0 +1,34 @@
+<f:variable name="cats" value="," />
+<f:for each="{newsItem.categories}" as="category">
+    <f:variable name="cats" value="{cats}{category.uid}," />
+</f:for>
+<div class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}"
+     itemscope="itemscope" itemtype="https://schema.org/Article" data-categories="{cats}">
+    <n:excludeDisplayedNews newsItem="{newsItem}" />
+    <div class="article-inner">
+        <f:variable name="image" value="" />
+        <f:alias map="{mediaElement: newsItem.falmedia.0}">
+            <f:if condition="{mediaElement}">
+                <f:variable name="image" value="{f:uri.image(image: '{mediaElement}', width: '400c', height: '300c')}" />
+            </f:if>
+        </f:alias>
+        <n:link newsItem="{newsItem}" settings="{settings}" class="article-more" title="{newsItem.title}">
+            <div class="image-wrapper" style="background-image: url('{image}');"></div>
+        </n:link>
+        <div class="article-infos">
+            <div class="header" itemprop="headline">
+                <p class="h4">
+                    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                        {newsItem.title}
+                    </n:link>
+                </p>
+            </div>
+            <p>
+                <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+                    <span class="btn-like"><f:format.date format="n M">{newsItem.datetime}</f:format.date></span>
+                    <f:format.date format="H:i">{newsItem.datetime}</f:format.date>&nbsp;&nbsp;<f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:time" /><f:if condition="{newsItem.locationSimple}">, <strong>{newsItem.locationSimple}</strong></f:if>
+                </time>
+            </p>
+        </div>
+    </div>
+</div>

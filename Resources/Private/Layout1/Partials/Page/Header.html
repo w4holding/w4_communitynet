@@ -47,7 +47,7 @@
             <a class="navbar-brand" href="/" id="logo">
                 <v:resource.record.fal table="pages" field="tx_w4communitynet_logo" uid="1" as="resources">
                     <f:if condition="{resources.0.url}" >
-                        <img src="{resources.0.url}" class="image-embed-item" alt="{pageinfo.tx_w4communitynet_logoname} {pageinfo.tx_w4communitynet_logosubname}" />
+                        <img src="{resources.0.url}" class="image-embed-item{f:if(condition: '!{pageinfo.tx_w4communitynet_logoname} and !{pageinfo.tx_w4communitynet_logosubname}', then: ' onlylogo')}" alt="{pageinfo.tx_w4communitynet_logoname} {pageinfo.tx_w4communitynet_logosubname}" />
                     </f:if>
                 </v:resource.record.fal>
                 <span>

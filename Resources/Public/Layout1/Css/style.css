@@ -969,6 +969,12 @@ body.lock-scroll #site-header-menu {
   overflow: hidden;
   text-align: center;
 }
+.blue-style-template .nav-subpages {
+  background: #1e55a5;
+}
+.green-style-template .nav-subpages {
+  background: #245c28;
+}
 .nav-subpages ul {
   list-style-type: none;
   max-width: 1024px;
@@ -1421,7 +1427,12 @@ body.green-style-template .news-list-view .article .article-inner .article-infos
   text-align: center;
 }
 .news-list-view .article .image-wrapper-no-image div img {
-  height: 85px;
+  width: auto !important;
+  height: 85px !important;
+}
+.news-list-view .article .image-wrapper-no-image div img.onlylogo {
+  max-width: 80% !important;
+  margin: 0 10%;
 }
 .news-list-view .article .image-wrapper-no-image div p {
   display: inline-block;
@@ -2124,7 +2135,7 @@ div.container.container-footer a {
   background: #1e55a5;
 }
 .blue-style-template .subfooter {
-  background: #2da5da;
+  background: #24325c;
 }
 
 #btn-back-to-top {
@@ -2195,7 +2206,7 @@ div.container.container-footer a {
   padding-bottom: 40px;
 }
 body.blue-style-template .w4-counters .w4-counters-counter {
-  background-color: #2da5da;
+  background-color: #24325c;
 }
 body.green-style-template .w4-counters .w4-counters-counter {
   background-color: #287a2f;
@@ -2219,7 +2230,7 @@ body.green-style-template .w4-counters .w4-counters-counter:nth-child(2n+1) {
     background-color: #ba0f2a;
   }
   body.blue-style-template .w4-counters .w4-counters-counter:nth-child(2n+1) {
-    background-color: #2da5da;
+    background-color: #24325c;
   }
   body.green-style-template .w4-counters .w4-counters-counter:nth-child(2n+1) {
     background-color: #287a2f;
@@ -2244,7 +2255,7 @@ body.green-style-template .w4-counters .w4-counters-counter:nth-child(2n+1) {
     background-color: #ba0f2a;
   }
   body.blue-style-template .w4-counters .w4-counters-counter:nth-child(3n+1) {
-    background-color: #2da5da;
+    background-color: #24325c;
   }
   body.green-style-template .w4-counters .w4-counters-counter:nth-child(3n+1) {
     background-color: #287a2f;
@@ -2665,7 +2676,7 @@ img {
 }
 
 .sky-form a {
-  color: #2da5da;
+  color: #24325c;
 }
 
 .sky-form .label {
@@ -3456,16 +3467,16 @@ ul#side-contact-bar li a:hover {
   background: #1e55a5;
 }
 .blue-style-template #top-contact-bar ul li a:hover {
-  background-color: #2da5da;
+  background-color: #24325c;
 }
 .blue-style-template .color-inherit {
   color: #1e55a5;
 }
 .blue-style-template .color-inherit a:hover {
-  color: #2da5da;
+  color: #24325c;
 }
 .blue-style-template .color-inherit:hover {
-  color: #2da5da;
+  color: #24325c;
 }
 
 .green-style-template ul#side-contact-bar li.item-desktop {
