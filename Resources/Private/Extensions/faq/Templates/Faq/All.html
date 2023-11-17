@@ -1,0 +1,54 @@
+<f:layout name="Default"/>
+
+<f:section name="content">
+ 
+<f:comment>
+<div class="accordion-module scroll-to">
+  
+  <div class="row">
+    <div class="col-12">
+      <h2 class="no-hyphens">DIE 5 BECKEN IM DETAIL</h2>
+    </div>
+  </div>
+  
+  <ul id="my-accordion" class="accordion accordionjs">    
+    <li class="acc_section">
+      <div class="accordion-title acc_head">
+        Indoor Thermal Pool 1
+        <span class="accordion-icon"></span>
+      </div>
+      <div class="accordion-body acc_content" style="display: none;">
+        <p>Der Indoor Thermal Pool 1 ist das kleinere aber wärmere von 2 Thermalbecken. Whirlpool und Liegenbereich schliessen sich direkt an. In der Nähe befindet sich der Zugang zum Aussenbereich. Mehr braucht es nicht zum Wohlfühlen.</p>
+<p><strong>Besonderheiten: </strong>Sprudelliegen, Massagedüsen, Nackenduschen<br><strong>Temperatur:</strong> 36 °C<br><strong>Grösse:</strong> ca. 100 m²<br><strong>Tiefe:</strong> bis zu 1,30 m</p>
+      </div>
+    </li>    
+    <li class="acc_section">
+      <div class="accordion-title acc_head">
+        Indoor Thermal Pool 2
+        <span class="accordion-icon"></span>
+      </div>
+      <div class="accordion-body acc_content" style="display: none;">
+        <p>Der Indoor Thermal Pool 2 ist das grösste Thermalbecken bei einer moderateren Temperatur. Mit den höchsten Decken, viel Licht und einem wunderbaren Blick, gerät der Alltag in Vergessenheit. In der Nähe befindet sich ebenfalls der Kosmos mit einem Solebecken und audio-visuellen Erlebnissen. Etwas für die Sinne.</p>
+<p><strong>Besonderheiten:</strong> Shiatsu-Massageplätze, Sprudelliegen, Massagedüsen, Nackenduschen<br><strong>Temperatur:</strong> 32 °C<br><strong>Grösse:</strong> ca. 150 m²<br><strong>Tiefe:</strong> bis zu 1,35 m</p>
+      </div>
+    </li>    
+  </ul>
+</div>
+
+</f:comment>
+
+ 
+<div class="accordion-module scroll-to">
+  
+ 
+  
+  <ul id="my-accordion" class="accordion accordionjs xpp">    
+
+		<f:for each="{questionsPerCategory}" as="element">
+			<f:render partial="Faq/CategoryRec"
+								arguments="{element: element, settings: settings}"/>
+		</f:for>
+	</ul>
+</div>
+
+</f:section>
