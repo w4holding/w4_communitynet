@@ -132,6 +132,18 @@
             <trans-unit id="months.abbreviated.12">
                 <source>Dec</source>
             </trans-unit>
+            <trans-unit id="tt_address.party">
+                <source>Political party</source>
+            </trans-unit>
+            <trans-unit id="tt_address.contact">
+                <source>Contact</source>
+            </trans-unit>
+            <trans-unit id="tt_address.departments">
+                <source>Departments</source>
+            </trans-unit>
+            <trans-unit id="tt_address.additional_information">
+                <source>Additional information</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

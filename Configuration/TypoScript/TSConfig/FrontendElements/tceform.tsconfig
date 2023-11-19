@@ -110,4 +110,7 @@ TCEFORM {
             }
         }
     }
+    tt_address {
+        room.disabled = 1
+    }
 }

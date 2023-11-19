@@ -767,14 +767,11 @@ body.blue-style-template .btn-u.btn-u-ghost:hover {
     border-top: 2px solid #d91231 !important;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   }
-  .red-style-template .navbar-nav ul {
-    border-top-color: #ae0e27;
-  }
   .blue-style-template .navbar-nav ul {
-    border-top-color: #0980b5;
+    border-top: 2px solid #1e55a5 !important;
   }
   .green-style-template .navbar-nav ul {
-    border-top-color: #6aa30e;
+    border-top: 2px solid #245c28 !important;
   }
 }
 .navbar-nav ul a {
@@ -1894,7 +1891,6 @@ table.event-month td ul li {
   padding: 20px;
   background-color: #f4f4f4;
   flex-basis: 100%;
-  font-weight: bold;
 }
 .events-detail-view .event-info .event-info-item-wrapper .event-info-item .subtitle {
   font-size: 1rem;
@@ -4242,4 +4238,16 @@ body.green-style-template .paginator ul li.active a, body.green-style-template .
   background-color: #245c28;
   border-color: #245c28;
   color: #fff;
+}
+
+.vcard-detail-row {
+  margin-bottom: 50px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.0705882353);
+}
+.vcard-detail-row:hover {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1882352941);
+}
+.vcard-detail-row h3 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }/*# sourceMappingURL=style.css.map */

@@ -5,7 +5,8 @@ TCEFORM {
                 sDISPLAY {
                     settings\.displayMode.addItems {
                         tablelist = Table List
-                        imagelist = Photo List 
+                        imagelist = Photo List
+                        threecolumnslist = Three columns photo List 
                     }
                 }
             }

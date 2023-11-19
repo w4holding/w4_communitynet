@@ -103,3 +103,11 @@ CREATE TABLE tx_w4communitynet_domain_model_counter
 CREATE TABLE tx_news_domain_model_news (
 	event_type varchar(255) DEFAULT '' NOT NULL
 );
+
+#
+# Table structure for table 'tt_address'
+#
+CREATE TABLE tt_address (
+    additional_information text,
+    building text
+);

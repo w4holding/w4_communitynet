@@ -384,6 +384,15 @@
             <trans-unit id="tx_news.event_type">
                 <source>Event type</source>
             </trans-unit>
+            <trans-unit id="tt_address.description">
+                <source>Description / Ressorts</source>
+            </trans-unit>
+            <trans-unit id="tt_address.additional_information">
+                <source>Additional information</source>
+            </trans-unit>
+            <trans-unit id="tt_address.party">
+                <source>Political party</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

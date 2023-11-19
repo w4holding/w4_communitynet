@@ -507,6 +507,26 @@
                 <source>Event type</source>
                 <target>Art der Veranstaltung</target>
             </trans-unit>
+            <trans-unit id="tt_address.description">
+                <source>Description / Ressorts</source>
+                <target>Beschreibung / Ressorts</target>
+            </trans-unit>
+            <trans-unit id="tt_address.additional_information">
+                <source>Additional information</source>
+                <target>Zusätzliche Informationen</target>
+            </trans-unit>
+            <trans-unit id="tt_address.party">
+                <source>Political party</source>
+                <target>Partei</target>
+            </trans-unit>
+            <trans-unit id="tt_address.departments">
+                <source>Departments</source>
+                <target>Ressorts</target>
+            </trans-unit>
+            <trans-unit id="tt_address.additional_information">
+                <source>Additional information</source>
+                <target>Weiterführende Informationen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
