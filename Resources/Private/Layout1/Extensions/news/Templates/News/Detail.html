@@ -77,7 +77,7 @@
                         </schema:type.article>
                         <h1>{newsItem.title}</h1>
                         <div class="date">
-                            <f:format.date format="d.m.Y">{newsItem.datetime}</f:format.date>
+                            <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
                         </div>
                         <div class="image-wrapper">                            
                             <f:for each="{newsItem.falmedia}" as="media">

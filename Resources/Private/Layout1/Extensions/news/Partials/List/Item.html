@@ -9,11 +9,13 @@
     <f:case value="1">
         <div class="newsitem newsitem-{iterator.cycle} newseventitem" data-categories="{cats}" itemscope="itemscope" itemtype="http://schema.org/Article">
             <f:variable name="image" value="" />
-            <f:alias map="{mediaElement: newsItem.falmedia.0}">
-                <f:if condition="{mediaElement}">
-                    <f:variable name="image" value="{f:uri.image(image: '{mediaElement}', width: '720c', height: '450c')}" />
-                </f:if>
-            </f:alias>
+            <f:if condition="{newsItem.mediaPreviews}">
+                <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                    <f:if condition="{mediaElement}">                        
+                        <f:variable name="image" value="{f:uri.image(image: '{mediaElement}', width: '720c', height: '450c')}" />
+                    </f:if>
+                </f:alias>
+            </f:if>
             <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
                 <div class="article articletype-0" itemscope="itemscope" itemtype="http://schema.org/Article">
                     <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}" style="background-image: url({f:if(condition: '{image}', then: '{image}', else: '{f:uri.image(src: \'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png\', absolute: 1)}')});">
@@ -55,9 +57,11 @@
                 <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:months.abbreviated.{newsItem.datetime -> f:format.date(format: 'n')}" />
             </td> 
             <td class="time">
-                <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
-                <f:if condition="{newsItem.eventEnd}">
-                    - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
+                <f:if condition="!{newsItem.fullDay}">
+                    <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
+                    <f:if condition="{newsItem.eventEnd}">
+                        - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
+                    </f:if>
                 </f:if>
             </td>
             <td class="title">
@@ -78,9 +82,11 @@
                 <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:months.abbreviated.{newsItem.datetime -> f:format.date(format: 'n')}" />
             </td> 
             <td class="time">
-                <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
-                <f:if condition="{newsItem.eventEnd}">
-                    - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
+                <f:if condition="!{newsItem.fullDay}">
+                    <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
+                    <f:if condition="{newsItem.eventEnd}">
+                        - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
+                    </f:if>
                 </f:if>
             </td>
             <td class="type">
@@ -103,11 +109,13 @@
                 <n:excludeDisplayedNews newsItem="{newsItem}" />
                 <div class="article-inner">
                     <f:variable name="image" value="" />
-                    <f:alias map="{mediaElement: newsItem.falmedia.0}">
-                        <f:if condition="{mediaElement}">
-                            <f:variable name="image" value="{f:uri.image(image: '{mediaElement}', width: '400c', height: '250c')}" />
-                        </f:if>
-                    </f:alias>
+                    <f:if condition="{newsItem.mediaPreviews}">
+                        <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                            <f:if condition="{mediaElement}">                        
+                                <f:variable name="image" value="{f:uri.image(image: '{mediaElement}', width: '400c', height: '250c')}" />
+                            </f:if>
+                        </f:alias>
+                    </f:if>
                     <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}" style="background-image: url({f:if(condition: '{image}', then: '{image}', else: '{f:uri.image(src: \'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png\', absolute: 1)}')});"></div>
                     <div class="article-infos">
                         <f:if condition="{settings.templateLayout}==3">

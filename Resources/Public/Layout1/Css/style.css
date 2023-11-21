@@ -2533,6 +2533,28 @@ img {
     width: calc(100% - 63px);
   }
 }
+.wrapper > .content a:not(.btn-u):before {
+  content: "";
+  display: inline-block;
+  font-family: "FontAwesome";
+  text-align: left;
+  transition: inherit;
+  color: #000;
+  margin-right: 3px;
+}
+.wrapper > .content a:not(.btn-u)[href^="mailto:"]:before, .wrapper > .content a:not(.btn-u)[data-mailto-token]:before {
+  content: "\f0e0";
+}
+.wrapper > .content a:not(.btn-u)[href$=".pdf"]:before {
+  content: "\f15b";
+}
+.wrapper > .content a:not(.btn-u)[href^="tel:"]:before {
+  content: "\f095";
+}
+.wrapper > .content a:not(.btn-u)[href^=http]:before, .wrapper > .content a:not(.btn-u)[href^=www]:before {
+  content: "\f0ac";
+}
+
 .ce-headline-center {
   text-align: center;
 }
@@ -4254,28 +4276,4 @@ body.green-style-template .paginator ul li.active a, body.green-style-template .
 
 .acc_section.organization td {
   vertical-align: top;
-}
-.acc_section.organization a {
-  white-space: nowrap;
-}
-.acc_section.organization a:before {
-  content: "";
-  display: inline-block;
-  font-family: "FontAwesome";
-  text-align: left;
-  transition: inherit;
-  color: #000;
-  margin-right: 5px;
-}
-.acc_section.organization a[href^="mailto:"]:before, .acc_section.organization a[data-mailto-token]:before {
-  content: "\f0e0";
-}
-.acc_section.organization a[href$=".pdf"]:before {
-  content: "\f15b";
-}
-.acc_section.organization a[href^="tel:"]:before {
-  content: "\f095";
-}
-.acc_section.organization a[href^=http]:before, .acc_section.organization a[href^=www]:before {
-  content: "\f0ac";
 }/*# sourceMappingURL=style.css.map */
