@@ -185,9 +185,15 @@
       top: -2px;
       left: 100%;
       border-bottom: 2px solid $nav-link-color;
-      @include color-active(border-top-color);
-      border-top: 2px solid $primary !important;
+      border-top: 2px solid $red !important;
       box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      .blue-style-template & {
+        border-top: 2px solid $blue !important;
+      }
+    
+      .green-style-template & {
+        border-top: 2px solid $green!important;
+      }
     }
 
     a {

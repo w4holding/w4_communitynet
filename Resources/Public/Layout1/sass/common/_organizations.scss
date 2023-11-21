@@ -1,0 +1,37 @@
+.acc_section.organization {
+    td {
+        vertical-align: top;
+    }
+
+    a {
+        white-space: nowrap;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            font-family: "FontAwesome";
+            text-align: left;
+            transition: inherit;
+            color: #000;
+            margin-right: 5px;
+        }
+
+        &[href^='mailto:']:before,
+        &[data-mailto-token]:before {
+            content: "\f0e0";
+        }
+
+        &[href$='.pdf']:before {
+            content: "\f15b";
+        }
+
+        &[href^='tel:']:before {
+            content: "\f095";
+        }
+
+        &[href^='http']:before,
+        &[href^='www']:before {
+            content: "\f0ac";
+        }
+    }
+}
