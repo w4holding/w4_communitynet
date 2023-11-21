@@ -1,55 +1,53 @@
 {namespace v=FluidTYPO3\Vhs\ViewHelpers}
 <f:variable name="columns" value="{v:iterator.explode(content:settings.fields , glue:',')}" />
-<div class="table-responsive row">
-    <div class="vcard-detail-row row" data-header="" itemscope="" itemtype="http://schema.org/Person">
-        <f:for each="{addresses}" as="address" iteration="iterator">
-            <div class="content-vcard-detail clearfix col-sm-6 mb-4">
-                <div class="row">
-                    <div class="col col-md-6">
-                        <f:if condition="{address.image.0}">
-                            <f:media file="{address.image.0}" width="360" class="photo"
-                                alt="{address.image.0.originalResource.alt}" title="{address.fullName}" />
-                        </f:if>
-                    </div>
-                    <div class="col col-md-6">
-                        <f:for each="{columns}" as="column"  iteration="iterator"> 
-                            <div class="name-vcard-detail">
-                                <f:if condition="{iterator.isFirst}">
-                                    <p><strong>
-                                </f:if>
-                                <f:if condition="{address.{column}}">
-                                    <f:switch expression="{column}">
-                                        <f:case value="birthday">Dob: <f:format.date format="d.m.Y">{address.birthday}</f:format.date>&nbsp;</f:case>
-                                        <f:case value="phone">Tel: <a href="tel:{address.cleanedPhone}">{address.phone}</a>&nbsp;</f:case>
-                                        <f:case value="fax">Fax: <a href="tel:{address.cleanedFax}">{address.fax}</a>&nbsp;</f:case>
-                                        <f:case value="mobile">Mob: <a href="tel:{address.cleanedMobile}">{address.mobile}</a>&nbsp;</f:case>
-                                        <f:case value="email">Email: <a href="mailto:{address.email}">{address.email}</a>&nbsp;</f:case>
-                                        <f:case value="www">Web: <a href="{address.www}">{address.www}</a>&nbsp;</f:case>
-                                        <f:case value="socialmedia">									
-                                            <f:if condition="{address.skype}">
-                                                <a href="skype:{address.skype}?call"><i class="fa-brands fa-skype"></i></a>
-                                            </f:if>
-                                            <f:if condition="{address.twitter}">
-                                                <a href="https://twitter.com/{address.twitter}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                                            </f:if>
-                                            <f:if condition="{address.facebook}">
-                                                <a href="https://www.facebook.com/{address.facebook}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                                            </f:if>
-                                            <f:if condition="{address.linkedin}">
-                                                <a href="https://www.linkedin.com/in/{address.linkedin}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></i></a>
-                                            </f:if>
-                                        </f:case> 
-                                        <f:defaultCase>{address.{column}}</f:defaultCase>
-                                    </f:switch>
-                                </f:if>
-                                <f:if condition="iterator.isFirst">
-                                    </strong></p>
-                                </f:if>
-                            </div>
-                        </f:for>   
-                    </div>
+<div class="vcard-detail-row row g-0" data-header="" itemscope="" itemtype="http://schema.org/Person">
+    <f:for each="{addresses}" as="address" iteration="iterator">
+        <div class="content-vcard-detail clearfix col-sm-6">
+            <div class="row">
+                <div class="col col-md-6">
+                    <f:if condition="{address.image.0}">
+                        <f:media file="{address.image.0}" width="360" class="photo"
+                            alt="{address.image.0.originalResource.alt}" title="{address.fullName}" />
+                    </f:if>
+                </div>
+                <div class="col col-md-6 mt-4">
+                    <f:for each="{columns}" as="column"  iteration="iterator"> 
+                        <div class="name-vcard-detail">
+                            <f:if condition="{iterator.isFirst}">
+                                <p><strong>
+                            </f:if>
+                            <f:if condition="{address.{column}}">
+                                <f:switch expression="{column}">
+                                    <f:case value="birthday"><f:translate key="w4_organizations_list.birthday" extensionName="w4_communitynet" />: <f:format.date format="d.m.Y">{address.birthday}</f:format.date>&nbsp;</f:case>
+                                    <f:case value="phone"><f:translate key="w4_organizations_list.phone" extensionName="w4_communitynet" />: <a href="tel:{address.cleanedPhone}">{address.phone}</a>&nbsp;</f:case>
+                                    <f:case value="fax"><f:translate key="w4_organizations_list.fax" extensionName="w4_communitynet" />: <a href="tel:{address.cleanedFax}">{address.fax}</a>&nbsp;</f:case>
+                                    <f:case value="mobile"><f:translate key="w4_organizations_list.mobile" extensionName="w4_communitynet" />: <a href="tel:{address.cleanedMobile}">{address.mobile}</a>&nbsp;</f:case>
+                                    <f:case value="email"><f:translate key="w4_organizations_list.email" extensionName="w4_communitynet" />: <a href="mailto:{address.email}">{address.email}</a>&nbsp;</f:case>
+                                    <f:case value="www"><f:translate key="w4_organizations_list.www" extensionName="w4_communitynet" />: <a href="{address.www}">{address.www}</a>&nbsp;</f:case>
+                                    <f:case value="socialmedia">									
+                                        <f:if condition="{address.skype}">
+                                            <a href="skype:{address.skype}?call"><i class="fa-brands fa-skype"></i></a>
+                                        </f:if>
+                                        <f:if condition="{address.twitter}">
+                                            <a href="https://twitter.com/{address.twitter}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                                        </f:if>
+                                        <f:if condition="{address.facebook}">
+                                            <a href="https://www.facebook.com/{address.facebook}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                                        </f:if>
+                                        <f:if condition="{address.linkedin}">
+                                            <a href="https://www.linkedin.com/in/{address.linkedin}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></i></a>
+                                        </f:if>
+                                    </f:case> 
+                                    <f:defaultCase>{address.{column}}</f:defaultCase>
+                                </f:switch>
+                            </f:if>
+                            <f:if condition="iterator.isFirst">
+                                </strong></p>
+                            </f:if>
+                        </div>
+                    </f:for>   
                 </div>
             </div>
-        </f:for>
-    </div>
+        </div>
+    </f:for>
 </div>

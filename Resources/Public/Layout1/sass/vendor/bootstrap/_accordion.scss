@@ -1,10 +1,6 @@
 .accordion-module {
   position: relative;
-  z-index: 5
-}
-
-.accordion-module .accordion li.acc_active .accordion-title .accordion-icon:before {
-  transform: rotate(90deg)
+  z-index: 5;
 }
 
 .accordion-module .accordion .accordion-title {
@@ -58,24 +54,29 @@
 }
 
 
-.accordion-module .accordion .acc_active .accordion-title::after {
-  background-image: url(../Images/li-white.svg);
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
+.accordion-module .accordion {
+  .acc_active .accordion-title::after {
+    background-image: url(../Images/li-white.svg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
 
-.accordion-module .accordion .accordion-body {
-  padding: 0 20px;
+  .accordion-body {
+    padding: 0 20px;
+    table {
+      margin-left: -22px;
+    }
+  }
 }
 
 ul.accordion {
   padding-left: 0;
-}
 
-ul.accordion li.acc_section {
-  list-style: none;
-  margin-bottom: 1rem;
+  li.acc_section {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
 }

@@ -21,14 +21,14 @@
         <f:for each="{addresses}" as="address" iteration="iterator">
             <tr class="table vcard-row" itemscope="" itemtype="http://schema.org/Person">
                 <f:for each="{columns}" as="column"> 
-                    <td class="col  ">
+                    <td class="col">
                         <f:switch expression="{column}">								
-                            <f:case value="birthday"><f:format.date format="d.m.Y">{address.birthday}</f:format.date>&nbsp;</f:case>
-                            <f:case value="phone"><a href="tel:{address.cleanedPhone}" class="text-nowrap">{address.phone}</a></f:case>
-                            <f:case value="fax"><a href="tel:{address.cleanedFax}" class="text-nowrap">{address.fax}</a></f:case>
-                            <f:case value="mobile"><a href="tel:{address.cleanedMobile}" class="text-nowrap">{address.mobile}</a></f:case>
-                            <f:case value="email"><a href="mailto:{address.email}" class="text-nowrap">{address.email}</a></f:case>
-                            <f:case value="www"><a href="{address.www}">{address.www}</a>&nbsp;</f:case>
+                            <f:case value="birthday"><f:if condition="{address.birthday}"><f:format.date format="d.m.Y">{address.birthday}</f:format.date></f:if>&nbsp;</f:case>
+                            <f:case value="phone"><f:if condition="{address.cleanedPhone}"><a href="tel:{address.cleanedPhone}" class="text-nowrap">{address.phone}</a></f:if></f:case>
+                            <f:case value="fax"><f:if condition="{address.cleanedFax}"><a href="tel:{address.cleanedFax}" class="text-nowrap">{address.fax}</a></f:if></f:case>
+                            <f:case value="mobile"><f:if condition="{address.cleanedMobile}"><a href="tel:{address.cleanedMobile}" class="text-nowrap">{address.mobile}</a></f:if></f:case>
+                            <f:case value="email"><f:if condition="{address.email}"><a href="mailto:{address.email}" class="text-nowrap">{address.email}</a></f:if></f:case>
+                            <f:case value="www"><f:if condition="{address.www}"><a href="{address.www}">{address.www}</a></f:if>&nbsp;</f:case>
                             <f:case value="socialmedia">									
                                 <f:if condition="{address.skype}">
                                     <a href="skype:{address.skype}?call"><i class="fa-brands fa-skype"></i></a>

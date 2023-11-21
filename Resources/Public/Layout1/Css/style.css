@@ -4250,4 +4250,32 @@ body.green-style-template .paginator ul li.active a, body.green-style-template .
 .vcard-detail-row h3 {
   font-size: 1.5rem;
   margin-top: 1rem;
+}
+
+.acc_section.organization td {
+  vertical-align: top;
+}
+.acc_section.organization a {
+  white-space: nowrap;
+}
+.acc_section.organization a:before {
+  content: "";
+  display: inline-block;
+  font-family: "FontAwesome";
+  text-align: left;
+  transition: inherit;
+  color: #000;
+  margin-right: 5px;
+}
+.acc_section.organization a[href^="mailto:"]:before, .acc_section.organization a[data-mailto-token]:before {
+  content: "\f0e0";
+}
+.acc_section.organization a[href$=".pdf"]:before {
+  content: "\f15b";
+}
+.acc_section.organization a[href^="tel:"]:before {
+  content: "\f095";
+}
+.acc_section.organization a[href^=http]:before, .acc_section.organization a[href^=www]:before {
+  content: "\f0ac";
 }/*# sourceMappingURL=style.css.map */

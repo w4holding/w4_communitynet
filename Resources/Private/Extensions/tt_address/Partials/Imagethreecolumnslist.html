@@ -32,17 +32,17 @@
                                     </f:case>
                                     <f:case value="email">
                                         <f:if condition="{address.email}">
-                                            <i class="fa fa-envelope"></i> <a href="mailto:{address.email}">{address.email}</a><br />
+                                            <a href="mailto:{address.email}">{address.email}</a><br />
                                         </f:if>
                                     </f:case>
                                     <f:case value="phone">
                                         <f:if condition="{address.phone}">
-                                            <i class="fa fa-phone"></i> <a href="tel:{address.phone}">{address.phone}</a><br />
+                                            <a href="tel:{address.phone}">{address.phone}</a><br />
                                         </f:if>
                                     </f:case>
                                     <f:case value="mobile">
                                         <f:if condition="{address.mobile}">
-                                            <i class="fa fa-mobile-alt"></i> <a href="tel:{address.mobile}">{address.mobile}</a><br />
+                                            <a href="tel:{address.mobile}">{address.mobile}</a><br />
                                         </f:if>
                                     </f:case>
                                     <f:defaultCase>

@@ -4688,6 +4688,10 @@ textarea.form-control-lg {
   padding: 0 20px;
 }
 
+.accordion-module .accordion .accordion-body table {
+  margin-left: -22px;
+}
+
 ul.accordion {
   padding-left: 0;
 }

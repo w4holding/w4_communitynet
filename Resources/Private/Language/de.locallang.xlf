@@ -183,6 +183,30 @@
                 <source>Contact</source>
                 <target>Kontakt</target>
             </trans-unit>
+            <trans-unit id="w4_organizations_list.birthday">
+                <source>Birthday</source>
+                <target>Geburtstag</target>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.phone">
+                <source>Telephone</source>
+                <target>Telefon</target>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.mobile">
+                <source>Mobile</source>
+                <target>Mobiltelefon</target>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.fax">
+                <source>Fax</source>
+                <target>Fax</target>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.email">
+                <source>E-mail</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.www">
+                <source>Webseite</source>
+                <target>Webseite</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -144,6 +144,24 @@
             <trans-unit id="tt_address.additional_information">
                 <source>Additional information</source>
             </trans-unit>
+            <trans-unit id="w4_organizations_list.birthday">
+                <source>Birthday</source>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.phone">
+                <source>Telephone</source>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.mobile">
+                <source>Mobile</source>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.fax">
+                <source>Fax</source>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.email">
+                <source>E-mail</source>
+            </trans-unit>
+            <trans-unit id="w4_organizations_list.www">
+                <source>Webseite</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
