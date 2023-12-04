@@ -167,10 +167,17 @@ tt_content {
 
 fixAttrib.class.list >
 lib.parseFunc_RTE {
-    externalBlocks.table.stdWrap.HTMLparser.tags.table.fixAttrib.class {
-        default = table
-        always = 1
-        list = table, table-striped, table-bordered, table-hover, table-condensed, table-responsive
+    externalBlocks {
+        table {
+            stdWrap {
+                wrap = <div class="table-responsive">|</div>
+                HTMLparser.tags.table.fixAttrib.class {
+                    default = table
+                    always = 1
+                    list = table, table-striped, table-bordered, table-hover, table-condensed, table-responsive
+                }
+            }
+        }
     }
 }
 
@@ -279,7 +286,39 @@ plugin.tx_w4communitynet {
                     2 {
                         field = list_type
                         is = eq
-                        to = faq_faq
+                        to = faq_fa
+fixAttrib.class.list >
+lib.parseFunc_RTE {
+    externalBlocks {
+        table {
+            stdWrap {
+                wrap = <div class="table-responsive">|</div>
+                HTMLparser.tags.table.fixAttrib.class {
+                    default = table
+                    always = 1
+                    list = table, table-striped, table-bordered, table-hover, table-condensed, table-responsive
+                }
+            }
+        }
+    }
+}
+lib.parseFunc_RTE {
+    # Wrap all tables with a <div class="table-responsive"> container
+    tags {
+        table.stdWrap {
+            HTMLparser = 1
+            HTMLparser {
+                tags {
+                    table.fixAttrib {
+                        class {
+                            default = table-responsive
+                        }
+                    }
+                }
+            }
+        }
+    }
+}q
                     }
                     3 {
                         field = pages
