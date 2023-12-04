@@ -1,12 +1,18 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{colclass}">
+    <div class="col-sm-6 {colclass}">
+</f:if>
 <f:if condition="{data.image_zoom}">
     <f:then>
         <a href="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1')}" data-lightbox="lightbox-{data.uid}" data-title="{file.description}">
-            <f:media class="image-embed-item" file="{file}" width="{f:if(condition: '{data.imageorient}==7', then: '768c', else: '{dimensions.width}')}" height="{f:if(condition: '{data.imageorient}==7', then: '490c', else: '{dimensions.height}')}" alt="{file.alternative}" title="{file.title}" loading="{settings.media.lazyLoading}" decoding="{settings.media.imageDecoding}" alt="{file.alternative}" title="{file.title}" additionalAttributes="{description: '{file.description}'}" />
+            <f:media class="image-embed-item img-fluid {class}" file="{file}" width="{w}" alt="{file.alternative}" title="{file.title}" loading="{settings.media.lazyLoading}" decoding="{settings.media.imageDecoding}" alt="{file.alternative}" title="{file.title}" additionalAttributes="{description: '{file.description}'}" />
         </a>
     </f:then>
     <f:else>
-        <f:media class="image-embed-item" file="{file}" width="{f:if(condition: '{data.imageorient}==7', then: '768c', else: '{dimensions.width}')}" height="{f:if(condition: '{data.imageorient}==7', then: '490c', else: '{dimensions.height}')}" alt="{file.alternative}" title="{file.title}" loading="{settings.media.lazyLoading}" decoding="{settings.media.imageDecoding}" alt="{file.alternative}" title="{file.title}" additionalAttributes="{description: '{file.description}'}" />
+        <f:media class="image-embed-item img-fluid {class}" file="{file}" width="{f:if(condition: '{data.imageorient}==7', then: '768c', else: '{w}')}" height="{f:if(condition: '{data.imageorient}==7', then: '490c')}" alt="{file.alternative}" title="{file.title}" loading="{settings.media.lazyLoading}" decoding="{settings.media.imageDecoding}" alt="{file.alternative}" title="{file.title}" additionalAttributes="{description: '{file.description}'}" />
     </f:else>
+</f:if>
+<f:if condition="{colclass}">
+    </div>
 </f:if>
 </html>

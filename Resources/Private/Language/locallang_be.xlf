@@ -54,9 +54,6 @@
             <trans-unit id="tt_content.imageorient.101">
                 <source>Slider with navigation buttons</source>
             </trans-unit>
-            <trans-unit id="tt_content.imageorient.7">
-                <source>Gallery</source>
-            </trans-unit>
             <trans-unit id="tt_content.tx_w4communitynet_boxtextheight">
                 <source>Adapt box height to the text</source>
             </trans-unit>

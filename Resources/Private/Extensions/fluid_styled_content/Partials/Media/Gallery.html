@@ -26,7 +26,7 @@
                         <div class="carousel-item carousel-item-{height} {f:if(condition: '{iterator.isFirst}', then: 'active')}" style="background-image: url({f:uri.image( image: '{file}', treatIdAsReference: 1, maxWidth: '1280', maxHeight: '{height}')});">
                             <f:if condition="{file.title} || {file.description}">
                                 <div class="container carousel-header">
-                                    <f:if condition="file.title}">
+                                    <f:if condition="{file.title}">
                                         <p class="title h1 underline-header">{file.title}</p>
                                     </f:if>
                                     <f:if condition="{file.description}">
@@ -119,15 +119,60 @@
                     </div>
                 </f:then>
                 <f:else>
+                    <f:switch expression="{data.frame_class}">
+                        <f:case value="fullwidth">
+                            <f:variable name="w" value="2560" />
+                        </f:case>
+                        <f:case value="lesswidth">
+                            <f:variable name="w" value="770" />
+                        </f:case>
+                        <f:defaultCase>
+                            <f:variable name="w" value="1410" />
+                        </f:defaultCase>
+                    </f:switch>
                     <div class="ce-gallery ce-gallery-{gallery.count.columns}-cols" data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
                         <f:spaceless>
-                            <f:for each="{gallery.rows}" as="row">
-                                <f:for each="{row.columns}" as="column">
-                                    <f:if condition="{column.media}">
-                                        <f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+                            <f:if condition="{data.imagecols}==1">
+                                <f:then>
+                                    <f:for each="{files}" as="file">
+                                        <f:render partial="Media/Type" arguments="{file: file, data: data, w: w, class: ''}" />
+                                    </f:for>
+                                </f:then>
+                                <f:else>
+                                    <f:variable name="w" value="{v:math.division(a: w, b: data.imagecols)}" />
+                                    <f:if condition="{w}<575">
+                                        <f:variable name="w" value="575" />
                                     </f:if>
-                                </f:for>
-                            </f:for>
+                                    <f:switch expression="{data.imagecols}">
+                                        <f:case value="3">
+                                            <f:variable name="colclass" value="col-md-4" />
+                                        </f:case>
+                                        <f:case value="4">
+                                            <f:variable name="colclass" value="col-md-3" />
+                                        </f:case>
+                                        <f:case value="5">
+                                            <f:variable name="colclass" value="col-md-5cols" />
+                                        </f:case>
+                                        <f:case value="6">
+                                            <f:variable name="colclass" value="col-md-2" />
+                                        </f:case>
+                                        <f:case value="7">
+                                            <f:variable name="colclass" value="col-md-7cols" />
+                                        </f:case>
+                                        <f:case value="8">
+                                            <f:variable name="colclass" value="col-md-8cols" />
+                                        </f:case>
+                                        <f:defaultCase>
+                                            <f:variable name="colclass" value="col-md-6" />
+                                        </f:defaultCase>
+                                    </f:switch>
+                                    <div class="row g-0">
+                                        <f:for each="{files}" as="file">
+                                            <f:render partial="Media/Type" arguments="{file: file, data: data, w: w, class: 'imagecover', colclass: '{colclass}'}" />
+                                        </f:for>
+                                    </div>
+                                </f:else>
+                            </f:if>
                         </f:spaceless>
                     </div>
                 </f:else>

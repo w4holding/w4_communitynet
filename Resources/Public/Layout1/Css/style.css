@@ -2449,6 +2449,12 @@ img {
   max-width: 100%;
   height: auto;
 }
+img.imagecover {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
 .wrapper {
   flex: 1 0 auto;
@@ -2533,14 +2539,36 @@ img {
     width: calc(100% - 63px);
   }
 }
+.wrapper > .content ul,
+.wrapper > .content ol {
+  padding-left: 0.85rem;
+}
+.wrapper > .content ul li::marker,
+.wrapper > .content ol li::marker {
+  color: #d91231;
+}
+.blue-style-template .wrapper > .content ul li::marker,
+.blue-style-template .wrapper > .content ol li::marker {
+  color: #1e55a5;
+}
+.green-style-template .wrapper > .content ul li::marker,
+.green-style-template .wrapper > .content ol li::marker {
+  color: #245c28;
+}
 .wrapper > .content a:not(.btn-u):before {
   content: "";
   display: inline-block;
   font-family: "FontAwesome";
   text-align: left;
   transition: inherit;
-  color: #000;
+  color: #d91231;
   margin-right: 3px;
+}
+.blue-style-template .wrapper > .content a:not(.btn-u):before {
+  color: #1e55a5;
+}
+.green-style-template .wrapper > .content a:not(.btn-u):before {
+  color: #245c28;
 }
 .wrapper > .content a:not(.btn-u)[href^="mailto:"]:before, .wrapper > .content a:not(.btn-u)[data-mailto-token]:before {
   content: "\f0e0";
@@ -2551,10 +2579,37 @@ img {
 .wrapper > .content a:not(.btn-u)[href^="tel:"]:before {
   content: "\f095";
 }
+.wrapper > .content a:not(.btn-u)[href^="fax:"]:before {
+  content: "\f1ac";
+}
 .wrapper > .content a:not(.btn-u)[href^=http]:before, .wrapper > .content a:not(.btn-u)[href^=www]:before {
   content: "\f0ac";
 }
+.wrapper > .content a:not(.btn-u):hover:before {
+  color: #ae0e27;
+}
+.blue-style-template .wrapper > .content a:not(.btn-u):hover:before {
+  color: #0980b5;
+}
+.green-style-template .wrapper > .content a:not(.btn-u):hover:before {
+  color: #6aa30e;
+}
 
+p.dataContainer a:not(.btn-u):before {
+  margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+  .col-md-5cols {
+    width: 20%;
+  }
+  .col-md-7cols {
+    width: 14.5%;
+  }
+  .col-md-8cols {
+    width: 12.5%;
+  }
+}
 .ce-headline-center {
   text-align: center;
 }
@@ -4272,6 +4327,13 @@ body.green-style-template .paginator ul li.active a, body.green-style-template .
 .vcard-detail-row h3 {
   font-size: 1.5rem;
   margin-top: 1rem;
+}
+
+.imgContainer img.photo {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .acc_section.organization td {

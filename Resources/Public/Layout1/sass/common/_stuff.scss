@@ -9,12 +9,15 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   margin: 159px 0 0 0;
+
   @media (max-width: 1359px) {
     margin: 143px 0 0 0;
   }
+
   @media (max-width: 991px) {
     margin: 121px 0 0 0;
   }
+
   &.lock-scroll {
     overflow: hidden;
   }
@@ -23,6 +26,11 @@ body {
 img {
   max-width: 100%;
   height: auto;
+  &.imagecover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .wrapper {
@@ -127,33 +135,93 @@ img {
   }
 }
 
-.wrapper > .content a:not(.btn-u) {
+.wrapper>.content {
+
+  ul,
+  ol {
+    padding-left: 0.85rem;
+
+    li::marker {
+      color: $red;
+
+      .blue-style-template & {
+        color: $blue;
+      }
+
+      .green-style-template & {
+        color: $green;
+      }
+    }
+  }
+
+  a:not(.btn-u) {
 
     &:before {
-        content: "";
-        display: inline-block;
-        font-family: "FontAwesome";
-        text-align: left;
-        transition: inherit;
-        color: #000;
-        margin-right: 3px;
+      content: "";
+      display: inline-block;
+      font-family: "FontAwesome";
+      text-align: left;
+      transition: inherit;
+      color: $red;
+      margin-right: 3px;
+
+      .blue-style-template & {
+        color: $blue;
+      }
+
+      .green-style-template & {
+        color: $green;
+      }
     }
 
     &[href^='mailto:']:before,
     &[data-mailto-token]:before {
-        content: "\f0e0";
+      content: "\f0e0";
     }
 
     &[href$='.pdf']:before {
-        content: "\f15b";
+      content: "\f15b";
     }
 
     &[href^='tel:']:before {
-        content: "\f095";
+      content: "\f095";
+    }
+
+    &[href^='fax:']:before {
+      content: "\f1ac";
     }
 
     &[href^='http']:before,
     &[href^='www']:before {
-        content: "\f0ac";
+      content: "\f0ac";
     }
+
+    &:hover:before {
+      color: $red-active;
+
+      .blue-style-template & {
+        color: $blue-active;
+      }
+
+      .green-style-template & {
+        color: $green-active;
+      }
+    }
+  }
+}
+
+p.dataContainer a:not(.btn-u):before {
+  margin-right: 8px
+}
+
+@media (min-width: 768px) {
+  .col-md-5cols {
+      width: 20%;
+  }
+  .col-md-7cols {
+      width: 14.5%;
+  }
+  .col-md-8cols {
+      width: 12.5%;
+  }
 }

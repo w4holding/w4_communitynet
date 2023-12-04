@@ -71,10 +71,6 @@
                 <source>Slider with navigation buttons</source>
                 <target>Schieberegler mit Navigationstasten</target>
             </trans-unit>
-            <trans-unit id="tt_content.imageorient.7">
-                <source>Gallery</source>
-                <target>Galerie</target>
-            </trans-unit>
             <trans-unit id="tt_content.tx_w4communitynet_boxtextheight">
                 <source>Adapt box height to the text</source>
                 <target>Rahmenhöhe an den Text anpaßen</target>
