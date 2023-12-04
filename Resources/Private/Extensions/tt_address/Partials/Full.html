@@ -1,24 +1,31 @@
-<div class="vcard tt_address_detail" itemscope itemtype="http://schema.org/Person">
-    <h4 itemprop="name">{address.fullName}</h4>
-    <f:render section="position" partial="Address" arguments="{_all}"/>
+<f:variable name="fullName" value="" />
+<f:if condition="{address.name}">
+    <f:then>
+        <f:variable name="fullName" value="{address.name}" />
+    </f:then>
+    <f:else>
+        <f:if condition="{address.first_name}">
+            <f:variable name="fullName" value="{address.first_name} " />
+        </f:if>
+        <f:if condition="{address.middle_name}">
+            <f:variable name="fullName" value="{fullName}{address.middle_name} " />
+        </f:if>
+        <f:if condition="{address.last_name}">
+            <f:variable name="fullName" value="{fullName}{address.last_name}" />
+        </f:if>
+    </f:else>
+</f:if>
 
+<div class="vcard tt_address_detail" itemscope itemtype="http://schema.org/Person">
     <f:if condition="{address.image}">
         <f:then>
             <div class="row">
                 <div class="col-md-3">
-                    <figure class="figure">
-                        <f:image image="{address.firstImage}" width="600"
-                                 class="figure-img img-fluid img-thumbnail rounded"
-                                 alt="{address.firstImage.originalResource.alt}"
-                                 title="{address.firstImage.originalResource.title}"
-                                 additionalAttributes="{itemprop:'image'}"/>
-                        <f:if condition="{address.firstImage.originalResource.description}">
-                            <figcaption class="figure-caption">
-                                {address.firstImage.originalResource.description ->
-                                f:format.nl2br()}
-                            </figcaption>
+                    <v:resource.record.fal table="tt_address" field="image" uid="{address.uid}" as="resources">
+                        <f:if condition="{resources.0.uid}">
+                            <p><f:image src="{resources.0.url}" width="540" class="photo" alt="{fullName}" title="{fullName}" /></p>
                         </f:if>
-                    </figure>
+                    </v:resource.record.fal>
                 </div>
                 <div class="col-md-9">
                     <f:render section="content" arguments="{_all}"/>
@@ -32,78 +39,45 @@
 </div>
 
 <f:section name="content">
-    <f:if condition="{address.description}">
-        <div class="description" itemprop="description">
-            {address.description -> f:format.html()}
-        </div>
+    <h4>
+        {fullName}
+    </h4>
+    <f:if condition="{address.position}">
+        <p>{address.position}</a><br /></p>
     </f:if>
-
-    <f:render section="address" partial="Address" arguments="{_all}"/>
-
-    <f:if condition="{address.building} || {address.room}">
-        <ul class="list-inline">
-            <f:if condition="{address.building}">
-                <li class="list-inline-item">
-                    {f:translate(key:'label.building')}: {address.building}
-                </li>
-            </f:if>
-
-            <f:if condition="{address.room}">
-                <li class="list-inline-item">
-                    {f:translate(key:'label.room')}: {address.room}
-                </li>
-            </f:if>
-        </ul>
+    <p>
+        <f:if condition="{address.firma}">
+            {f:translate(key:'label.company')}: {address.company}<br />
+        </f:if>
+        <f:if condition="{address.country}">
+            {f:translate(key:'label.country')}: {address.country}<br />
+        </f:if>
+        <f:if condition="{address.region}">
+            {f:translate(key:'label.region')}: {address.region}<br />
+        </f:if>
+        <f:if condition="{address.phone}">
+            {f:translate(key:'label.telephone')}: <a href="tel:{address.cleanedPhone}">{address.phone}</a><br />
+        </f:if>
+        <f:if condition="{address.mobile}">
+            {f:translate(key:'label.mobile')}: <a href="tel:{address.cleanedMobile}">{address.mobile}</a><br />
+        </f:if>
+        <f:if condition="{address.fax}">
+            {f:translate(key:'label.fax')}: {address.fax}<br />
+        </f:if>
+        <f:if condition="{address.email}">
+            {f:translate(key:'label.email')}: <f:link.email email="{address.email}" /><br />
+        </f:if>
+        <f:if condition="{address.www}">
+            {f:translate(key:'label.www')}: <f:link.typolink parameter="{address.www}">{address.wwwSimplified}</f:link.typolink><br />
+        </f:if>
+        <f:if condition="{address.birthday}">
+            {f:translate(key:'label.birthday')}: {address.birthday -> f:format.date(format:'%d.%m.%Y')}
+        </f:if>
+    </p>
+    <f:if condition="{address.additional_information}">
+        {address.description -> f:format.html()}
     </f:if>
-
-    <f:render section="contact" partial="Address" arguments="{_all}"/>
-    <f:render section="social" partial="Address" arguments="{_all}"/>
-
-    <f:if condition="{address.image -> f:count()} > 1">
-        <div class="address-image-rows">
-            <div class="row">
-                <f:for each="{address.image}" as="img" iteration="iterator">
-                    <f:if condition="{iterator.cycle}>1">
-                        <div class="col-md-4">
-                            <figure class="figure">
-                                <f:if condition="{img.originalResource.link}">
-                                    <f:then>
-                                        <f:link.typolink
-                                            parameter="{img.originalResource.link}"
-                                            class="media-object {settings.detail.imageClass}"
-                                            additionalAttributes="{title:img.originalResource.title}">
-                                            <f:image image="{img}" width="400"
-                                                     alt="{img.originalResource.alt}"
-                                                     title="{img.originalResource.title}"
-                                                     class="figure-img img-fluid img-thumbnail rounded"
-                                                     additionalAttributes="{itemprop:'image'}"/>
-                                        </f:link.typolink>
-                                    </f:then>
-                                    <f:else>
-                                        <a href="{f:uri.image(src:img.originalResource.publicUrl, maxWidth:1000)}"
-                                           class="media-object {settings.detail.imageClass}"
-                                           rel="images_tt_address_{address.uid}"
-                                           title="{img.originalResource.title}"
-                                           target="_blank">
-                                            <f:image image="{img}" width="400"
-                                                     alt="{img.originalResource.alt}"
-                                                     title="{img.originalResource.title}"
-                                                     class="figure-img img-fluid img-thumbnail rounded"
-                                                     additionalAttributes="{itemprop:'image'}"/>
-                                        </a>
-                                    </f:else>
-                                </f:if>
-                                <f:if condition="{img.originalResource.description}">
-                                    <figcaption class="figure-caption">
-                                        {img.originalResource.description -> f:format.nl2br()}
-                                    </figcaption>
-                                </f:if>
-                            </figure>
-                        </div>
-                    </f:if>
-                </f:for>
-            </div>
-        </div>
+    <f:if condition="{address.building}">
+        {address.building -> f:format.html()}
     </f:if>
-
 </f:section>

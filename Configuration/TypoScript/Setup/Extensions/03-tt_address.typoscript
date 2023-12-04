@@ -14,3 +14,23 @@ plugin.tx_ttaddress {
         }
     }
 }
+
+tt_content.shortcut.20.tables := addToList(tt_address)
+tt_content.shortcut.20.conf.tt_address = USER
+tt_content.shortcut.20.conf.tt_address {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = TtAddress
+    pluginName = ListView
+    vendorName = FriendsOfTYPO3
+    action = list
+    settings =< plugin.tt_address.settings
+    settings {
+        insertRecord = 1
+        singleRecords.field = uid
+        useStdWrap = singleRecords
+        displayMode = single
+    }
+}
+# For fluid_styled_content
+tt_content.shortcut.variables.shortcuts.tables := addToList(tt_address)
+tt_content.shortcut.variables.shortcuts.conf.tt_address < tt_content.shortcut.20.conf.tt_address

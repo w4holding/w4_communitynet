@@ -3,15 +3,15 @@
 <f:for each="{addresses}" as="address" iteration="iterator">
     <div class="vcard-detail-row content-vcard-detail-withdescription clearfix" itemscope="" nitemtype="http://schema.org/Person">
         <div class="row equal">
-            <div class="col-md-3 imgContainer">
+            <div class="col-lg-6 col-xl-3 imgContainer">
                 <f:if condition="{address.image.0}">
                     <f:media file="{address.image.0}" width="540" class="photo" alt="{address.image.0.originalResource.alt}" title="{address.fullName}" />
                 </f:if>
             </div>            
-            <div class="col-md-9">
+            <div class="px-5 px-lg-2 col-lg-6 col-xl-9">
                 <h3>{address.name}</h3>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-xl-4">
                         <f:if condition="{address.position}">
                             <p>
                                 <strong><f:translate key="label.position" /></strong><br />{address.position}
@@ -22,7 +22,7 @@
                                 <strong><f:translate key="tt_address.party" extensionName="w4_communitynet" /></strong><br />{address.company}
                             </p>
                         </f:if>
-                        <p>
+                        <p class="dataContainer">
                             <strong><f:translate key="tt_address.contact" extensionName="w4_communitynet" /></strong><br />
                             <f:for each="{columns}" as="column"  iteration="iterator"> 
                                 <f:switch expression="{column}">
@@ -33,6 +33,11 @@
                                     <f:case value="email">
                                         <f:if condition="{address.email}">
                                             <a href="mailto:{address.email}">{address.email}</a><br />
+                                        </f:if>
+                                    </f:case>
+                                    <f:case value="fax">
+                                        <f:if condition="{address.fax}">
+                                            <a href="fax:{address.fax}">{address.fax}</a><br />
                                         </f:if>
                                     </f:case>
                                     <f:case value="phone">
@@ -52,14 +57,14 @@
                             </f:for>
                         </p>  
                     </div>                    
-                    <div class="col-md-4">
+                    <div class="col-xl-4">
                         <div class="line">
                             <div class="value">
                                 {address.description -> f:format.html()}
                             </div>
                         </div>
                     </div>                
-                    <div class="col-md-4">
+                    <div class="col-xl-4">
                         <div class="line me-4">
                             <div class="value">
                                 {address.building -> f:format.html()}

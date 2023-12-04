@@ -38,9 +38,18 @@
 </f:section>
 
 <f:section name="displayMode_single">
-    <f:for each="{addresses}" as="address">
-        <f:render partial="Full" arguments="{_all}"/>
-    </f:for>
+    <f:if condition="{addresses}">
+        <f:then>
+            <f:for each="{addresses}" as="address">
+                <div class="c-employee__wrapper">
+                    <f:render partial="Full" arguments="{_all}" />
+                </div>
+            </f:for>
+        </f:then>
+        <f:else>
+            <f:render partial="Full" arguments="{address: contentObjectData}" />
+        </f:else>
+    </f:if>
 </f:section>
 
 <f:section name="displayMode_map">
