@@ -1338,8 +1338,7 @@ body.green-style-template .delete-link.btn.btn-danger:hover {
   .news-list-view .article .article-inner .image-wrapper img {
     width: 400px;
     height: 250px;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
 }
 .right-sidecol-wrapper .news-list-view .article .article-inner .image-wrapper {
@@ -1531,8 +1530,7 @@ body.green-style-template .news-list-view .article .article-inner .article-infos
 .news-list-cols .newsitem .article .text-wrapper {
   display: block;
   width: 100%;
-  -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   padding: 35px 35px 80px 35px;
 }
 @media (min-width: 920px) {
@@ -1909,9 +1907,41 @@ body.blue-style-template .events-detail-view .event-info .event-info-item-wrappe
 body.green-style-template .events-detail-view .event-info .event-info-item-wrapper .event-info-item .value {
   color: #245c28;
 }
-.events-detail-view .image-wrapper img {
-  max-width: 100%;
-  height: auto;
+.events-detail-view .image-wrapper-no-image {
+  position: relative;
+  width: 100%;
+  background: #f0f0f0 center center no-repeat;
+  background-size: cover;
+  --bs-aspect-ratio: calc(10 / 16 * 100%);
+  display: none;
+}
+.events-detail-view .image-wrapper-no-image::before {
+  display: block;
+  padding-top: var(--bs-aspect-ratio);
+  content: "";
+}
+.events-detail-view .image-wrapper-no-image div {
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.events-detail-view .image-wrapper-no-image div p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 992px ) {
+  .events-detail-view .image-wrapper-no-image {
+    display: block;
+  }
+}
+.events-detail-view .image-wrapper-no-image img {
+  max-width: 80%;
 }
 
 .breadcrumbs ul {
@@ -2452,8 +2482,7 @@ img {
 img.imagecover {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .wrapper {
@@ -3242,6 +3271,7 @@ label.form-check-label {
   padding: 0 0 10px 50px;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   font-size: 0.9rem;
 }
@@ -3270,6 +3300,8 @@ label.form-check-label .checkmark:after {
   height: 16px;
   border: solid #fff;
   border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 label.form-check-label:hover input ~ .checkmark {
@@ -3290,6 +3322,7 @@ label.form-radio-label {
   padding: 0 0 10px 50px;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 label.form-radio-label input {
@@ -3341,8 +3374,11 @@ label.form-radio-label input:checked ~ .checkmark:after {
 
 .form-group ul.nav li {
   width: 33.33333333%;
+  -ms-flex-preferred-size: 33.33333333%;
   flex-basis: 33.33333333%;
   float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 60px;
   padding-right: 10px;
@@ -3350,17 +3386,20 @@ label.form-radio-label input:checked ~ .checkmark:after {
 @media (max-width: 991.98px ) {
   .form-group ul.nav li {
     width: 50%;
+    -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
   }
 }
 @media (max-width: 767.98px ) {
   .form-group ul.nav li {
     width: 100%;
+    -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
   }
 }
 .form-group ul.nav.check-all li {
   width: 100%;
+  -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
 }
 
@@ -3397,6 +3436,8 @@ ul#side-contact-bar li.item-desktop {
   background: #d91231 15px center no-repeat;
   background-size: 30px;
   transition: all 0.2s ease-in-out;
+  -webkit-box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.25);
 }
 ul#side-contact-bar li.item-desktop:hover {
@@ -4332,8 +4373,7 @@ body.green-style-template .paginator ul li.active a, body.green-style-template .
 .imgContainer img.photo {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .acc_section.organization td {

@@ -1,184 +1,308 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
-      data-namespace-typo3-fluid="true">
-<f:variable name="cats" value="," />
-<f:for each="{newsItem.categories}" as="category">
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+  data-namespace-typo3-fluid="true"
+>
+  <f:variable name="cats" value="," />
+  <f:for each="{newsItem.categories}" as="category">
     <f:variable name="cats" value="{cats}{category.uid}," />
-</f:for>
-<f:switch expression="{settings.templateLayout}">
-    <f:case value="1">
-        <div class="newsitem newsitem-{iterator.cycle} newseventitem" data-categories="{cats}" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <f:variable name="image" value="" />
-            <f:if condition="{newsItem.mediaPreviews}">
-                <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
-                    <f:if condition="{mediaElement}">                        
-                        <f:variable name="image" value="{f:uri.image(image: '{mediaElement}', width: '720c', height: '450c')}" />
-                    </f:if>
-                </f:alias>
-            </f:if>
-            <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
-                <div class="article articletype-0" itemscope="itemscope" itemtype="http://schema.org/Article">
-                    <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}" style="background-image: url({f:if(condition: '{image}', then: '{image}', else: '{f:uri.image(src: \'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png\', absolute: 1)}')});">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAHCCAYAAADGof6RAAAABHNCSVQICAgIfAhkiAAABP5JREFUeJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvBvJXwAB7a65GAAAAABJRU5ErkJggg==" width="720" height="450" alt="{newsItem.title}" />
+  </f:for>
+  <f:switch expression="{settings.templateLayout}">
+      <f:case value="1">
+      <div
+        class="newsitem newsitem-{iterator.cycle} newseventitem"
+        data-categories="{cats}"
+        itemscope="itemscope"
+        itemtype="http://schema.org/Article"
+      >
+        <f:variable name="image" value="" />
+        <f:if condition="{newsItem.mediaPreviews}">
+            <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                <f:if condition="{mediaElement}">
+                    <f:variable
+                    name="image"
+                    value="{f:uri.image(image: '{mediaElement}', width: '720c', height: '450c')}"
+                    />
+                </f:if>
+            </f:alias>
+        </f:if>
+        <n:link
+          newsItem="{newsItem}"
+          settings="{settings}"
+          title="{newsItem.title}"
+        >
+          <div
+            class="article articletype-0"
+            itemscope="itemscope"
+            itemtype="http://schema.org/Article"
+          >
+            <div
+              class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}"
+              style="
+                background-image: url({f:if(
+                    condition: '{image}',
+                    then: '{image}',
+                    else:
+                      '{f:uri.image(src: \'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png\', absolute: 1)}'
+                  )});
+              "
+            >
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAHCCAYAAADGof6RAAAABHNCSVQICAgIfAhkiAAABP5JREFUeJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvBvJXwAB7a65GAAAAABJRU5ErkJggg=="
+                width="720"
+                height="450"
+                alt="{newsItem.title}"
+              />
+            </div>
+            <div class="text-wrapper">
+              <time
+                itemprop="datePublished"
+                datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}"
+              >
+                <f:format.date format="{f:translate(key:'dateFormat')}"
+                  >{newsItem.datetime}</f:format.date
+                >
+              </time>
+              <br />
+              <div class="headline">
+                <h3 itemprop="headline">{newsItem.title}</h3>
+              </div>
+              <n:removeMediaTags>
+                <f:if condition="{newsItem.teaser}">
+                  <f:then>
+                    <div class="text" itemprop="description">
+                      {newsItem.teaser -> f:format.crop(maxCharacters:
+                      '{settings.cropMaxCharacters}', respectWordBoundaries:'1')
+                      -> f:format.html()}
                     </div>
-                    <div class="text-wrapper">
-                        <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
-                            <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
-                        </time>
-                        <br />
-                        <div class="headline">
-                            <h3 itemprop="headline">
-                                {newsItem.title}
-                            </h3>
-                        </div>
-                        <n:removeMediaTags>
-                            <f:if condition="{newsItem.teaser}">
-                                <f:then>
-                                    <div class="text" itemprop="description">
-                                        {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
-                                    </div>
-                                </f:then>
-                                <f:else>
-                                    <div class="text" itemprop="description">
-                                        {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
-                                    </div>
-                                </f:else>
-                            </f:if>
-                        </n:removeMediaTags>
+                  </f:then>
+                  <f:else>
+                    <div class="text" itemprop="description">
+                      {newsItem.bodytext -> f:format.crop(maxCharacters:
+                      '{settings.cropMaxCharacters}', respectWordBoundaries:'1')
+                      -> f:format.html()}
                     </div>
-                </div>
-            </n:link>
-        </div>
+                  </f:else>
+                </f:if>
+              </n:removeMediaTags>
+            </div>
+          </div>
+        </n:link>
+      </div>
     </f:case>
     <f:case value="2">
-        <tr class="newseventitem" data-categories="{cats}">
-            <td class="date">
-                <strong><f:format.date format="d">{newsItem.datetime}</f:format.date></strong>
-                <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:months.abbreviated.{newsItem.datetime -> f:format.date(format: 'n')}" />
-            </td> 
-            <td class="time">
-                <f:if condition="!{newsItem.fullDay}">
-                    <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
-                    <f:if condition="{newsItem.eventEnd}">
-                        - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
-                    </f:if>
-                </f:if>
-            </td>
-            <td class="title">
-                <n:link newsItem="{newsItem}" settings="{settings}" class="article-more" title="{newsItem.title}">
-                    {newsItem.title}
-                </n:link>
-            </td>
-        </tr>
+      <tr class="newseventitem" data-categories="{cats}">
+        <td class="date">
+          <strong
+            ><f:format.date format="d"
+              >{newsItem.datetime}</f:format.date
+            ></strong
+          >
+          <f:translate
+            key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:months.abbreviated.{newsItem.datetime -> f:format.date(format: 'n')}"
+          />
+        </td>
+        <td class="time">
+          <f:if condition="!{newsItem.fullDay}">
+            <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
+            <f:if condition="{newsItem.eventEnd}">
+              - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
+            </f:if>
+          </f:if>
+        </td>
+        <td class="title">
+          <n:link
+            newsItem="{newsItem}"
+            settings="{settings}"
+            class="article-more"
+            title="{newsItem.title}"
+          >
+            {newsItem.title}
+          </n:link>
+        </td>
+      </tr>
     </f:case>
-    <f:case value="7">        
-        <f:variable name="type" value="" />
-        <f:if condition="{newsItem.eventType}">
-            <f:variable name="type" value="{f:translate(key: 'event_type.{newsItem.eventType}') -> f:format.crop(maxCharacters: 1, append: '')}" />
-        </f:if>
-        <tr class="newseventitem newseventitem-withorganizer" data-categories="{cats}">
-            <td class="date">
-                <strong><f:format.date format="d">{newsItem.datetime}</f:format.date></strong>
-                <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:months.abbreviated.{newsItem.datetime -> f:format.date(format: 'n')}" />
-            </td> 
-            <td class="time">
-                <f:if condition="!{newsItem.fullDay}">
-                    <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
-                    <f:if condition="{newsItem.eventEnd}">
-                        - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
-                    </f:if>
-                </f:if>
-            </td>
-            <td class="type">
-                {type}
-            </td>
-            <td class="title">
-                <n:link newsItem="{newsItem}" settings="{settings}" class="article-more" title="{newsItem.title}">
-                    {newsItem.title}&nbsp;<span>{type}</span>
-                    <div>{newsItem.organizerSimple}</div>
-                </n:link>
-            </td>
-            <td class="organizer">
-                {newsItem.organizerSimple}
-            </td>
-        </tr>        
+    <f:case value="7">
+      <f:variable name="type" value="" />
+      <f:if condition="{newsItem.eventType}">
+        <f:variable
+          name="type"
+          value="{f:translate(key: 'event_type.{newsItem.eventType}') -> f:format.crop(maxCharacters: 1, append: '')}"
+        />
+      </f:if>
+      <tr
+        class="newseventitem newseventitem-withorganizer"
+        data-categories="{cats}"
+      >
+        <td class="date">
+          <strong
+            ><f:format.date format="d"
+              >{newsItem.datetime}</f:format.date
+            ></strong
+          >
+          <f:translate
+            key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:months.abbreviated.{newsItem.datetime -> f:format.date(format: 'n')}"
+          />
+        </td>
+        <td class="time">
+          <f:if condition="!{newsItem.fullDay}">
+            <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
+            <f:if condition="{newsItem.eventEnd}">
+              - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
+            </f:if>
+          </f:if>
+        </td>
+        <td class="type">{type}</td>
+        <td class="title">
+          <n:link
+            newsItem="{newsItem}"
+            settings="{settings}"
+            class="article-more"
+            title="{newsItem.title}"
+          >
+            {newsItem.title}&nbsp;<span>{type}</span>
+            <div>{newsItem.organizerSimple}</div>
+          </n:link>
+        </td>
+        <td class="organizer">{newsItem.organizerSimple}</td>
+      </tr>
     </f:case>
     <f:defaultCase>
-        <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
-            <div class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')} newseventitem" data-categories="{cats}" itemscope="itemscope" itemtype="https://schema.org/Article">
-                <n:excludeDisplayedNews newsItem="{newsItem}" />
-                <div class="article-inner">
-                    <f:variable name="image" value="" />
-                    <f:if condition="{newsItem.mediaPreviews}">
-                        <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
-                            <f:if condition="{mediaElement}">                        
-                                <f:variable name="image" value="{f:uri.image(image: '{mediaElement}', width: '400c', height: '250c')}" />
-                            </f:if>
-                        </f:alias>
-                    </f:if>
-                    <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}" style="background-image: url({f:if(condition: '{image}', then: '{image}', else: '{f:uri.image(src: \'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png\', absolute: 1)}')});"></div>
-                    <div class="article-infos">
-                        <f:if condition="{settings.templateLayout}==3">
-                            <f:then>
-                                <div class="header">
-                                    <h3>
-                                        <span itemprop="headline">{newsItem.title}</span>
-                                    </h3>
-                                </div>
-                                <span class="date">
-                                    <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
-                                        <f:format.date format="%d">{newsItem.datetime}</f:format.date>.
-                                        <f:translate key="month.{newsItem.datetime -> f:format.date(format: '%m')}" />
-                                        <f:format.date format="%Y">{newsItem.datetime}</f:format.date>
-                                        .
-                                        <f:format.date format="H:i">{newsItem.datetime}</f:format.date>
-                                        <f:if condition="{newsItem.eventEnd}">
-                                            - <f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
-                                        </f:if>
-                                    </time>
-                                </span>
-                                <f:if condition="{newsItem.eventType}">
-                                    <p><f:translate key="event_type.{newsItem.eventType}" /></p>
-                                </f:if>
-                                <div class="infos-sup mb-2">
-                                </div>
-                            </f:then>
-                            <f:else>
-                                <span class="date">
-                                    <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
-                                        <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
-                                    </time>
-                                </span>
-                                <div class="infos-sup">
-                                </div>
-                                <div class="header">
-                                    <h3>
-                                        <span itemprop="headline">{newsItem.title}</span>
-                                    </h3>
-                                </div>
-                            </f:else>
-                        </f:if>
-                        <div class="text">
-                            <n:removeMediaTags>
-                                <f:if condition="{newsItem.teaser}">
-                                    <f:then>
-                                        <div itemprop="description">{newsItem.teaser -> f:format.crop(maxCharacters:
-                                            '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
-                                        </div>
-                                    </f:then>
-                                    <f:else>
-                                        <div itemprop="description">{newsItem.bodytext -> f:format.crop(maxCharacters:
-                                            '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
-                                        </div>
-                                    </f:else>
-                                </f:if>
-                            </n:removeMediaTags>
-                            <span class="article-more" title="{newsItem.title}"></span>
-                        </div>
-                    </div>
-                </div>
+      <n:link
+        newsItem="{newsItem}"
+        settings="{settings}"
+        title="{newsItem.title}"
+      >
+        <div
+          class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')} newseventitem"
+          data-categories="{cats}"
+          itemscope="itemscope"
+          itemtype="https://schema.org/Article"
+        >
+          <n:excludeDisplayedNews newsItem="{newsItem}" />
+          <div class="article-inner">
+            <f:variable name="image" value="" />
+            <f:if condition="{newsItem.mediaPreviews}">
+              <f:then>
+                <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                  <f:if condition="{mediaElement}">
+                    <f:variable
+                      name="image"
+                      value="{f:uri.image(image: '{mediaElement}', width: '400c', height: '250c')}"
+                    />
+                  </f:if>
+                </f:alias>
+              </f:then>
+              <f:else if="{newsItem.categories}">
+                <f:variable name="cat" value="" />
+                <f:for
+                  each="{newsItem.categories}"
+                  as="category"
+                >
+                  <f:if condition="!{cat} && {category.images.0}">
+                    <f:variable
+                      name="image"
+                      value="{f:uri.image(image: '{category.images.0}', width: '400c', height: '250c')}"
+                    />
+                    <f:variable name="cat" value="1" />
+                  </f:if>
+                </f:for>
+              </f:else>
+            </f:if>
+            <div
+              class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}"
+              style="
+                background-image: url({f:if(
+                    condition: '{image}',
+                    then: '{image}',
+                    else:
+                      '{f:uri.image(src: \'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png\', absolute: 1)}'
+                  )});
+              "
+            ></div>
+            <div class="article-infos">
+              <f:if condition="{settings.templateLayout}==3">
+                <f:then>
+                  <div class="header">
+                    <h3>
+                      <span itemprop="headline">{newsItem.title}</span>
+                    </h3>
+                  </div>
+                  <span class="date">
+                    <time
+                      itemprop="datePublished"
+                      datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}"
+                    >
+                      <f:format.date format="%d"
+                        >{newsItem.datetime}</f:format.date
+                      >.
+                      <f:translate
+                        key="month.{newsItem.datetime -> f:format.date(format: '%m')}"
+                      />
+                      <f:format.date format="%Y"
+                        >{newsItem.datetime}</f:format.date
+                      >
+                      .
+                      <f:format.date format="H:i"
+                        >{newsItem.datetime}</f:format.date
+                      >
+                      <f:if condition="{newsItem.eventEnd}">
+                        -
+                        <f:format.date format="H:i"
+                          >{newsItem.eventEnd}</f:format.date
+                        >
+                      </f:if>
+                    </time>
+                  </span>
+                  <f:if condition="{newsItem.eventType}">
+                    <p><f:translate key="event_type.{newsItem.eventType}" /></p>
+                  </f:if>
+                  <div class="infos-sup mb-2"></div>
+                </f:then>
+                <f:else>
+                  <span class="date">
+                    <time
+                      itemprop="datePublished"
+                      datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}"
+                    >
+                      <f:format.date format="{f:translate(key:'dateFormat')}"
+                        >{newsItem.datetime}</f:format.date
+                      >
+                    </time>
+                  </span>
+                  <div class="infos-sup"></div>
+                  <div class="header">
+                    <h3>
+                      <span itemprop="headline">{newsItem.title}</span>
+                    </h3>
+                  </div>
+                </f:else>
+              </f:if>
+              <div class="text">
+                <n:removeMediaTags>
+                  <f:if condition="{newsItem.teaser}">
+                    <f:then>
+                      <div itemprop="description">
+                        {newsItem.teaser -> f:format.crop(maxCharacters:
+                        '{settings.cropMaxCharacters}',
+                        respectWordBoundaries:'1') -> f:format.html()}
+                      </div>
+                    </f:then>
+                    <f:else>
+                      <div itemprop="description">
+                        {newsItem.bodytext -> f:format.crop(maxCharacters:
+                        '{settings.cropMaxCharacters}',
+                        respectWordBoundaries:'1') -> f:format.html()}
+                      </div>
+                    </f:else>
+                  </f:if>
+                </n:removeMediaTags>
+                <span class="article-more" title="{newsItem.title}"></span>
+              </div>
             </div>
-        </n:link>
+          </div>
+        </div>
+      </n:link>
     </f:defaultCase>
-</f:switch>
+  </f:switch>
 </html>

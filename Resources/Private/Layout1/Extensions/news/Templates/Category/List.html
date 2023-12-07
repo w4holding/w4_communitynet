@@ -2,7 +2,7 @@
       xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
       data-namespace-typo3-fluid="true">
 <f:layout name="General" />
-<f:section name="content">	
+<f:section name="content">
     <f:if condition="{categories}">
         <f:then>
             <div id="my-newsevents-{contentObjectData.uid}-filter" class="subpages-nav events-categories element checkbox">
@@ -10,7 +10,11 @@
                     <ul class="nav clearfix check-all">
                         <li>
                             <label for="my-newsevents-{contentObjectData.uid}-categories-all" class="form-check-label">
-                                <input type="checkbox" name="categories-all" id="my-newsevents-{contentObjectData.uid}-categories-all" checked="true" value="all" />
+                                <input type="checkbox" name="categories-all" id="my-newsevents-{contentObjectData.uid}-categories-all" value="all" 
+                                    <f:if condition="!{overwriteDemand.categories} || ({categories -> f:count()} == {overwriteDemand.categories -> v:iterator.explode() -> f:count()})">
+                                        checked="true"
+                                    </f:if>
+                                />
                                 <span class="checkmark"></span>
                                 <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:all_categories" />
                             </label>
@@ -19,6 +23,9 @@
                     <ul class="nav clearfix">
                         <f:render section="categoryTree" arguments="{categories:categories, overwriteDemand:overwriteDemand}" />
                     </ul>
+                    <f:link.page id="refresh" class="btn-u" additionalAttributes="{data-url:'{f:uri.page(absolute: 1, additionalParams: {tx_news_pi1:{currentPage: 1}})}'}">
+                        <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:filter" />
+                    </f:link.page>
                 </div>
             </div>    
             <script>
@@ -34,11 +41,6 @@
                             });
                         });
                         checkBoxes.change( function( e) <f:format.raw value="{" />
-                            if (all.is(':checked')) <f:format.raw value="{" />
-                                $('.newsevents-list-view .newseventitem').show();
-                            } else <f:format.raw value="{" />
-                                $('.newsevents-list-view .newseventitem').hide();
-                            }
                             let categoriess = (
                                 all.get(0) === e.target && !$(e.target).is(':checked') || all.get(0) !== e.target
                                     ? categories.filter(':checked')
@@ -46,21 +48,12 @@
                                 ).map(function() <f:format.raw value="{" />
                                     return parseInt( $(this).val());
                                 }).toArray();
+                                
+                            let slug = (categoriess.length > 0 && categoriess.length != categories.length) ? "?tx_news_pi1[overwriteDemand][categories]=" + categoriess.join(",") : "";
+                            $("#refresh").attr("href", $("#refresh").data("url") + slug);
+
                             if (all.get(0) !== e.target) <f:format.raw value="{" />
                                 all.prop( 'checked', categoriess.length === categories.length);
-                                $('.newsevents-list-view .newseventitem').each( function() <f:format.raw value="{" />
-                                    let showit = false, cats = $(this).data('categories');
-                                    $.each(categoriess, function( index, value ) <f:format.raw value="{" />
-                                        if (cats.indexOf(',' + value + ',') > -1) <f:format.raw value="{" />
-                                            showit = true;
-                                        }
-                                    });
-                                    if (showit) <f:format.raw value="{" />
-                                        $(this).show();
-                                    } else <f:format.raw value="{" />
-                                        $(this).hide();
-                                    }
-                                });
                             }
                         });
                     })( jQuery);
@@ -78,9 +71,14 @@
         <f:if condition="{categoryUsageCount}">
             <li class="event">
                 <label for="my-newsevents-{contentObjectData.item.uid}-category-{category.item.uid}" class="form-check-label">
-                    <input type="checkbox" name="category-{category.item.uid}" id="my-newsevents-{contentObjectData.uid}-category-{category.item.uid}" checked="true" value="{category.item.uid}" />
+                    <input type="checkbox" name="category-{category.item.uid}" id="my-newsevents-{contentObjectData.uid}-category-{category.item.uid}" value="{category.item.uid}" 
+                        <f:if condition="!{overwriteDemand.categories} || {v:iterator.indexOf(needle: category.item.uid, haystack: overwriteDemand.categories)} >= 0">
+                            checked="true"
+                        </f:if>
+                    />
                     <span class="checkmark"></span>
                     {category.item.title}
+                    <f:if condition="{categoryUsageCount}">({categoryUsageCount})</f:if>
                 </label>
             </li>
         </f:if>

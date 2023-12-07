@@ -1,355 +1,481 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
-      xmlns:rx="http://typo3.org/ns/Reelworx/RxShariff/ViewHelper"
-      data-namespace-typo3-fluid="true">
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+  xmlns:rx="http://typo3.org/ns/Reelworx/RxShariff/ViewHelper"
+  data-namespace-typo3-fluid="true"
+>
+  <f:layout name="Detail" />
 
-<f:layout name="Detail"/>
-
-<f:section name="content">
+  <f:section name="content">
     <f:if condition="{newsItem}">
-        <f:then>            
-            <style>
-                .events-categories { display: none; }
-            </style>
-            <f:variable name="newsurl" value="{n:link(newsItem: '{newsItem}', settings: '{settings}', uriOnly: '1', configuration: '{forceAbsoluteUrl: 1}')}" />
-            <f:alias map="{mediaElement: newsItem.falmedia.0}">
-                <f:if condition="{mediaElement}">
-                    <f:variable name="thumbImage" value="{f:uri.image(image: '{newsItem.falmedia.0}', width:'915c',height:'585c'  absolute:1 )}" />  
-                </f:if>
-            </f:alias>
-            <f:if condition="!{newsItem.isEvent}">
+      <f:then>
+        <style>
+          .events-categories {
+            display: none;
+          }
+        </style>
+        <f:variable
+          name="newsurl"
+          value="{n:link(newsItem: '{newsItem}', settings: '{settings}', uriOnly: '1', configuration: '{forceAbsoluteUrl: 1}')}"
+        />
+        <f:alias map="{mediaElement: newsItem.falmedia.0}">
+          <f:if condition="{mediaElement}">
+            <f:variable
+              name="thumbImage"
+              value="{f:uri.image(image: '{newsItem.falmedia.0}', width:'915c',height:'585c'  absolute:1 )}"
+            />
+          </f:if>
+        </f:alias>
+        <f:if condition="!{newsItem.isEvent}">
+          <f:then>
+            <n:format.nothing>
+              <n:excludeDisplayedNews newsItem="{newsItem}" />
+              <f:if condition="{settings.detail.showMetaTags}">
+                <f:render
+                  partial="Detail/Opengraph"
+                  arguments="{newsItem: newsItem, settings:settings}"
+                />
+              </f:if>
+              <f:if condition="{newsItem.alternativeTitle}">
                 <f:then>
-                    <n:format.nothing>
-                        <n:excludeDisplayedNews newsItem="{newsItem}"/>
-                        <f:if condition="{settings.detail.showMetaTags}">
-                            <f:render partial="Detail/Opengraph" arguments="{newsItem: newsItem, settings:settings}"/>
-                        </f:if>
-                        <f:if condition="{newsItem.alternativeTitle}">
-                            <f:then>
-                                <n:titleTag>
-                                    <f:format.htmlentitiesDecode>{newsItem.alternativeTitle}
-                                    </f:format.htmlentitiesDecode>
-                                </n:titleTag>
-                            </f:then>
-                            <f:else>
-                                <n:titleTag>
-                                    <f:format.htmlentitiesDecode>{newsItem.title}</f:format.htmlentitiesDecode>
-                                </n:titleTag>
-                            </f:else>
-                        </f:if>
-                    </n:format.nothing>
-                    <f:if condition="{settings.detail.showPrevNext}">
-                        <n:simplePrevNext pidList="{newsItem.pid}" news="{newsItem}" as="paginated"
-                                          sortField="datetime">
-                            <f:if condition="{paginated}">
-                                <ul class="pager">
-                                    <f:if condition="{paginated.prev}">
-                                        <li class="previous">
-                                            <n:link newsItem="{paginated.prev}" settings="{settings}">
-                                                <span aria-hidden="true">&larr; </span>{paginated.prev.title}
-                                            </n:link>
-                                        </li>
-                                    </f:if>
-                                    <f:if condition="{paginated.next}">
-                                        <li class="next">
-                                            <n:link newsItem="{paginated.next}" settings="{settings}" class="next">
-                                                {paginated.next.title} <span aria-hidden="true"> &rarr;</span>
-                                            </n:link>
-                                        </li>
-                                    </f:if>
-                                </ul>
-                            </f:if>
-                        </n:simplePrevNext>
-                    </f:if>                    
-                    <div class="news-detail-view">
-                        <schema:type.article
-                            -as="mainEntity"
-                            -id="{n:link(newsItem: '{newsItem}', settings: '{settings}', uriOnly: '1', configuration: '{forceAbsoluteUrl: 1}')}"
-                            headline="{newsItem.title}"
-                            image="{thumbImage}"
-                            datePublished="{newsItem.datetime -> f:format.date(format: 'Y-m-d')}" >
-                            <f:if condition="{newsItem.authorEmail} || {newsItem.author}" >
-                                <schema:type.person
-                                -as="author"
-                                -id="{newsItem.authorEmail}"
-                                name="{newsItem.author}" />
-                            </f:if>                           
-                        </schema:type.article>
-                        <h1>{newsItem.title}</h1>
-                        <div class="date">
-                            <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
-                        </div>
-                        <div class="image-wrapper">                            
-                            <f:for each="{newsItem.falmedia}" as="media">
-                                <f:alias map="{mediaElement: media}">
-                                    <f:if condition="{mediaElement} && {mediaElement.showinpreview}<2">
-                                            <f:media
-                                                class="card-img-top"
-                                                file="{mediaElement}"
-                                                width="915c"
-                                                height="585c"
-                                                alt="{mediaElement.originalResource.alternative}"
-                                                title="{mediaElement.originalResource.title}"
-                                                loading="lazy"
-                                                additionalAttributes="{srcset: '{f:uri.image(image: mediaElement, maxWidth: 768)} 768w,
+                  <n:titleTag>
+                    <f:format.htmlentitiesDecode
+                      >{newsItem.alternativeTitle}
+                    </f:format.htmlentitiesDecode>
+                  </n:titleTag>
+                </f:then>
+                <f:else>
+                  <n:titleTag>
+                    <f:format.htmlentitiesDecode
+                      >{newsItem.title}</f:format.htmlentitiesDecode
+                    >
+                  </n:titleTag>
+                </f:else>
+              </f:if>
+            </n:format.nothing>
+            <f:if condition="{settings.detail.showPrevNext}">
+              <n:simplePrevNext
+                pidList="{newsItem.pid}"
+                news="{newsItem}"
+                as="paginated"
+                sortField="datetime"
+              >
+                <f:if condition="{paginated}">
+                  <ul class="pager">
+                    <f:if condition="{paginated.prev}">
+                      <li class="previous">
+                        <n:link
+                          newsItem="{paginated.prev}"
+                          settings="{settings}"
+                        >
+                          <span aria-hidden="true">&larr; </span
+                          >{paginated.prev.title}
+                        </n:link>
+                      </li>
+                    </f:if>
+                    <f:if condition="{paginated.next}">
+                      <li class="next">
+                        <n:link
+                          newsItem="{paginated.next}"
+                          settings="{settings}"
+                          class="next"
+                        >
+                          {paginated.next.title}
+                          <span aria-hidden="true"> &rarr;</span>
+                        </n:link>
+                      </li>
+                    </f:if>
+                  </ul>
+                </f:if>
+              </n:simplePrevNext>
+            </f:if>
+            <div class="news-detail-view">
+              <schema:type.article
+                -as="mainEntity"
+                -id="{n:link(newsItem: '{newsItem}', settings: '{settings}', uriOnly: '1', configuration: '{forceAbsoluteUrl: 1}')}"
+                headline="{newsItem.title}"
+                image="{thumbImage}"
+                datePublished="{newsItem.datetime -> f:format.date(format: 'Y-m-d')}"
+              >
+                <f:if condition="{newsItem.authorEmail} || {newsItem.author}">
+                  <schema:type.person
+                    -as="author"
+                    -id="{newsItem.authorEmail}"
+                    name="{newsItem.author}"
+                  />
+                </f:if>
+              </schema:type.article>
+              <h1>{newsItem.title}</h1>
+              <div class="date">
+                <f:format.date format="{f:translate(key:'dateFormat')}"
+                  >{newsItem.datetime}</f:format.date
+                >
+              </div>
+              <div class="image-wrapper">
+                <f:for each="{newsItem.falmedia}" as="media">
+                  <f:alias map="{mediaElement: media}">
+                    <f:if
+                      condition="{mediaElement} && {mediaElement.showinpreview}<2"
+                    >
+                      <f:media
+                        class="card-img-top"
+                        file="{mediaElement}"
+                        width="915c"
+                        height="585c"
+                        alt="{mediaElement.originalResource.alternative}"
+                        title="{mediaElement.originalResource.title}"
+                        loading="lazy"
+                        additionalAttributes="{srcset: '{f:uri.image(image: mediaElement, maxWidth: 768)} 768w,
                                                                                 {f:uri.image(image: mediaElement, maxWidth: 990)} 990w,
                                                                                 {f:uri.image(image: mediaElement, maxWidth: 1200)} 1200w,
                                                                                 {f:uri.image(image: mediaElement, maxWidth: 1440)} 1440w,
                                                                                 {f:uri.image(image: mediaElement, maxWidth: 1900)} 1900w',
                                                                                 sizes: '(min-width: 1200px) 50vw, 100vw'}"
-                                            />
-                                    </f:if>
-                                </f:alias>
-                            </f:for>
-                        </div>
-                        <div class="content" itemprop="articleBody">
-                            <f:format.html>{newsItem.bodytext}</f:format.html>
-                        </div>
-                        <f:render section="relatedfiles" arguments="{_all}" />
-                        <div class="center">
-                            <f:link.page pageUid="{settings.backPid}" class="btn-u return">
-                                <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.BackToOverview" />
-                            </f:link.page>
-                        </div>
+                      />
+                    </f:if>
+                  </f:alias>
+                </f:for>
+              </div>
+              <div class="content" itemprop="articleBody">
+                <f:format.html>{newsItem.bodytext}</f:format.html>
+              </div>
+              <f:render section="relatedfiles" arguments="{_all}" />
+              <div class="center">
+                <f:link.page pageUid="{settings.backPid}" class="btn-u return">
+                  <f:translate
+                    key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.BackToOverview"
+                  />
+                </f:link.page>
+              </div>
+            </div>
+          </f:then>
+          <f:else>
+            <schema:type.event
+              name="{newsItem.title}"
+              image="{thumbImage}"
+              url="{n:link(newsItem: '{newsItem}', settings: '{settings}', uriOnly: '1', configuration: '{forceAbsoluteUrl: 1}')}"
+            >
+              <f:if condition="{newsItem.datetime}">
+                <schema:property
+                  -as="startDate"
+                  value="{newsItem.datetime -> f:format.date(format: 'c')}"
+                />
+                <f:if condition="{newsItem.eventEnd}">
+                  <schema:property
+                    -as="endDate"
+                    value="{newsItem.eventEnd -> f:format.date(format: 'c')}"
+                  />
+                </f:if>
+              </f:if>
+              <f:if condition="{newsItem.organizerSimple}">
+                <schema:type.organization
+                  -as="organizer"
+                  name="{newsItem.organizerSimple}"
+                />
+              </f:if>
+              <f:if condition="{newsItem.locationSimple}">
+                <schema:type.place
+                  -as="location"
+                  name="{newsItem.locationSimple}"
+                />
+              </f:if>
+              <f:if condition="{newsItem.teaser}">
+                <schema:property -as="description" value="{newsItem.teaser}" />
+              </f:if>
+            </schema:type.event>
+            <div class="events-detail-view">
+              <div class="event-info">
+                <f:if condition="{newsItem.datetime}">
+                  <div class="event-info-item-wrapper">
+                    <div class="event-info-item">
+                      <div class="subtitle">
+                        <f:translate
+                          key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.startDate"
+                        />
+                      </div>
+                      <div class="value">
+                        <f:format.date format="%d. %B %Y"
+                          >{newsItem.datetime}</f:format.date
+                        >
+                        <br /><f:format.date format="H:i"
+                          >{newsItem.datetime}</f:format.date
+                        >
+                      </div>
                     </div>
-                </f:then>
-                <f:else>
-                    <schema:type.event
-                        name="{newsItem.title}"
-                        image="{thumbImage}"
-                        url="{n:link(newsItem: '{newsItem}', settings: '{settings}', uriOnly: '1', configuration: '{forceAbsoluteUrl: 1}')}" >                    
-                        <f:if condition="{newsItem.datetime}" >
-                            <schema:property -as="startDate" value="{newsItem.datetime -> f:format.date(format: 'c')}"/>
-                            <f:if condition="{newsItem.eventEnd}" >
-                                <schema:property -as="endDate" value="{newsItem.eventEnd -> f:format.date(format: 'c')}"/>
-                            </f:if>
+                  </div>
+                </f:if>
+                <f:if condition="{newsItem.eventEnd}">
+                  <div class="event-info-item-wrapper">
+                    <div class="event-info-item">
+                      <div class="subtitle">
+                        <f:translate
+                          key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.eventEnd"
+                        />
+                      </div>
+                      <div class="value">
+                        <f:format.date format="%d. %B %Y"
+                          >{newsItem.eventEnd}</f:format.date
+                        >
+                        <br /><f:format.date format="H:i"
+                          >{newsItem.eventEnd}</f:format.date
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </f:if>
+                <f:if condition="{newsItem.eventType}">
+                  <div class="event-info-item-wrapper">
+                    <div class="event-info-item">
+                      <div class="subtitle">
+                        <f:translate
+                          key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.eventtype"
+                        />
+                      </div>
+                      <div class="value">
+                        <f:translate key="event_type.{newsItem.eventType}" />
+                      </div>
+                    </div>
+                  </div>
+                </f:if>
+                <f:if
+                  condition="{newsItem.organizer} || {newsItem.organizerSimple}"
+                >
+                  <div class="event-info-item-wrapper">
+                    <div class="event-info-item">
+                      <div class="subtitle">
+                        <f:translate
+                          key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.organisator"
+                        />
+                      </div>
+                      <f:if condition="{newsItem.organizer}">
+                        <div class="value">{newsItem.organizer.title}</div>
+                      </f:if>
+                      <f:if condition="{newsItem.organizerSimple}">
+                        <div class="value">{newsItem.organizerSimple}</div>
+                      </f:if>
+                    </div>
+                  </div>
+                </f:if>
+                <f:if
+                  condition="{newsItem.location} || {newsItem.locationSimple}"
+                >
+                  <div class="event-info-item-wrapper">
+                    <div class="event-info-item">
+                      <div class="subtitle">
+                        <f:translate
+                          key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.ort"
+                        />
+                      </div>
+                      <f:if condition="{newsItem.location}">
+                        <div class="value">{newsItem.location.title}</div>
+                      </f:if>
+                      <f:if condition="{newsItem.locationSimple}">
+                        <div class="value">{newsItem.locationSimple}</div>
+                      </f:if>
+                    </div>
+                  </div>
+                </f:if>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <f:variable name="image" value="" />
+                  <f:if condition="{newsItem.falmedia}">
+                    <f:then>
+                      <f:alias map="{mediaElement: newsItem.falmedia.0}">
+                        <f:if condition="{mediaElement}">
+                          <f:variable
+                            name="image"
+                            value="{mediaElement}"
+                          />
                         </f:if>
-                        <f:if condition="{newsItem.organizerSimple}" >
-                            <schema:type.organization
-                            -as="organizer"
-                                name="{newsItem.organizerSimple}" 
-                            />
-                        </f:if>       
-                        <f:if condition="{newsItem.locationSimple}" >
-                            <schema:type.place
-                            -as="location"
-                                name="{newsItem.locationSimple}" 
-                            />
-                        </f:if>    
-                        <f:if condition="{newsItem.teaser}" >
-                            <schema:property -as="description" value="{newsItem.teaser}"/>
-                        </f:if>                    
-                    </schema:type.event>
-                    <div class="events-detail-view">
-                        <div class="event-info">
-                            <f:if condition="{newsItem.datetime}">
-                                <div class="event-info-item-wrapper">
-                                    <div class="event-info-item">
-                                        <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.startDate" /></div>
-                                        <div class="value">
-                                            <f:format.date format="%d. %B %Y">{newsItem.datetime}</f:format.date>
-                                            <br /><f:format.date format="H:i">{newsItem.datetime}</f:format.date>
-                                        </div>
-                                    </div>
-                                </div>
-                            </f:if>
-                            <f:if condition="{newsItem.eventEnd}">
-                                <div class="event-info-item-wrapper">
-                                    <div class="event-info-item">
-                                        <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.eventEnd" /></div>
-                                        <div class="value">
-                                            <f:format.date format="%d. %B %Y">{newsItem.eventEnd}</f:format.date>
-                                            <br /><f:format.date format="H:i">{newsItem.eventEnd}</f:format.date>
-                                        </div>
-                                    </div>
-                                </div>
-                            </f:if>
-                            <f:if condition="{newsItem.eventType}">
-                                <div class="event-info-item-wrapper">
-                                    <div class="event-info-item">
-                                        <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.eventtype" /></div>
-                                        <div class="value"><f:translate key="event_type.{newsItem.eventType}" /></div>
-                                    </div>
-                                </div>
-                            </f:if>
-                            <f:if condition="{newsItem.organizer} || {newsItem.organizerSimple}">
-                                <div class="event-info-item-wrapper">
-                                    <div class="event-info-item">
-                                        <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.organisator" /></div>
-                                        <f:if condition="{newsItem.organizer}">
-                                            <div class="value">{newsItem.organizer.title}</div>
-                                        </f:if>
-                                        <f:if condition="{newsItem.organizerSimple}">
-                                            <div class="value">{newsItem.organizerSimple}</div>
-                                        </f:if>
-                                    </div>
-                                </div>
-                            </f:if>
-                            <f:if condition="{newsItem.location} || {newsItem.locationSimple}">
-                                <div class="event-info-item-wrapper">
-                                    <div class="event-info-item">
-                                        <div class="subtitle"><f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.ort" /></div>
-                                        <f:if condition="{newsItem.location}">
-                                            <div class="value">{newsItem.location.title}</div>
-                                        </f:if>
-                                        <f:if condition="{newsItem.locationSimple}">
-                                            <div class="value">{newsItem.locationSimple}</div>
-                                        </f:if>
-                                    </div>
-                                </div>
-                            </f:if>
-                        </div>                        
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="image-wrapper">
-                                    <f:alias map="{mediaElement: newsItem.falmedia.0}">
-                                        <f:if condition="{mediaElement}">
-                                            <f:then>
-                                                <f:media
-                                                    file="{mediaElement}"
-                                                    width="915c"
-                                                    height="585c"
-                                                    alt="{mediaElement.originalResource.alternative}"
-                                                    title="{mediaElement.originalResource.title}"
-                                                    loading="lazy"
-                                                    additionalAttributes="{srcset: '{f:uri.image(image: mediaElement, maxWidth: 768)} 768w,
+                      </f:alias>
+                    </f:then>
+                    <f:else if="{newsItem.categories}">
+                      <f:variable name="cat" value="" />
+                      <f:for each="{newsItem.categories}" as="category">
+                        <f:if condition="!{cat} && {category.images.0}">
+                          <f:variable
+                            name="image"
+                            value="{category.images.0}"
+                          />
+                          <f:variable name="cat" value="1" />
+                        </f:if>
+                      </f:for>
+                    </f:else>
+                  </f:if>
+                  <div class="image-wrapper{f:if(condition: '!{image}', then: ' image-wrapper-no-image')}"
+                        <f:if condition="!{image}">
+                            style="background-image: url({f:uri.image(src: 'EXT:w4_communitynet/Resources/Public/Images/thumb-default.png', absolute: 1)});"
+                        </f:if>
+                   >
+                    <f:alias map="{mediaElement: image}">
+                      <f:if condition="{mediaElement}">
+                        <f:then>
+                          <f:media
+                            file="{mediaElement}"
+                            width="915c"
+                            height="585c"
+                            alt="{mediaElement.originalResource.alternative}"
+                            title="{mediaElement.originalResource.title}"
+                            loading="lazy"
+                            additionalAttributes="{srcset: '{f:uri.image(image: mediaElement, maxWidth: 768)} 768w,
                                                                                     {f:uri.image(image: mediaElement, maxWidth: 990)} 990w,
                                                                                     {f:uri.image(image: mediaElement, maxWidth: 1200)} 1200w,
                                                                                     {f:uri.image(image: mediaElement, maxWidth: 1440)} 1440w,
                                                                                     {f:uri.image(image: mediaElement, maxWidth: 1900)} 1900w',
                                                                            sizes: '(min-width: 1200px) 50vw, 100vw'}"
-                                                />
-                                            </f:then>
-                                            <f:else>
-                                                <img src="/typo3conf/ext/w4_communitynet/Resources/Public/Images/thumb-default.png" alt="{newsItem.title}" />
-                                            </f:else>
-                                        </f:if>
-                                    </f:alias>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="content" itemprop="articleBody">
-                                    <h1 class="h2">{newsItem.title}</h1>
-                                    <f:format.html>{newsItem.bodytext}</f:format.html>
-                                    <f:render section="relatedfiles" arguments="{_all}" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="center">
-                            <f:link.page pageUid="{settings.backPid}" class="btn-u return">
-                                <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.return" />
-                            </f:link.page>
-                        </div>
-                    </div>
-                </f:else>
-            </f:if>
-        </f:then>
-    </f:if>    
-</f:section>
-
-<f:section name="relatedfiles">
-    <f:if condition="{newsItem.relatedFiles}">
-        <ul class="uploads-list uploads-list-1 mb-5">
-            <f:for each="{newsItem.relatedFiles}" as="file" iteration="fileIterator">
-                <f:switch expression="{file.originalResource.extension}">
-                    <f:case value="pdf">
-                        <f:variable name="show_thumb" value="1"></f:variable>
-                        <f:variable name="file_icon" value="pdf"></f:variable>
-                    </f:case>
-                    <f:case value="doc">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="doc"></f:variable>
-                    </f:case>
-                    <f:case value="docx">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="doc"></f:variable>
-                    </f:case>
-                    <f:case value="odt">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="odt"></f:variable>
-                    </f:case>
-                    <f:case value="xls">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="xls"></f:variable>
-                    </f:case>
-                    <f:case value="xlsx">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="xls"></f:variable>
-                    </f:case>
-                    <f:case value="csv">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="csv"></f:variable>
-                    </f:case>
-                    <f:case value="ods">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="ods"></f:variable>
-                    </f:case>
-                    <f:case value="ppt">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="ppt"></f:variable>
-                    </f:case>
-                    <f:case value="pptx">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="ppt"></f:variable>
-                    </f:case>
-                    <f:case value="odp">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="odt"></f:variable>
-                    </f:case>
-                    <f:case value="txt">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="txt"></f:variable>
-                    </f:case>
-                    <f:case value="zip">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="zip"></f:variable>
-                    </f:case>
-                    <f:case value="jpg">
-                        <f:variable name="show_thumb" value="1"></f:variable>
-                        <f:variable name="file_icon" value="jpg"></f:variable>
-                    </f:case>
-                    <f:case value="jpeg">
-                        <f:variable name="show_thumb" value="1"></f:variable>
-                        <f:variable name="file_icon" value="jpg"></f:variable>
-                    </f:case>
-                    <f:case value="png">
-                        <f:variable name="show_thumb" value="1"></f:variable>
-                        <f:variable name="file_icon" value="png"></f:variable>
-                    </f:case>
-                    <f:case value="gif">
-                        <f:variable name="show_thumb" value="1"></f:variable>
-                        <f:variable name="file_icon" value="png"></f:variable>
-                    </f:case>
-                    <f:case value="mp4">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="mp4"></f:variable>
-                    </f:case>
-                    <f:case value="mp3">
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="mp3"></f:variable>
-                    </f:case>
-                    <f:defaultCase>
-                        <f:variable name="show_thumb" value="0"></f:variable>
-                        <f:variable name="file_icon" value="file"></f:variable>
-                    </f:defaultCase>
-                </f:switch>
-                <li class="uploads-filetype uploads-filetype-{file_icon}">
-                    <div class="uploads-fileNameWrap">
-                        <span class="uploads-fileName">
-                            <strong>{f:if(condition:file.originalResource.title, then:file.originalResource.title, else:file.originalResource.name)}</strong>
-                            <br />
-                            <span class="uploads-filesize">
-                                <f:format.bytes value="{file.originalResource.size}" />
-                            </span>
-                        </span>
-                        <a href="{file.originalResource.publicUrl -> f:format.htmlspecialchars()}" class="btn-u btn-u-filled btn-u-small" target="_blank">
-                            <f:translate key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:download" />
-                        </a>
-                    </div>
-                </li>
-            </f:for>
-        </ul>
+                          />
+                        </f:then>
+                        <f:comment>
+                            <f:else>
+                                <img
+                                  src="/typo3conf/ext/w4_communitynet/Resources/Public/Images/thumb-default.png"
+                                  alt="{newsItem.title}"
+                                />
+                              </f:else>
+                        </f:comment>
+                      </f:if>
+                    </f:alias>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <div class="content" itemprop="articleBody">
+                    <h1 class="h2">{newsItem.title}</h1>
+                    <f:format.html>{newsItem.bodytext}</f:format.html>
+                    <f:render section="relatedfiles" arguments="{_all}" />
+                  </div>
+                </div>
+              </div>
+              <div class="center">
+                <f:link.page pageUid="{settings.backPid}" class="btn-u return">
+                  <f:translate
+                    key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:w4_communitynet.news.return"
+                  />
+                </f:link.page>
+              </div>
+            </div>
+          </f:else>
+        </f:if>
+      </f:then>
     </f:if>
-</f:section>
+  </f:section>
 
+  <f:section name="relatedfiles">
+    <f:if condition="{newsItem.relatedFiles}">
+      <ul class="uploads-list uploads-list-1 mb-5">
+        <f:for
+          each="{newsItem.relatedFiles}"
+          as="file"
+          iteration="fileIterator"
+        >
+          <f:switch expression="{file.originalResource.extension}">
+            <f:case value="pdf">
+              <f:variable name="show_thumb" value="1"></f:variable>
+              <f:variable name="file_icon" value="pdf"></f:variable>
+            </f:case>
+            <f:case value="doc">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="doc"></f:variable>
+            </f:case>
+            <f:case value="docx">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="doc"></f:variable>
+            </f:case>
+            <f:case value="odt">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="odt"></f:variable>
+            </f:case>
+            <f:case value="xls">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="xls"></f:variable>
+            </f:case>
+            <f:case value="xlsx">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="xls"></f:variable>
+            </f:case>
+            <f:case value="csv">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="csv"></f:variable>
+            </f:case>
+            <f:case value="ods">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="ods"></f:variable>
+            </f:case>
+            <f:case value="ppt">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="ppt"></f:variable>
+            </f:case>
+            <f:case value="pptx">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="ppt"></f:variable>
+            </f:case>
+            <f:case value="odp">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="odt"></f:variable>
+            </f:case>
+            <f:case value="txt">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="txt"></f:variable>
+            </f:case>
+            <f:case value="zip">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="zip"></f:variable>
+            </f:case>
+            <f:case value="jpg">
+              <f:variable name="show_thumb" value="1"></f:variable>
+              <f:variable name="file_icon" value="jpg"></f:variable>
+            </f:case>
+            <f:case value="jpeg">
+              <f:variable name="show_thumb" value="1"></f:variable>
+              <f:variable name="file_icon" value="jpg"></f:variable>
+            </f:case>
+            <f:case value="png">
+              <f:variable name="show_thumb" value="1"></f:variable>
+              <f:variable name="file_icon" value="png"></f:variable>
+            </f:case>
+            <f:case value="gif">
+              <f:variable name="show_thumb" value="1"></f:variable>
+              <f:variable name="file_icon" value="png"></f:variable>
+            </f:case>
+            <f:case value="mp4">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="mp4"></f:variable>
+            </f:case>
+            <f:case value="mp3">
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="mp3"></f:variable>
+            </f:case>
+            <f:defaultCase>
+              <f:variable name="show_thumb" value="0"></f:variable>
+              <f:variable name="file_icon" value="file"></f:variable>
+            </f:defaultCase>
+          </f:switch>
+          <li class="uploads-filetype uploads-filetype-{file_icon}">
+            <div class="uploads-fileNameWrap">
+              <span class="uploads-fileName">
+                <strong
+                  >{f:if(condition:file.originalResource.title,
+                  then:file.originalResource.title,
+                  else:file.originalResource.name)}</strong
+                >
+                <br />
+                <span class="uploads-filesize">
+                  <f:format.bytes value="{file.originalResource.size}" />
+                </span>
+              </span>
+              <a
+                href="{file.originalResource.publicUrl -> f:format.htmlspecialchars()}"
+                class="btn-u btn-u-filled btn-u-small"
+                target="_blank"
+              >
+                <f:translate
+                  key="LLL:EXT:w4_communitynet/Resources/Private/Language/locallang.xlf:download"
+                />
+              </a>
+            </div>
+          </li>
+        </f:for>
+      </ul>
+    </f:if>
+  </f:section>
 </html>
